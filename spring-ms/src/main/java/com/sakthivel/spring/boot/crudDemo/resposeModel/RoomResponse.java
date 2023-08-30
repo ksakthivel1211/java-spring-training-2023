@@ -1,6 +1,4 @@
-package com.sakthivel.spring.boot.crudDemo.respose;
-
-import com.sakthivel.spring.boot.crudDemo.entity.TimeSlot;
+package com.sakthivel.spring.boot.crudDemo.resposeModel;
 
 import java.util.List;
 

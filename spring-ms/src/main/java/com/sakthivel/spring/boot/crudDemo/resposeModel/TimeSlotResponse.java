@@ -1,4 +1,4 @@
-package com.sakthivel.spring.boot.crudDemo.respose;
+package com.sakthivel.spring.boot.crudDemo.resposeModel;
 
 import java.time.LocalDate;
 import java.time.LocalTime;

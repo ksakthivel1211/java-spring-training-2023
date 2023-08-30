@@ -1,5 +1,6 @@
 package com.sakthivel.spring.boot.crudDemo.services;
 
+import com.sakthivel.spring.boot.crudDemo.customException.BookingException;
 import com.sakthivel.spring.boot.crudDemo.dao.EmployeeRepository;
 import com.sakthivel.spring.boot.crudDemo.dao.RoomRepository;
 import com.sakthivel.spring.boot.crudDemo.dao.TeamsRepository;
@@ -8,10 +9,7 @@ import com.sakthivel.spring.boot.crudDemo.entity.Employee;
 import com.sakthivel.spring.boot.crudDemo.entity.Room;
 import com.sakthivel.spring.boot.crudDemo.entity.Teams;
 import com.sakthivel.spring.boot.crudDemo.entity.TimeSlot;
-import com.sakthivel.spring.boot.crudDemo.respose.EmployeeResponse;
-import com.sakthivel.spring.boot.crudDemo.respose.RoomResponse;
-import com.sakthivel.spring.boot.crudDemo.respose.TeamResponse;
-import com.sakthivel.spring.boot.crudDemo.respose.TimeSlotResponse;
+import com.sakthivel.spring.boot.crudDemo.resposeModel.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -24,8 +22,6 @@ import java.util.stream.Collectors;
 @Service
 public class TimeSlotService {
 
-
-    private TimeSlot timeSlot;
     private TeamsRepository teamsRepository;
     private EmployeeRepository employeeRepository;
     private TimeSlotRepository timeSlotRepository;
@@ -45,11 +41,17 @@ public class TimeSlotService {
      */
     public List<TimeSlotResponse> getAllTimeSlots()
     {
+        try {
+
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
         List<TimeSlot> theTimeSlot= timeSlotRepository.findAll();
         List<TimeSlotResponse> timeSlotResponses = theTimeSlot.stream().map(timeSlot -> {
             return getTimeSlotResponse(timeSlot);
         }).collect(Collectors.toList());
-
         return timeSlotResponses;
     }
 
@@ -60,6 +62,13 @@ public class TimeSlotService {
      */
     public TimeSlotResponse getTimeSlotWithId(int timeSlotId)
     {
+        try {
+
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
         Optional<TimeSlot> result = timeSlotRepository.findById(timeSlotId);
 
         TimeSlot theTimeSlot = null;
@@ -70,7 +79,7 @@ public class TimeSlotService {
             return getTimeSlotResponse(theTimeSlot);
         }
         else {
-            throw new RuntimeException("Time Slot id not found :"+timeSlotId);
+            throw new BookingException("Time Slot id not found :"+timeSlotId);
         }
     }
 
@@ -82,9 +91,15 @@ public class TimeSlotService {
      * @param roomName - room name of type String
      * @return - Returns a string confirmation message of the save operation
      */
-    public String collaborationBooking(TimeSlot theTimeSlot, int employeeId, List<Integer> employeeIds, String roomName)
+    public ControllerResponse collaborationBooking(TimeSlot theTimeSlot, int employeeId, List<Integer> employeeIds, String roomName)
     {
+        try {
 
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
         int teamSize= employeeIds.size();
         if(roomIsAvailableForTime(theTimeSlot.getDate(),theTimeSlot.getStartTime(),theTimeSlot.getEndTime(),roomName)) {
             if(capacityCheck(teamSize,roomName))
@@ -97,15 +112,18 @@ public class TimeSlotService {
             theTimeSlot.setRooms(Collections.singletonList(theRoom));
 
             TimeSlot dbTimeSlot = timeSlotRepository.save(theTimeSlot);
-            return dbTimeSlot.toString();
+            ControllerResponse response = new ControllerResponse(dbTimeSlot.toString());
+            return response;
         }
             else
             {
-                return "team count exceeds room capacity";
+                ControllerResponse response = new ControllerResponse("team count exceeds room capacity");
+                return response;
             }
         }
         else {
-            return "booking failed : Room is not available at that time";
+            ControllerResponse response = new ControllerResponse("booking failed : Room is not available at that time");
+            return response;
         }
     }
 
@@ -116,7 +134,7 @@ public class TimeSlotService {
      * @param roomName - room name of type String
      * @return - Returns a string confirmation message of the save operation
      */
-    public String TeamBooking(TimeSlot theTimeSlot, int employeeId, int teamId, String roomName)
+    public ControllerResponse TeamBooking(TimeSlot theTimeSlot, int employeeId, int teamId, String roomName)
     {
         Teams theTeams = teamsRepository.findById(teamId).orElse(null);
         Employee theEmployee = employeeRepository.findById(employeeId).orElse(null);
@@ -131,18 +149,21 @@ public class TimeSlotService {
                 theTimeSlot.setEmployee(theEmployee);
                 theTimeSlot.setRooms(Collections.singletonList(theRoom));
 
-
                 timeSlotRepository.save(theTimeSlot);
-                return "Room was booked\n Unavailable members for meeting: \n"+availableEmployeeList(theTeams.getEmployees(),theTimeSlot);
+                ControllerResponse response = new ControllerResponse("Room was booked");
+                return response;
             }
             else{
-
-                return "team count exceeds room capacity \nNext nearest Room with capacity and date is :"+findNextNearestRoom(theTimeSlot,theTeams.getTeamCount());
+                ControllerResponse response = new ControllerResponse("team count exceeds room capacity " +
+                        "Next nearest Room with capacity and date is :"+findNextNearestRoom(theTimeSlot,theTeams.getTeamCount()));
+                return response;
             }
 
         }
         else {
-            return "booking failed : room not available \nNext nearest Room with capacity and date is :" +findNextNearestRoom(theTimeSlot,theTeams.getTeamCount());
+            ControllerResponse response = new ControllerResponse("booking failed : room not available " +
+                    "Next nearest Room with capacity and date is :" +findNextNearestRoom(theTimeSlot,theTeams.getTeamCount()));
+            return response;
         }
     }
 
@@ -156,31 +177,24 @@ public class TimeSlotService {
     {
 
         List<Room> allRooms = roomRepository.findAll();
-        List<Room> availableRooms = allRooms.stream().map(theRoom->{
-            Room returnRoom = null;
-            if(roomIsAvailableForTime(timeSlot.getDate(),timeSlot.getStartTime(),timeSlot.getEndTime(),theRoom.getRoomName()))
-            {
-                if(capacityCheck(teamCount,theRoom.getRoomName()))
-                {
-                    returnRoom = theRoom;
-                }
-            }
-            return returnRoom;
-        }).collect(Collectors.toList());
 
+        List<Room> availableRooms = allRooms.stream().sorted((r1, r2) -> r1.getRoomCapacity() - r2.getRoomCapacity())
+                .filter(f -> roomIsAvailableForTime(timeSlot.getDate(), timeSlot.getStartTime(), timeSlot.getEndTime(), f.getRoomName())).map(theRoom -> {
+                    Room returnRoom = null;
+                    if (capacityCheck(teamCount, theRoom.getRoomName())) {
+                        returnRoom = theRoom;
+                    }
+                    return returnRoom;
+                }).filter(Objects::nonNull).collect(Collectors.toList());
 
         if(availableRooms==null)
         {
-            return "No room is available for the specified date date, time and team capacity";
+            throw new BookingException("No room is available for the specified date date, time and team capacity");
         }
         else {
-            Collections.sort(availableRooms, Comparator.comparingInt(Room::getRoomCapacity));
-
             Room nearestRoom = availableRooms.get(0);
-
             return nearestRoom.getRoomName();
         }
-
     }
 
     /**
@@ -189,7 +203,7 @@ public class TimeSlotService {
      * @param timeSlotId - employeeId of type integer
      * @return - Returns a string confirmation message of the update operation
      */
-    public String updateBooking(TimeSlot theTimeSlot, int timeSlotId)
+    public ControllerResponse updateBooking(TimeSlot theTimeSlot, int timeSlotId)
     {
         TimeSlot timeSlot = timeSlotRepository.findById(timeSlotId).orElse(null);
 
@@ -204,7 +218,8 @@ public class TimeSlotService {
         timeSlot.setBooked(theTimeSlot.getBooked());
 
         timeSlotRepository.save(timeSlot);
-        return "Meeting details was updated on meeting id : "+timeSlotId;
+        ControllerResponse response = new ControllerResponse("Meeting details was updated on meeting id : "+timeSlotId);
+        return response;
     }
 
     /**
@@ -212,7 +227,7 @@ public class TimeSlotService {
      * @param timeSlotId - Time slot id of type integer for which the instance has to be deleted
      * @return - Returns message of type String for the confirmation of deleting
      */
-    public String deleteBooking(int timeSlotId)
+    public ControllerResponse deleteBooking(int timeSlotId)
     {
         Optional<TimeSlot> result = timeSlotRepository.findById(timeSlotId);
 
@@ -225,15 +240,16 @@ public class TimeSlotService {
             LocalTime newTime = start_time.minus(30, ChronoUnit.MINUTES);
             if (currentTime.isBefore(newTime)) {
                 timeSlotRepository.deleteById(timeSlotId);
-                return "Deleted time slot of id - " + timeSlotId;
+                ControllerResponse response = new ControllerResponse("Deleted time slot of id - " + timeSlotId);
+                return response;
             }
             else
             {
-                return "can't cancel before 30mins of the meeting";
+                throw new BookingException("can't cancel before 30mins of the meeting");
             }
         }
         else {
-            throw new RuntimeException("Time slot id not found : "+timeSlotId);
+            throw new BookingException("Time slot id not found : "+timeSlotId);
         }
     }
 
@@ -265,6 +281,11 @@ public class TimeSlotService {
         }
 
         String unavailableEmployee="";
+
+//        updatedEmployeeList.stream().forEach(unavailableEmp->{
+//            unavailableEmployee += unavailableEmp.getFirstName()+" "+unavailableEmp.getLastName()+"\n";
+//        });
+
         for (Employee unAvailableEmp:updatedEmployeeList) {
             unavailableEmployee += unAvailableEmp.getFirstName() +" "+ unAvailableEmp.getLastName()+"\n";
         }
@@ -297,6 +318,7 @@ public class TimeSlotService {
         TimeSlotResponse timeSlotResponse = new TimeSlotResponse(theTimeSlot.getTimeSlotId(),theTimeSlot.getStartTime(),theTimeSlot.getEndTime(),theTimeSlot.getDate(),theTimeSlot.getBooked(),theTimeSlot.getDescription());
 
         List<Teams> timeSlotTeam = theTimeSlot.getTeams();
+
         List<TeamResponse> teamResponses =timeSlotTeam.stream().map(theTeams->{
             TeamResponse returnTeam = new TeamResponse(theTeams.getTeamId(),theTeams.getTeamName(),theTeams.getTeamCount());
             return returnTeam;

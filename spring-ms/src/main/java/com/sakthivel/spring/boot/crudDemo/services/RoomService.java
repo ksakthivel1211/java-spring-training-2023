@@ -1,10 +1,12 @@
 package com.sakthivel.spring.boot.crudDemo.services;
 
+import com.sakthivel.spring.boot.crudDemo.customException.BookingException;
 import com.sakthivel.spring.boot.crudDemo.dao.RoomRepository;
 import com.sakthivel.spring.boot.crudDemo.entity.Room;
 import com.sakthivel.spring.boot.crudDemo.entity.TimeSlot;
-import com.sakthivel.spring.boot.crudDemo.respose.RoomResponse;
-import com.sakthivel.spring.boot.crudDemo.respose.TimeSlotResponse;
+import com.sakthivel.spring.boot.crudDemo.resposeModel.ControllerResponse;
+import com.sakthivel.spring.boot.crudDemo.resposeModel.RoomResponse;
+import com.sakthivel.spring.boot.crudDemo.resposeModel.TimeSlotResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,7 +29,15 @@ public class RoomService {
      */
     public List<RoomResponse> getAllRooms()
     {
+        try {
+
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
         List<Room> rooms = roomRepository.findAll();
+
         List<RoomResponse> roomResponses = rooms.stream().map(theRooms->{
             return getRoomResponse(theRooms);
         }).collect(Collectors.toList());
@@ -42,6 +52,13 @@ public class RoomService {
      */
     public RoomResponse getRoomById(int roomId)
     {
+        try {
+
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
         Optional<Room> result = roomRepository.findById(roomId);
 
         Room theRoom = null;
@@ -61,11 +78,19 @@ public class RoomService {
      * @param theRoom - Room object type passed as parameter which is added to the DB
      * @return returns the Room object which has been saved in the DB
      */
-    public String addRoom(Room theRoom)
+    public ControllerResponse addRoom(Room theRoom)
     {
+        try {
+
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
         theRoom.setRoomId(0);
         Room dbRoom = roomRepository.save(theRoom);
-        return "Room details saved";
+        ControllerResponse response = new ControllerResponse("Room details saved");
+        return response;
     }
 
     /**
@@ -74,11 +99,19 @@ public class RoomService {
      * @param roomId - room id is a parameter of type int which determines which room object to be retrieved to be updated
      * @return - returns the Room object which has been saved in the DB
      */
-    public String updateRoom(Room theRoom,int roomId)
+    public ControllerResponse updateRoom(Room theRoom,int roomId)
     {
+        try {
+
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
         theRoom.setRoomId(roomId);
         Room dbRoom = roomRepository.save(theRoom);
-        return "Room details updated on id : "+roomId;
+        ControllerResponse response = new ControllerResponse("Room details updated on id : "+roomId);
+        return response;
     }
 
     /**
@@ -86,22 +119,37 @@ public class RoomService {
      * @param roomId - employee id is a parameter of type int which determines which employee object to be retrieved to be deleted
      * @return - returns string message whether the employee instance is deleted or not
      */
-    public String deleteRoom(int roomId)
+    public ControllerResponse deleteRoom(int roomId)
     {
+        try {
+
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
         Optional<Room> result = roomRepository.findById(roomId);
 
         if(result.isPresent())
         {
             roomRepository.deleteById(roomId);
+            ControllerResponse response = new ControllerResponse("Deleted room of id - "+ roomId);
+            return response;
         }
         else {
             throw new RuntimeException("Room id not found :"+roomId);
         }
-        return "Deleted room of id - "+ roomId;
     }
 
     public RoomResponse getRoomResponse(Room theRoom)
     {
+        try {
+
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
         RoomResponse roomResponse = new RoomResponse(theRoom.getRoomId(),theRoom.getRoomName(),theRoom.getRoomCapacity());
 
         List<TimeSlot> empTimeSlots = theRoom.getTimeSlots();

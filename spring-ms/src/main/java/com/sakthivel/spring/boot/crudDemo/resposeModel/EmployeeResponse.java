@@ -1,7 +1,4 @@
-package com.sakthivel.spring.boot.crudDemo.respose;
-
-import com.sakthivel.spring.boot.crudDemo.entity.Teams;
-import com.sakthivel.spring.boot.crudDemo.entity.TimeSlot;
+package com.sakthivel.spring.boot.crudDemo.resposeModel;
 
 import java.util.List;
 
@@ -20,6 +17,7 @@ public class EmployeeResponse {
         this.lastName = lastName;
         this.email = email;
     }
+
 
     public int getEmployeeId() {
         return employeeId;

@@ -1,12 +1,14 @@
 package com.sakthivel.spring.boot.crudDemo.services;
 
+import com.sakthivel.spring.boot.crudDemo.customException.BookingException;
 import com.sakthivel.spring.boot.crudDemo.dao.TeamsRepository;
 import com.sakthivel.spring.boot.crudDemo.entity.Employee;
 import com.sakthivel.spring.boot.crudDemo.entity.Teams;
 import com.sakthivel.spring.boot.crudDemo.entity.TimeSlot;
-import com.sakthivel.spring.boot.crudDemo.respose.EmployeeResponse;
-import com.sakthivel.spring.boot.crudDemo.respose.TeamResponse;
-import com.sakthivel.spring.boot.crudDemo.respose.TimeSlotResponse;
+import com.sakthivel.spring.boot.crudDemo.resposeModel.ControllerResponse;
+import com.sakthivel.spring.boot.crudDemo.resposeModel.EmployeeResponse;
+import com.sakthivel.spring.boot.crudDemo.resposeModel.TeamResponse;
+import com.sakthivel.spring.boot.crudDemo.resposeModel.TimeSlotResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -28,6 +30,13 @@ public class TeamService {
      */
     public List<TeamResponse> getAllTeams()
     {
+        try {
+
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
         List<Teams> theTeams = teamsRepository.findAll();
         List<TeamResponse> teamResponses = theTeams.stream().map(theTeam->{
             return getTeamResponse(theTeam);
@@ -44,6 +53,13 @@ public class TeamService {
      */
     public TeamResponse getTeamById(int teamsId)
     {
+        try {
+
+    }
+    catch (Exception exception)
+    {
+        throw new BookingException(exception.getMessage());
+    }
         Optional<Teams> result = teamsRepository.findById(teamsId);
 
         Teams theTeams = null;
@@ -63,12 +79,19 @@ public class TeamService {
      * @param theTeams - Team object type passed as parameter which is added to the DB
      * @return returns the Team object which has been saved in the DB
      */
-    public String addTeams(Teams theTeams)
+    public ControllerResponse addTeams(Teams theTeams)
     {
-        theTeams.setTeamId(0);
+        try {
 
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
+        theTeams.setTeamId(0);
         Teams dbTeams = teamsRepository.save(theTeams);
-        return "Teams details updated";
+        ControllerResponse response = new ControllerResponse("Teams details updated");
+        return response;
     }
 
     /**
@@ -77,11 +100,19 @@ public class TeamService {
      * @param teamsId - team id is a parameter of type int which determines which team object to be retrieved to be updated
      * @return - returns the Team object which has been saved in the DB
      */
-    public String updateTeams(Teams theTeams,int teamsId)
+    public ControllerResponse updateTeams(Teams theTeams,int teamsId)
     {
+        try {
+
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
         theTeams.setTeamId(teamsId);
         Teams dbTeams = teamsRepository.save(theTeams);
-        return "Teams details updated on team id : "+teamsId;
+        ControllerResponse response = new ControllerResponse("Teams details updated on team id : "+teamsId);
+        return response;
     }
 
     /**
@@ -89,22 +120,42 @@ public class TeamService {
      * @param teamsId - team id is a parameter of type int which determines which team object to be retrieved to be deleted
      * @return - returns string message whether the team instance is deleted or not
      */
-    public String deleteTeams(int teamsId)
+    public ControllerResponse deleteTeams(int teamsId)
     {
+        try {
+
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
         Optional<Teams> result = teamsRepository.findById(teamsId);
 
         if(result.isPresent())
         {
             teamsRepository.deleteById(teamsId);
+            ControllerResponse response = new ControllerResponse("Deleted employee of id - "+ teamsId);
+            return response;
         }
         else {
             throw new RuntimeException("Team id not found :"+teamsId);
         }
-        return "Deleted employee of id - "+ teamsId;
     }
 
+    /**
+     * getTeamResponse returns the entity with the type TeamResponse to avoid Bi-directional looping
+     * @param theTeams - theTeams with type Team is passed for which the response object has to be created
+     * @return - returns the response with type TeamResponse
+     */
     public TeamResponse getTeamResponse(Teams theTeams)
     {
+        try {
+
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
         TeamResponse teamResponse = new TeamResponse(theTeams.getTeamId(),theTeams.getTeamName(),theTeams.getTeamCount());
 
         List<Employee> teamEmployees = theTeams.getEmployees();
