@@ -1,0 +1,12 @@
+package cdw.springProject.ticketBooking.dao;
+
+import cdw.springProject.ticketBooking.entity.User;
+import org.springframework.data.jpa.repository.JpaRepository;
+
+import java.util.List;
+
+public interface UserRepository extends JpaRepository<User, Integer> {
+
+    public User findByMail(String email);
+    public User findByUserId(int userId);
+}
