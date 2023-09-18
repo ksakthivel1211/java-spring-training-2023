@@ -1,6 +1,7 @@
 package cdw.springProject.ticketBooking.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -24,6 +25,7 @@ public class Role {
     @Column(name="role_name")
     private String roleName;
 
+    @JsonBackReference(value = "user-role")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "user")
     private User user;

@@ -1,5 +1,6 @@
 package cdw.springProject.ticketBooking.service;
 
+import cdw.springProject.ticketBooking.customException.BookingException;
 import cdw.springProject.ticketBooking.dao.UserRepository;
 import cdw.springProject.ticketBooking.entity.User;
 import lombok.NoArgsConstructor;
@@ -31,17 +32,17 @@ public class LoginService {
                 }
                 else
                 {
-                    throw new RuntimeException();
+                    throw new BookingException("wrong credentials");
                 }
             }
             else
             {
-                throw new RuntimeException();
+                throw new BookingException("user not found");
             }
         }
         catch (Exception exception)
         {
-            throw new RuntimeException(exception.getMessage());
+            throw new BookingException(exception.getMessage());
         }
     }
 }

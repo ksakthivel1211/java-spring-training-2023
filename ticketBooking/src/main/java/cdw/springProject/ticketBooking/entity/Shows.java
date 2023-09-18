@@ -1,6 +1,7 @@
 package cdw.springProject.ticketBooking.entity;
 
 import com.fasterxml.jackson.annotation.JsonBackReference;
+import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
 import lombok.Data;
@@ -31,10 +32,11 @@ public class Shows {
     @Column(name="date")
     private LocalDate date;
 
-    @JsonBackReference
+    @JsonManagedReference(value = "show-tickets")
     @OneToMany(fetch = FetchType.LAZY , mappedBy = "shows")
     private List<Tickets> tickets;
 
+    @JsonBackReference(value = "theatre-show")
     @ManyToOne(fetch = FetchType.LAZY)
     @JoinColumn(name = "theatre")
     private Theatre theatre;

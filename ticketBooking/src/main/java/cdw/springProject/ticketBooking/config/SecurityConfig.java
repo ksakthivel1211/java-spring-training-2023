@@ -33,6 +33,7 @@ public class SecurityConfig {
                         .requestMatchers(HttpMethod.GET,"/ticket-booking/admin").hasRole("admin")
                         .requestMatchers(HttpMethod.GET,"/ticket-booking/business-user").hasRole("businessUser")
                         .requestMatchers(HttpMethod.GET,"/ticket-booking").hasAnyRole("admin","businessUse","endUser")
+                        .requestMatchers(HttpMethod.POST,"/ticket-booking/admin/location").hasRole("admin")
 
         );
         http.httpBasic(Customizer.withDefaults());

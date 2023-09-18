@@ -1,5 +1,6 @@
 package cdw.springProject.ticketBooking.service;
 
+import cdw.springProject.ticketBooking.customException.BookingException;
 import cdw.springProject.ticketBooking.dao.RoleRepository;
 import cdw.springProject.ticketBooking.dao.UserRepository;
 import cdw.springProject.ticketBooking.entity.Role;
@@ -29,16 +30,23 @@ public class RegistrationService {
     public ControllerResponse addUser(RegistrationRequest theRegistrationRequest)
     {
         try {
-            User theUser = registrationRequest.returnUser(theRegistrationRequest);
-            theUser.setUserId(0);
-            Role userRole = roleRepository.findByRoleName(theRegistrationRequest.getRole());
-            theUser.addRoles(userRole);
-            User dbUser = userRepository.save(theUser);
-            return new ControllerResponse("User is been successfully added");
+            if(theRegistrationRequest.getAge()>18)
+            {
+                User theUser = registrationRequest.returnUser(theRegistrationRequest);
+                theUser.setUserId(0);
+                Role userRole = roleRepository.findByRoleName(theRegistrationRequest.getRole());
+                theUser.addRoles(userRole);
+                User dbUser = userRepository.save(theUser);
+                return new ControllerResponse("User is been successfully added");
+            }
+            else
+            {
+                throw new BookingException("Below age limit");
+            }
         }
         catch (Exception exception)
         {
-            throw new RuntimeException(exception.getMessage());
+            throw new BookingException(exception.getMessage());
         }
     }
 }

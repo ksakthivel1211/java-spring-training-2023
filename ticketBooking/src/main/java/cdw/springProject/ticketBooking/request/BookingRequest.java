@@ -11,7 +11,7 @@ import java.time.LocalDate;
 @AllArgsConstructor
 @NoArgsConstructor
 @Service
-public class UserBookingRequest {
+public class BookingRequest {
 
     private int userId;
     private String movieName;
@@ -19,6 +19,6 @@ public class UserBookingRequest {
     private LocalDate date;
     private String theatreName;
     private String location;
-
+    private int ticketCount;
 
 }

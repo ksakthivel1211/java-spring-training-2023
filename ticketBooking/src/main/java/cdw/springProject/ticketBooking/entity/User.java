@@ -29,25 +29,29 @@ public class User {
     @Column(name="age")
     private int age;
 
+    @Column(name = "gender")
+    private String gender;
+
     @Column(name = "email")
     private String mail;
 
     @Column(name = "password")
     private String password;
 
+    @JsonManagedReference(value = "user-role")
     @OneToMany(fetch = FetchType.LAZY , mappedBy = "user")
     private List<Role> roles;
 
-    @JsonBackReference
+    @JsonManagedReference(value = "user-ticket")
     @OneToMany(fetch = FetchType.LAZY , mappedBy = "user")
     private List<Tickets> tickets;
 
-    public User(String theName,int theAge,String theMail,String thePassword)
-    {
-        name=theName;
-        age=theAge;
-        mail=theMail;
-        password=thePassword;
+    public User(String name, int age, String gender, String mail, String password) {
+        this.name = name;
+        this.age = age;
+        this.gender = gender;
+        this.mail = mail;
+        this.password = password;
     }
 
     public void addRoles(Role userRole)

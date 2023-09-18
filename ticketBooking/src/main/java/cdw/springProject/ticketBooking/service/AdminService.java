@@ -1,5 +1,6 @@
 package cdw.springProject.ticketBooking.service;
 
+import cdw.springProject.ticketBooking.customException.BookingException;
 import cdw.springProject.ticketBooking.dao.LocationRepository;
 import cdw.springProject.ticketBooking.dao.RoleRepository;
 import cdw.springProject.ticketBooking.dao.TheatreRepository;
@@ -39,7 +40,7 @@ public class AdminService {
         }
         catch(Exception exception)
         {
-            throw new RuntimeException(exception.getMessage());
+            throw new BookingException(exception.getMessage());
         }
     }
 
@@ -52,7 +53,7 @@ public class AdminService {
         }
         catch(Exception exception)
         {
-            throw new RuntimeException(exception.getMessage());
+            throw new BookingException(exception.getMessage());
         }
     }
 
@@ -69,7 +70,7 @@ public class AdminService {
         }
         catch(Exception exception)
         {
-            throw new RuntimeException(exception.getMessage());
+            throw new BookingException(exception.getMessage());
         }
     }
 

@@ -14,12 +14,13 @@ public class RegistrationRequest {
 
     private String name;
     private int age;
+    private String gender;
     private String mail;
     private String password;
     private String role;
 
     public User returnUser(RegistrationRequest registrationRequest)
     {
-        return new User(registrationRequest.name,registrationRequest.age,registrationRequest.mail,registrationRequest.password);
+        return new User(registrationRequest.name,registrationRequest.age,registrationRequest.gender,registrationRequest.mail,registrationRequest.password);
     }
 }
