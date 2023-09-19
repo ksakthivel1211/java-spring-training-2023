@@ -1,7 +1,9 @@
 package cdw.springProject.ticketBooking.controller;
 
+import cdw.springProject.ticketBooking.entity.Shows;
 import cdw.springProject.ticketBooking.entity.Tickets;
 import cdw.springProject.ticketBooking.request.BookingRequest;
+import cdw.springProject.ticketBooking.request.ShowRequest;
 import cdw.springProject.ticketBooking.responseModel.ControllerResponse;
 import cdw.springProject.ticketBooking.responseModel.TicketResponse;
 import cdw.springProject.ticketBooking.service.TicketBookingService;
@@ -28,6 +30,12 @@ public class TicketBookingController {
     public ResponseEntity<ControllerResponse> endUserBooking(@RequestBody BookingRequest userBookingRequest)
     {
         return ResponseEntity.status(HttpStatus.OK).body(ticketBookingService.endUserTicketBooking(userBookingRequest));
+    }
+
+    @GetMapping("/user/shows")
+    public ResponseEntity<List<Shows>> getShow(@RequestBody ShowRequest showRequest)
+    {
+        return ResponseEntity.status(HttpStatus.OK).body(ticketBookingService.getShowDetails(showRequest));
     }
 
     @GetMapping("/user/tickets")

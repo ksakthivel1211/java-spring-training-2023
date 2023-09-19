@@ -4,12 +4,14 @@ import cdw.springProject.ticketBooking.customException.BookingException;
 import cdw.springProject.ticketBooking.dao.*;
 import cdw.springProject.ticketBooking.entity.*;
 import cdw.springProject.ticketBooking.request.BookingRequest;
+import cdw.springProject.ticketBooking.request.ShowRequest;
 import cdw.springProject.ticketBooking.responseModel.ControllerResponse;
 import cdw.springProject.ticketBooking.responseModel.TicketResponse;
 import lombok.NoArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.ArrayList;
 import java.util.List;
 import java.util.Optional;
 import java.util.stream.Collectors;
@@ -140,6 +142,24 @@ public class TicketBookingService {
         {
             throw new BookingException(exception.getMessage());
         }
+    }
 
+    public List<Shows> getShowDetails(ShowRequest showRequest)
+    {
+        try
+        {
+            List<Shows> shows = new ArrayList<>();
+            if(showRequest.getShowSlot()!=null && showRequest.getMovieName()==null)
+            {
+                shows = showsRepository.findByShowSlotAndDate(showRequest.getShowSlot(),showRequest.getDate());
+            } else if (showRequest.getMovieName()!=null && showRequest.getShowSlot()==null) {
+                shows = showsRepository.findByMovieNameAndDate(showRequest.getMovieName(),showRequest.getDate());
+            }
+            return shows;
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
     }
 }

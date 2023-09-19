@@ -10,6 +10,7 @@ import lombok.NoArgsConstructor;
 
 import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
 @Data
 @AllArgsConstructor
@@ -38,9 +39,13 @@ public class User {
     @Column(name = "password")
     private String password;
 
-    @JsonManagedReference(value = "user-role")
-    @OneToMany(fetch = FetchType.LAZY , mappedBy = "user")
-    private List<Role> roles;
+    @ManyToMany(fetch = FetchType.LAZY)
+    @JoinTable(
+            name = "user_role",
+            joinColumns = @JoinColumn(name = "user_id"),
+            inverseJoinColumns = @JoinColumn(name = "role_id")
+    )
+    private List<Role> roles = new ArrayList<>();
 
     @JsonManagedReference(value = "user-ticket")
     @OneToMany(fetch = FetchType.LAZY , mappedBy = "user")
@@ -52,6 +57,12 @@ public class User {
         this.gender = gender;
         this.mail = mail;
         this.password = password;
+    }
+
+    public List<String> getRolesName()
+    {
+        List<String> rolesName = roles.stream().map(role -> role.getRoleName()).collect(Collectors.toList());
+        return rolesName;
     }
 
     public void addRoles(Role userRole)

@@ -25,10 +25,8 @@ public class Role {
     @Column(name="role_name")
     private String roleName;
 
-    @JsonBackReference(value = "user-role")
-    @ManyToOne(fetch = FetchType.LAZY)
-    @JoinColumn(name = "user")
-    private User user;
+    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")
+    private List<User> users = new ArrayList<>();
 
     public Role(String theRoleName)
     {
