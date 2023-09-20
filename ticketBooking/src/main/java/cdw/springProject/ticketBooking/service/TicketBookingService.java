@@ -148,13 +148,30 @@ public class TicketBookingService {
     {
         try
         {
+            Theatre theatre = theatreRepository.findByTheatreName(showRequest.getTheatreName());
             List<Shows> shows = new ArrayList<>();
-            if(showRequest.getShowSlot()!=null && showRequest.getMovieName()==null)
+            String movieName = showRequest.getMovieName();
+            String showSlot = showRequest.getShowSlot();
+            if(showRequest.getDate()!=null)
             {
-                shows = showsRepository.findByShowSlotAndDate(showRequest.getShowSlot(),showRequest.getDate());
-            } else if (showRequest.getMovieName()!=null && showRequest.getShowSlot()==null) {
-                shows = showsRepository.findByMovieNameAndDate(showRequest.getMovieName(),showRequest.getDate());
+                if(theatre!=null && showRequest.getShowSlot()!=null && showRequest.getMovieName()==null)
+                {
+                    shows = showsRepository.findByTheatreAndShowSlotAndDate(theatre,showRequest.getShowSlot(),showRequest.getDate());
+                }
+
+                else if (theatre!=null && showRequest.getMovieName()!=null && showRequest.getShowSlot()==null) {
+                    shows = showsRepository.findByTheatreAndMovieNameAndDate(theatre,showRequest.getMovieName(),showRequest.getDate());
+                }
+
+                else if (theatre != null && showRequest.getMovieName()==null && showRequest.getShowSlot()==null) {
+                    shows = showsRepository.findByTheatreAndDate(theatre,showRequest.getDate());
+                }
             }
+            else
+            {
+                throw new BookingException("Date field is missing . Date Field is not optional");
+            }
+
             return shows;
         }
         catch (Exception exception)

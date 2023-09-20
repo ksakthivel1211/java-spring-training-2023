@@ -57,6 +57,27 @@ public class AdminService {
         }
     }
 
+    public ControllerResponse deleteTheatre(String theatreName)
+    {
+        try
+        {
+            Theatre theatre = theatreRepository.findByTheatreName(theatreName);
+            if(theatre!=null)
+            {
+                theatreRepository.delete(theatre);
+                return new ControllerResponse("theatre has been deleted");
+            }
+            else
+            {
+                throw new BookingException("Theatre not found");
+            }
+        }
+        catch (Exception exception)
+        {
+            throw new BookingException(exception.getMessage());
+        }
+    }
+
     public ControllerResponse addTheatre(TheatreRequest theTheatreRequest)
     {
         try{
