@@ -25,8 +25,6 @@ public class Role {
     @Column(name="role_name")
     private String roleName;
 
-    @ManyToMany(fetch = FetchType.LAZY, mappedBy = "roles")
-    private List<User> users = new ArrayList<>();
 
     public Role(String theRoleName)
     {
@@ -36,9 +34,6 @@ public class Role {
 
     @Override
     public String toString() {
-        return "Role{" +
-                "roleId=" + roleId +
-                ", roleName='" + roleName + '\'' +
-                '}';
+        return this.roleName;
     }
 }

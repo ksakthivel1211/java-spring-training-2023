@@ -4,6 +4,8 @@ import cdw.springProject.ticketBooking.entity.User;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
 @Data
@@ -19,8 +21,12 @@ public class RegistrationRequest {
     private String password;
     private String role;
 
+
+
     public User returnUser(RegistrationRequest registrationRequest)
     {
-        return new User(registrationRequest.name,registrationRequest.age,registrationRequest.gender,registrationRequest.mail,registrationRequest.password);
+        PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+        String encodedPassword = passwordEncoder.encode(registrationRequest.getPassword());
+        return new User(registrationRequest.name,registrationRequest.age,registrationRequest.gender,registrationRequest.mail,encodedPassword);
     }
 }
