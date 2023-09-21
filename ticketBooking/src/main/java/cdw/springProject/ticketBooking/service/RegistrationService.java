@@ -32,18 +32,21 @@ public class RegistrationService {
     public ControllerResponse addUser(RegistrationRequest theRegistrationRequest)
     {
         try {
-            if(theRegistrationRequest.getAge()>18)
-            {
-                User theUser = registrationRequest.returnUser(theRegistrationRequest);
-                theUser.setUserId(0);
-                Role userRole = roleRepository.findByRoleName(theRegistrationRequest.getRole());
-                theUser.addRoles(userRole);
-                User dbUser = userRepository.save(theUser);
-                return new ControllerResponse("User is been successfully added");
+//            if(theRegistrationRequest.getRole().equals("endUser")) {
+                if (theRegistrationRequest.getAge() > 18) {
+                    User theUser = registrationRequest.returnUser(theRegistrationRequest);
+                    theUser.setUserId(0);
+                    Role userRole = roleRepository.findByRoleName(theRegistrationRequest.getRole());
+                    theUser.addRoles(userRole);
+                    User dbUser = userRepository.save(theUser);
+                    return new ControllerResponse("User is been successfully added");
+//                }
+//                else {
+//                    throw new BookingException("Below age limit");
+//                }
             }
-            else
-            {
-                throw new BookingException("Below age limit");
+            else {
+                throw new BookingException("only end user are allowed to register");
             }
         }
         catch (Exception exception)

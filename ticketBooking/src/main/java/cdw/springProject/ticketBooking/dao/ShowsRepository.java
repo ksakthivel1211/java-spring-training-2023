@@ -13,4 +13,5 @@ public interface ShowsRepository extends JpaRepository<Shows, Integer> {
     public List<Shows> findByTheatreAndMovieNameAndDate(Theatre theatre ,String movieName,LocalDate date);
     public List<Shows> findByTheatreAndShowSlotAndDate(Theatre theatre,String showSlot, LocalDate date);
     public List<Shows> findByTheatreAndDate(Theatre theatre,LocalDate date);
+    public List<Shows> findByTheatreAndDateAndShowSlot(Theatre theatre,LocalDate date, String showSlot);
 }

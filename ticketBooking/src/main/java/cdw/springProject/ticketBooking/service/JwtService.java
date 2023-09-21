@@ -3,15 +3,12 @@ package cdw.springProject.ticketBooking.service;
 import cdw.springProject.ticketBooking.entity.RoleEntity;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
-import cdw.springProject.ticketBooking.dao.RoleCustomRepository;
-import cdw.springProject.ticketBooking.dao.UserRepository;
 import cdw.springProject.ticketBooking.entity.User;
 import io.jsonwebtoken.Claims;
 import io.jsonwebtoken.Jwts;
 import io.jsonwebtoken.SignatureAlgorithm;
 import io.jsonwebtoken.io.Decoders;
 import io.jsonwebtoken.security.Keys;
-import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -29,14 +26,6 @@ import java.util.stream.Collectors;
 @Service
 public class JwtService {
 
-    private RoleCustomRepository roleCustomRepository;
-    private UserRepository userRepository;
-
-    @Autowired
-    public JwtService(RoleCustomRepository roleCustomRepository, UserRepository userRepository) {
-        this.roleCustomRepository = roleCustomRepository;
-        this.userRepository = userRepository;
-    }
 
     @Value("${secret.key}")
     private String secretKey;
@@ -99,8 +88,6 @@ public class JwtService {
                 .signWith(getSignInKey(), SignatureAlgorithm.HS256)
                 .compact();
     }
-
-
 
 
     private Claims extractAllClaims(String str){

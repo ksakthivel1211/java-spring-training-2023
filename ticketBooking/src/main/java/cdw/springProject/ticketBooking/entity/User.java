@@ -1,6 +1,5 @@
 package cdw.springProject.ticketBooking.entity;
 
-import com.fasterxml.jackson.annotation.JsonBackReference;
 import com.fasterxml.jackson.annotation.JsonManagedReference;
 import jakarta.persistence.*;
 import lombok.AllArgsConstructor;
@@ -42,13 +41,17 @@ public class User implements UserDetails{
     @Column(name = "password")
     private String password;
 
-    @ManyToMany(fetch = FetchType.LAZY)
+    @ManyToMany(fetch = FetchType.LAZY,cascade = {CascadeType.MERGE,CascadeType.PERSIST})
     @JoinTable(
             name = "user_role",
             joinColumns = @JoinColumn(name = "user_id"),
             inverseJoinColumns = @JoinColumn(name = "role_id")
     )
     private Set<Role> roles = new HashSet<>();
+
+    @JsonManagedReference(value = "user-token")
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE,CascadeType.PERSIST} , mappedBy = "user")
+    private List<Token> tokens;
 
     @JsonManagedReference(value = "user-ticket")
     @OneToMany(fetch = FetchType.LAZY , mappedBy = "user")

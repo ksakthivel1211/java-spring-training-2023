@@ -1,6 +1,7 @@
 package cdw.springProject.ticketBooking.config;
 
 import cdw.springProject.ticketBooking.customException.BookingException;
+import cdw.springProject.ticketBooking.dao.TokenRepository;
 import cdw.springProject.ticketBooking.dao.UserRepository;
 import cdw.springProject.ticketBooking.service.JwtService;
 import com.auth0.jwt.JWT;
@@ -11,6 +12,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import org.springframework.data.jpa.repository.config.EnableJpaRepositories;
 import org.springframework.web.filter.OncePerRequestFilter;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
@@ -47,6 +49,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final UserDetailsService userDetailsService;
 
     @Autowired
+    private final TokenRepository tokenRepository;
+
+    @Autowired
     JwtService jwtService;
 
 
@@ -70,9 +75,20 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     Arrays.stream(roles).forEach(role->{
                         authorities.add(new SimpleGrantedAuthority(role));
                     });
-                    UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken=new UsernamePasswordAuthenticationToken(username,null,authorities);
-                    SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-                    filterChain.doFilter(request,response);
+
+                    var isTokenValid = tokenRepository.findByTokenName(token).map(t-> !t.isExpired() && !t.isRevoked()).orElse(false);
+
+                    if(isTokenValid)
+                    {
+                        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken=new UsernamePasswordAuthenticationToken(username,null,authorities);
+                        SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
+                        filterChain.doFilter(request,response);
+                    }
+
+                    else{
+                        throw new BookingException("token not valid");
+                    }
+
                 }
                 else{
                     throw new BookingException("invalid token");

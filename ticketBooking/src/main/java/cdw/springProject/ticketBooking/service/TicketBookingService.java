@@ -38,46 +38,61 @@ public class TicketBookingService {
         locationRepository=theLocationRepository;
     }
 
-    public ControllerResponse endUserTicketBooking(BookingRequest theUserBookingRequest)
+    public ControllerResponse endUserTicketBooking(BookingRequest theUserBookingRequest, String userRole)
     {
         try
         {
             User user = userRepository.findByUserId(theUserBookingRequest.getUserId());
             Location location = locationRepository.findByLocationName(theUserBookingRequest.getLocation());
-            if(location.getType().equals("NonPrime")) {
-                if (location.getIsActive()) {
-                    Theatre theatre = theatreRepository.findByTheatreName(theUserBookingRequest.getTheatreName());
-                    if (theatre != null) {
-                        Shows availableShow = showsRepository.findByShowSlotAndMovieNameAndDate(theUserBookingRequest.getShowSlot(), theUserBookingRequest.getMovieName(), theUserBookingRequest.getDate());
-                        if (availableShow != null) {
-                            Tickets ticket = new Tickets();
-                            ticket.setTicketId(0);
-                            ticket.setUser(user);
-                            ticket.setShows(availableShow);
-                            ticket.setTicketCount(theUserBookingRequest.getTicketCount());
-                            ticket.setStatus("Booked");
-                            ticketsRepository.save(ticket);
-                            user.addTickets(ticket);
-                            availableShow.addTickets(ticket);
-                        } else {
-                            throw new BookingException("Show not available");
-                        }
-                    } else {
-                        throw new BookingException("Wrong theatre name");
-                    }
-                } else {
-                    throw new BookingException("Location is inactive");
+            Theatre theatre = theatreRepository.findByTheatreName(theUserBookingRequest.getTheatreName());
+            Shows availableShow = showsRepository.findByShowSlotAndMovieNameAndDate(theUserBookingRequest.getShowSlot(), theUserBookingRequest.getMovieName(), theUserBookingRequest.getDate());
+            int ticketCount = theUserBookingRequest.getTicketCount();
+
+            if(userRole.equals("endUser")){
+                if(location.getType().equals("NonPrime")) {
+                    bookTickets(location,theatre,availableShow,user,ticketCount);
                 }
+                else {
+                    throw new BookingException("Location not available for the user");
+                }
+            } else if (userRole.equals("businessUser")) {
+                bookTickets(location,theatre,availableShow,user,ticketCount);
             }
             else {
-                throw new BookingException("Location not available for the user");
+                throw new BookingException("Invalid role");
             }
+
 
             return new ControllerResponse("Ticket has been booked successfully");
         }
         catch (Exception exception)
         {
             throw new BookingException(exception.getMessage());
+        }
+    }
+
+    private void bookTickets(Location location,Theatre theatre, Shows availableShow, User user, int ticketCount)
+    {
+        if (location.getIsActive()) {
+            if (theatre != null) {
+                if (availableShow != null) {
+                    Tickets ticket = new Tickets();
+                    ticket.setTicketId(0);
+                    ticket.setUser(user);
+                    ticket.setShows(availableShow);
+                    ticket.setTicketCount(ticketCount);
+                    ticket.setStatus("Booked");
+                    ticketsRepository.save(ticket);
+                    user.addTickets(ticket);
+                    availableShow.addTickets(ticket);
+                } else {
+                    throw new BookingException("Show not available");
+                }
+            } else {
+                throw new BookingException("Wrong theatre name");
+            }
+        } else {
+            throw new BookingException("Location is inactive");
         }
     }
 

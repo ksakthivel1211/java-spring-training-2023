@@ -34,9 +34,16 @@ public class AdminService {
     public Location addLocation(Location location)
     {
         try{
-            location.setLocationId(0);
-            Location dbLocation = locationRepository.save(location);
-            return dbLocation;
+            if(locationRepository.findNyLocationNameAndState(location.getLocationName(), location.getState()) == null)
+            {
+                location.setLocationId(0);
+                Location dbLocation = locationRepository.save(location);
+                return dbLocation;
+            }
+
+            else {
+                throw new BookingException("Location already exists");
+            }
         }
         catch(Exception exception)
         {
@@ -47,9 +54,16 @@ public class AdminService {
     public Role addRole(Role role)
     {
         try{
-            role.setRoleId(0);
-            Role dbRole = roleRepository.save(role);
-            return dbRole;
+            if(roleRepository.findByRoleName(role.getRoleName()) == null)
+            {
+                role.setRoleId(0);
+                Role dbRole = roleRepository.save(role);
+                return dbRole;
+            }
+            else {
+                throw new BookingException("Role already exists");
+            }
+
         }
         catch(Exception exception)
         {

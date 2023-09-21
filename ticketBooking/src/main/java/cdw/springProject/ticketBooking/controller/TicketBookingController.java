@@ -1,5 +1,6 @@
 package cdw.springProject.ticketBooking.controller;
 
+import cdw.springProject.ticketBooking.entity.RoleEntity;
 import cdw.springProject.ticketBooking.entity.Shows;
 import cdw.springProject.ticketBooking.entity.Tickets;
 import cdw.springProject.ticketBooking.request.BookingRequest;
@@ -29,7 +30,7 @@ public class TicketBookingController {
     @PostMapping("/user")
     public ResponseEntity<ControllerResponse> endUserBooking(@RequestBody BookingRequest userBookingRequest)
     {
-        return ResponseEntity.status(HttpStatus.OK).body(ticketBookingService.endUserTicketBooking(userBookingRequest));
+        return ResponseEntity.status(HttpStatus.OK).body(ticketBookingService.endUserTicketBooking(userBookingRequest, String.valueOf(RoleEntity.endUser)));
     }
 
     @GetMapping("/user/shows")

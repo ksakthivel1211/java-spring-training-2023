@@ -25,6 +25,9 @@ public class Role {
     @Column(name="role_name")
     private String roleName;
 
+    @ManyToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE,CascadeType.PERSIST}, mappedBy = "roles")
+    private List<User> userList;
+
 
     public Role(String theRoleName)
     {

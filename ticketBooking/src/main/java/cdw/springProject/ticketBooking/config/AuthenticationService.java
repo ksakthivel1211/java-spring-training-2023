@@ -1,13 +1,14 @@
 package cdw.springProject.ticketBooking.config;
 
-import cdw.springProject.ticketBooking.customException.BookingException;
-import cdw.springProject.ticketBooking.dao.RoleCustomRepository;
 import cdw.springProject.ticketBooking.dao.RoleRepository;
 import cdw.springProject.ticketBooking.dao.UserRepository;
 import cdw.springProject.ticketBooking.entity.Role;
 import cdw.springProject.ticketBooking.entity.User;
 import cdw.springProject.ticketBooking.service.BusinessUserService;
 import cdw.springProject.ticketBooking.service.JwtService;
+import cdw.springProject.ticketBooking.entity.Token;
+import cdw.springProject.ticketBooking.dao.TokenRepository;
+import cdw.springProject.ticketBooking.entity.TokenType;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
@@ -25,18 +26,19 @@ public class AuthenticationService {
     private UserRepository userRepository;
     private AuthenticationManager authenticationManager;
     private JwtService jwtService;
-    private RoleCustomRepository roleCustomRepository;
     private BusinessUserService userService;
     private RoleRepository roleRepository;
 
+    private TokenRepository tokenRepository;
+
     @Autowired
-    public AuthenticationService(UserRepository userRepository, AuthenticationManager authenticationManager, JwtService jwtService, RoleCustomRepository roleCustomRepository, BusinessUserService userService,RoleRepository roleRepository) {
+    public AuthenticationService(UserRepository userRepository, AuthenticationManager authenticationManager, JwtService jwtService, BusinessUserService userService,RoleRepository roleRepository,TokenRepository tokenRepository) {
         this.userRepository = userRepository;
         this.authenticationManager = authenticationManager;
         this.jwtService = jwtService;
-        this.roleCustomRepository = roleCustomRepository;
         this.userService = userService;
         this.roleRepository=roleRepository;
+        this.tokenRepository=tokenRepository;
     }
 
     public ResponseEntity<?> authenticate(AuthenticationRequest authenticationRequest)
@@ -57,6 +59,18 @@ public class AuthenticationService {
             set.stream().forEach(i -> authorities.add(new SimpleGrantedAuthority(i.getRoleName())));
             var jwtAccessToken = jwtService.genToken(user, authorities);
             var jwtRefreshToken = jwtService.generateRefreshToken(user, authorities);
+
+            revokeAllUserTokens(user);
+            var token = Token.builder()
+                    .user(user)
+                    .tokenName(jwtAccessToken)
+                    .tokenType(TokenType.BEARER)
+                    .revoked(false)
+                    .expired(false)
+                    .build();
+
+            tokenRepository.save(token);
+            
             return ResponseEntity.ok(AuthenticationResponse.builder().accessToken(jwtAccessToken).refresh_token(jwtRefreshToken).mail(user.getMail()).userName(user.getName()).build());
         }
         catch(NoSuchElementException e){
@@ -67,6 +81,20 @@ public class AuthenticationService {
         catch (Exception e){
             return ResponseEntity.status(HttpStatus.INTERNAL_SERVER_ERROR).body(e.getMessage());
         }
+    }
+
+    private void revokeAllUserTokens(User user)
+    {
+        var validUserToken = tokenRepository.findByExpiredAndRevokedAndUser(false,false,user);
+        if(validUserToken.isEmpty()){
+            return;
+        }
+        validUserToken.stream().forEach(token -> {
+            token.setExpired(true);
+            token.setRevoked(true);
+        });
+
+        tokenRepository.saveAll(validUserToken);
     }
 }
 

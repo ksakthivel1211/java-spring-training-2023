@@ -36,6 +36,12 @@ public class BusinessUserController {
         return ResponseEntity.status(HttpStatus.OK).body(businessUserService.deleteShows(showId));
     }
 
+    @GetMapping("/user-tickets")
+    public ResponseEntity<List<TicketResponse>> getBookings(@RequestParam int userId)
+    {
+        return ResponseEntity.status(HttpStatus.OK).body(businessUserService.showBooking(userId));
+    }
+
     @GetMapping("/cancel-request")
     public ResponseEntity<List<TicketResponse>> getCancelRequest(@RequestParam int showId)
     {

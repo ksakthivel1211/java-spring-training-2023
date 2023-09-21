@@ -6,4 +6,6 @@ import org.springframework.data.jpa.repository.JpaRepository;
 public interface LocationRepository extends JpaRepository<Location , Integer> {
 
     public Location findByLocationName(String locationName);
+
+    public Location findNyLocationNameAndState(String locationName,String state);
 }
