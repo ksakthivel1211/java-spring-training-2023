@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -21,6 +22,11 @@ public class BlackList {
     @Column(name = "black_list_id")
     private int blackListId;
 
-    @OneToMany(fetch = FetchType.LAZY , mappedBy = "blackList")
-    private List<User> userList;
+
+    @Column(name = "name")
+    private String name;
+
+    @Column(name = "mail")
+    private String mail;
+
 }

@@ -1,0 +1,256 @@
+openapi: 3.0.3
+info:
+  title: Gate-kepper application
+  description: This application is used as a interface for allowing residents and visitors to be allowed inside a appartment.
+  version: 1.0.11
+
+tags:
+  - name: Admin
+    description: Admin operations are carried out here
+  - name: Registration
+    description: User requesting for registration
+paths:
+  /gate-keeper/admin/view-request:
+    get:
+      tags:
+        - Admin
+      description: view all the existing registration request
+      operationId: viewRequest
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Registration-response'
+        '400':
+          description: Invalid status value
+
+  /gate-keeper/admin/approve-request:
+    post:
+      tags:
+        - Admin
+      description: Approving users registration request
+      operationId: approveRequest
+      parameters:
+        - name: requestId
+          in: query
+          description: Its the id related to the registration request
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Controller-response'
+        '405':
+          description: Invalid input
+
+  /gate-keeper/admin/reject-request:
+    post:
+      tags:
+        - Admin
+      description: Rejecting users registration request
+      operationId: rejectRequest
+      parameters:
+        - name: requestId
+          in: query
+          description: Its the id related to the registration request
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Controller-response'
+        '405':
+          description: Invalid input
+
+  /gate-keeper/admin/resident:
+    delete:
+      tags:
+        - Admin
+      description: Deleting resident details
+      operationId: deleteResident
+      parameters:
+        - name: requestId
+          in: query
+          description: Its the id related to the user(resident)
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Controller-response'
+        '405':
+          description: Invalid input
+
+    put:
+      tags:
+        - Admin
+      description: Deleting resident details
+      operationId: updateResident
+
+      requestBody:
+        description: User details
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User-response'
+
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Controller-response'
+        '405':
+          description: Invalid input
+
+  /gate-keeping/registration:
+    post:
+      tags:
+        - Registration
+      description: Submitting request for user registration
+      operationId: registrationRequest
+      requestBody:
+        description: User details
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/User-response'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Controller-response'
+        '405':
+          description: Invalid input
+
+  /gate-keeping/login:
+    post:
+      tags:
+        - Authentication
+      description: Endpoint for authenticating user details
+      operationId: authenticate
+      requestBody:
+        description: user mail and password for authentication
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Authentication-request'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Authentication-response'
+        '405':
+          description: Invalid input
+
+components:
+  schemas:
+
+    User-response:
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 1
+        name:
+          type: string
+          example: sakthi
+        age:
+          type: integer
+          format: int32
+          example: 10
+        gender:
+          type: string
+          example: male
+        password:
+          type: string
+          example: abc123
+        mail:
+          type: string
+          example: sakthi@gmail.com
+        roleName:
+          type: string
+          example: resident
+
+    Registration-response:
+      required:
+        - name
+      type: object
+      properties:
+        id:
+          type: integer
+          format: int32
+          example: 10
+        status:
+          type: string
+          example: notApproved
+        name:
+          type: string
+          example: sakthi
+        age:
+          type: integer
+          format: int32
+          example: 10
+        gender:
+          type: string
+          example: male
+        password:
+          type: string
+          example: abc123
+        mail:
+          type: string
+          example: sakthi@gmail.com
+        roleName:
+          type: string
+          example: resident
+
+    Controller-response:
+      type: object
+      properties:
+        message:
+          type: string
+          example: processSuccess
+
+    Authentication-response:
+      type: object
+      properties:
+        mail:
+          type: string
+        userName:
+          type: string
+        accessToken:
+          type: string
+        refreshToken:
+          type: string
+
+    Authentication-request:
+      type: object
+      properties:
+        mail:
+          type: string
+          example: sakthivel@gmail.com
+        password:
+          type: string
+          example: abc123
