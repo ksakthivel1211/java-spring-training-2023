@@ -6,6 +6,7 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+import java.util.ArrayList;
 import java.util.List;
 
 @Data
@@ -42,6 +43,17 @@ public class User {
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE,CascadeType.PERSIST} , mappedBy = "user")
     private List<Token> tokens;
 
+    @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE,CascadeType.PERSIST} , mappedBy = "user")
+    private List<VisitorSlot> visitorSlots;
+
+    public void addToVisitorSlot(VisitorSlot slot)
+    {
+        if(visitorSlots==null)
+        {
+            visitorSlots = new ArrayList<>();
+        }
+        visitorSlots.add(slot);
+    }
 
     public User(String name, int age, String gender, String mail, String password, String roleName) {
         this.name = name;

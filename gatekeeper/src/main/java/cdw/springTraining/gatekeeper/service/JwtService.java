@@ -30,16 +30,17 @@ public class JwtService {
     @Value("${secret.key}")
     private String secretKey;
 
-    public String genToken(User user,SimpleGrantedAuthority authorities){
+    public String genToken(User user,Collection<SimpleGrantedAuthority> authorities){
         Algorithm algorithm= HMAC256(secretKey.getBytes());
         return JWT.create()
                 .withSubject(user.getMail())
                 .withExpiresAt(new Date(System.currentTimeMillis()+50*60*1000))
-                .withClaim("roles",authorities.getAuthority())
+                .withClaim("roles", authorities.stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
+//                .withClaim("roles",authorities.getAuthority())
                 .sign(algorithm);
     }
 
-    public String generateRefreshToken(User user, SimpleGrantedAuthority authorities){
+    public String generateRefreshToken(User user, Collection<SimpleGrantedAuthority> authorities){
         Algorithm algorithm= HMAC256(secretKey.getBytes());
         return JWT.create()
                 .withSubject(user.getMail())
@@ -47,13 +48,4 @@ public class JwtService {
                 .sign(algorithm);
     }
 
-//    private final String SECRET="5367566B59703373367639792F423F4528482B4D621655468576D5A71347437";
-//    public String extractUsername(String token) {
-//        return extractClaim(token, Claims::getSubject);
-//    }
-
-//    public <T> T extractClaim(String token, Function<Claims, T> claimsResolver) {
-//        final Claims claims = extractAllClaims(token);
-//        return claimsResolver.apply(claims);
-//    }
 }

@@ -3,7 +3,6 @@ package cdw.springTraining.gatekeeper.customException;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
-
 public class ExceptionHandler {
 
     @org.springframework.web.bind.annotation.ExceptionHandler

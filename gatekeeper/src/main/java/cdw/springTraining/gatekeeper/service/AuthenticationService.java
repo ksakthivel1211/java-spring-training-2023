@@ -20,7 +20,7 @@ import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.stereotype.Service;
 
 
-import java.util.NoSuchElementException;
+import java.util.*;
 
 @Service
 public class AuthenticationService {
@@ -44,15 +44,30 @@ public class AuthenticationService {
             User user = userRepository.findByMail(authenticationRequest.getMail()).orElseThrow(()-> new GateKeepingCustomException("user not found"));
 
             Authentication authentication = authenticationManager.authenticate(new UsernamePasswordAuthenticationToken(authenticationRequest.getMail(),authenticationRequest.getPassword()));
-
-            if(authentication.isAuthenticated())
-            {
-                System.out.println("s");
+            List<String> roles = new ArrayList<>();
+            if (user != null) {
+//                user.getRoleName().stream().forEach(role -> roles.add(role));
+                roles.add(user.getRoleName());
             }
-            SimpleGrantedAuthority authority = new SimpleGrantedAuthority(user.getName());
+            Collection<SimpleGrantedAuthority> authorities = new ArrayList<>();
+            Set<String> set = new HashSet<>();
+            roles.stream().forEach(roleName ->{
+                set.add(roleName);
+                authorities.add(new SimpleGrantedAuthority(roleName));
+            });
+//            user.setRoles(set);
+            set.stream().forEach(name -> authorities.add(new SimpleGrantedAuthority(name)));
+            var jwtAccessToken = jwtService.genToken(user, authorities);
+            var jwtRefreshToken = jwtService.generateRefreshToken(user, authorities);
 
-            var jwtAccessToken = jwtService.genToken(user, authority);
-            var jwtRefreshToken = jwtService.generateRefreshToken(user, authority);
+//            if(authentication.isAuthenticated())
+//            {
+//                System.out.println("s");
+//            }
+//            SimpleGrantedAuthority authority = new SimpleGrantedAuthority(user.getName());
+//
+//            var jwtAccessToken = jwtService.genToken(user, a);
+//            var jwtRefreshToken = jwtService.generateRefreshToken(user, authority);
 
             revokeAllUserTokens(user);
             var token = Token.builder()

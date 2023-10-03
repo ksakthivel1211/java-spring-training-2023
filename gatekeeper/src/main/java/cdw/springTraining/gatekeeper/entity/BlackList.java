@@ -22,11 +22,18 @@ public class BlackList {
     @Column(name = "black_list_id")
     private int blackListId;
 
-
     @Column(name = "name")
     private String name;
 
     @Column(name = "mail")
     private String mail;
 
+    @Column(name = "user_id")
+    private int userId;
+
+    public BlackList(String name, String mail, int userId) {
+        this.name = name;
+        this.mail = mail;
+        this.userId = userId;
+    }
 }

@@ -36,7 +36,8 @@ public class ApplicationConfig {
     @Bean
     UserDetailsService userDetailsService()
     {
-        return username -> userRepository.findByMail(username).orElseThrow(()-> new GateKeepingCustomException("user not found"));
+
+        return username -> (UserDetails) userRepository.findByMail(username).get();
 //        return username -> userDetailsService().loadUserByUsername(username);
     }
 

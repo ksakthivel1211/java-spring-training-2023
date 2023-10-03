@@ -88,7 +88,7 @@ public class AdminService {
 
     public ControllerResponse updateUser(UserResponse user)
     {
-        User tempUser = userRepository.findById(user.getId()).orElseThrow();
+        User tempUser = userRepository.findByMail(user.getMail()).get();
 
         tempUser.setName(user.getName());
         tempUser.setAge(user.getAge());

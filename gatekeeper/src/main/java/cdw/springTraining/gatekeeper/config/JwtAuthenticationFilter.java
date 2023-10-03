@@ -1,5 +1,6 @@
 package cdw.springTraining.gatekeeper.config;
 
+import cdw.springTraining.gatekeeper.customException.GateKeepingCustomException;
 import cdw.springTraining.gatekeeper.dao.TokenRepository;
 import cdw.springTraining.gatekeeper.dao.UserRepository;
 import cdw.springTraining.gatekeeper.service.JwtService;
@@ -11,6 +12,7 @@ import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
 import jakarta.servlet.http.HttpServletResponse;
+import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
@@ -39,6 +41,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private final TokenRepository tokenRepository;
 
     @Autowired
+    private final UserDetailsService userDetailsService;
+
+    @Autowired
     JwtService jwtService;
 
 
@@ -46,7 +51,9 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     private String secretKey;
 
     @Override
-    protected void doFilterInternal(HttpServletRequest request, HttpServletResponse response, FilterChain filterChain) throws ServletException, IOException {
+    protected void doFilterInternal(@NonNull HttpServletRequest request,
+                                    @NonNull HttpServletResponse response,
+                                    @NonNull FilterChain filterChain) throws ServletException, IOException {
 
         String authHeader = request.getHeader(AUTHORIZATION);
         if(authHeader!=null && authHeader.startsWith("Bearer ")){
@@ -56,8 +63,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 JWTVerifier verifier= JWT.require(algorithm).build();
                 DecodedJWT decodedJWT=verifier.verify(token);
                 String username=decodedJWT.getSubject();
-                if(userRepository.findByMail(username)!=null)
-                {
+                userRepository.findByMail(username).get();
                     String[] roles=decodedJWT.getClaim("roles").asArray(String.class);
                     Collection<SimpleGrantedAuthority> authorities=new ArrayList<>();
                     Arrays.stream(roles).forEach(role->{
@@ -74,16 +80,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                     }
 
                     else{
-//                        throw new BookingException("token not valid");
+                        throw new GateKeepingCustomException("token not valid");
                     }
 
-                }
-                else{
-//                    throw new BookingException("invalid token");
-                }
 
             } catch (Exception e) {
-//                throw new BookingException(e.getMessage());
+                throw new GateKeepingCustomException(e.getMessage());
             }
         }else {
             filterChain.doFilter(request,response);

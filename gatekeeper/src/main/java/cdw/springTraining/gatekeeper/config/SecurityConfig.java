@@ -21,16 +21,17 @@ public class SecurityConfig {
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
 
     @Bean
-    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception{
+    public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
 
         http.authorizeHttpRequests(configure ->
-                configure
-                        .requestMatchers("/gate-keeping/registration/**").permitAll()
-                        .requestMatchers("/gate-keeper/admin/**").permitAll()
-                        .requestMatchers("/gate-keeping/login").permitAll()
-                        .anyRequest().authenticated()
-        )
-                .sessionManagement(session-> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+                        configure
+                                .requestMatchers("/registration/**").permitAll()
+                                .requestMatchers("/admin/**").permitAll()
+                                .requestMatchers("/login").permitAll()
+                                .requestMatchers("/resident/**").permitAll()
+                                .requestMatchers("/gate-keeper/**").permitAll()
+                                .anyRequest().authenticated())
+                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(csrf -> csrf.disable())
                 .cors(Customizer.withDefaults())
                 .authenticationProvider(authenticationProvider)
