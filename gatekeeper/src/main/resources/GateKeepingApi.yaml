@@ -4,19 +4,21 @@ info:
   description: This application is used as a interface for allowing residents and visitors to be allowed inside a appartment.
   version: 1.0.11
 servers:
-  - url: /gate-keeping
+  - url: http://localhost:8080/gate-keeping
 tags:
   - name: Admin
     description: Admin operations are carried out here
   - name: Registration
     description: User requesting for registration
   - name: Authentication
-  - name: login
     description: resident, gatekeeper and admin login endpoint which generates token
   - name: Resident
     description: Resident operations are carried out here
   - name: Gate keeper
     description: Gate Keeper operations are carried out here
+  - name: Visitor
+    description: Visitor operations are carried out here
+
 paths:
   /admin/request:
     get:
@@ -33,8 +35,9 @@ paths:
                 type: array
                 items:
                   $ref: '#/components/schemas/Registration-response'
-        '400':
-          description: Invalid status value
+      security:
+        - bearerAuth: []
+
 
   /admin/approve-request:
     post:
@@ -46,6 +49,7 @@ paths:
         - name: requestId
           in: query
           description: Its the id related to the registration request
+          required: true
           schema:
             type: integer
       responses:
@@ -55,8 +59,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controller-response'
+        '400':
+          description: Bad request. Request ID must be an integer and larger than 0.
+        '401':
+          description: User is Unauthorized.
+        '404':
+          description: A request with the specified ID was not found.
         '405':
           description: Invalid input
+      security:
+        - bearerAuth: []
 
   /admin/reject-request:
     post:
@@ -68,6 +80,7 @@ paths:
         - name: requestId
           in: query
           description: Its the id related to the registration request
+          required: true
           schema:
             type: integer
       responses:
@@ -77,8 +90,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controller-response'
+        '400':
+          description: Bad request. Request ID must be an integer and larger than 0.
+        '401':
+          description: User is Unauthorized.
+        '404':
+          description: A request with the specified ID was not found.
         '405':
           description: Invalid input
+      security:
+        - bearerAuth: []
 
   /admin/resident:
     delete:
@@ -87,9 +108,10 @@ paths:
       description: Deleting resident details
       operationId: deleteResident
       parameters:
-        - name: requestId
+        - name: residentId
           in: query
           description: Its the id related to the user(resident)
+          required: true
           schema:
             type: integer
       responses:
@@ -99,8 +121,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controller-response'
+        '400':
+          description: Bad request. Request ID must be an integer and larger than 0.
+        '401':
+          description: User is Unauthorized.
+        '404':
+          description: A request with the specified ID was not found.
         '405':
           description: Invalid input
+      security:
+        - bearerAuth: []
 
     put:
       tags:
@@ -123,8 +153,12 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controller-response'
-        '405':
-          description: Invalid input
+        '400':
+          description: Bad request.
+        '401':
+          description: User is Unauthorized.
+      security:
+        - bearerAuth: []
 
   /registration:
     post:
@@ -146,6 +180,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controller-response'
+        '400':
+          description: Bad request.
+        '401':
+          description: User is Unauthorized.
         '405':
           description: Invalid input
 
@@ -169,6 +207,10 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Authentication-response'
+        '400':
+          description: Bad request.
+        '401':
+          description: User is Unauthorized.
         '405':
           description: Invalid input
 
@@ -192,8 +234,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controller-response'
+        '400':
+          description: Bad request.
+        '401':
+          description: User is Unauthorized.
         '405':
           description: Invalid input
+      security:
+        - bearerAuth: []
 
     delete:
       tags:
@@ -201,11 +249,13 @@ paths:
       description: Endpoint for removing a visitor slot for that resident
       operationId: removeVisitorSlot
       parameters:
-        - name: requestId
+        - name: slotId
           in: query
           description: The id related to the slot
+          required: true
           schema:
             type: integer
+
 
       responses:
         '200':
@@ -214,8 +264,16 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controller-response'
+        '400':
+          description: Bad request. Request ID must be an integer and larger than 0.
+        '401':
+          description: User is Unauthorized.
+        '404':
+          description: A request with the specified ID was not found.
         '405':
           description: Invalid input
+      security:
+        - bearerAuth: []
 
   /resident/black-list:
     post:
@@ -237,8 +295,72 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controller-response'
+        '400':
+          description: Bad request.
+        '401':
+          description: User is Unauthorized.
         '405':
           description: Invalid input
+      security:
+        - bearerAuth: []
+
+  /resident/checkIn:
+    post:
+      tags:
+        - Resident
+      description: Endpoint for checking in or out for the resident
+      operationId: residentCheckingIn
+      parameters:
+        - name: userId
+          in: query
+          description: The id related to the user
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Controller-response'
+        '400':
+          description: Bad request.
+        '401':
+          description: User is Unauthorized.
+        '405':
+          description: Invalid input
+      security:
+        - bearerAuth: []
+
+  /resident/checkOut:
+    post:
+      tags:
+        - Resident
+      description: Endpoint for checking in or out for the resident
+      operationId: residentCheckingOut
+      parameters:
+        - name: userId
+          in: query
+          description: The id related to the user
+          required: true
+          schema:
+            type: integer
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Controller-response'
+        '400':
+          description: Bad request.
+        '401':
+          description: User is Unauthorized.
+        '405':
+          description: Invalid input
+      security:
+        - bearerAuth: []
 
   /gate-keeper/approval-list:
     get:
@@ -250,6 +372,7 @@ paths:
         - name: date
           in: query
           description: Date input to get all the visitor approval of that day
+          required: true
           schema:
             type: string
             format: date
@@ -264,8 +387,15 @@ paths:
                 items:
                   $ref: '#/components/schemas/Approval-response'
         '400':
-          description: Invalid status value
-
+          description: Bad request.
+        '401':
+          description: User is Unauthorized.
+        '404':
+          description: A request with the specified Date was not found.
+        '405':
+          description: Invalid input
+      security:
+        - bearerAuth: []
 
 
   /gate-keeper/black-lists:
@@ -288,8 +418,14 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controller-response'
+        '400':
+          description: Bad request.
+        '401':
+          description: User is Unauthorized.
         '405':
           description: Invalid input
+      security:
+        - bearerAuth: []
 
   /gate-keeper/slot-approval:
     post:
@@ -311,11 +447,82 @@ paths:
             application/json:
               schema:
                 $ref: '#/components/schemas/Controller-response'
+        '400':
+          description: Bad request.
+        '401':
+          description: User is Unauthorized.
+        '405':
+          description: Invalid input
+      security:
+        - bearerAuth: []
+
+  /visitor/pass:
+    post:
+      tags:
+        - Visitor
+      description: Endpoint for getting temporary pass for the visitor
+      operationId: getPass
+      parameters:
+        - name: mail
+          in: query
+          description: Visitor mail to check if visitor present and to generate pass for him
+          required: true
+          schema:
+            $ref: '#/components/schemas/email'
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Visitor-pass-response'
+        '400':
+          description: Bad request.
+        '404':
+          description: A request with the specified msil was not found.
         '405':
           description: Invalid input
 
+  /visitor/residentCheck:
+    post:
+      tags:
+        - Visitor
+      description: Endpoint for visitor to check whether resident has checked in or out
+      operationId: residentCheck
+      parameters:
+        - name: residentMail
+          in: query
+          description: Resident mail to check if resident has checked in or out
+          required: true
+          schema:
+            type: string
+            example: sakthi@gmail.com
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                $ref: '#/components/schemas/Controller-response'
+        '400':
+          description: Bad request.
+        '401':
+          description: User is Unauthorized.
+        '404':
+          description: A request with the specified mail was not found.
+        '405':
+          description: Invalid input
+      security:
+        - bearerAuth: []
+
 components:
   schemas:
+
+    email:
+      type: string
+      format: email
+      example: user@example.com
+      description: Client email
 
     User-response:
       type: object
@@ -334,8 +541,7 @@ components:
           type: string
           example: abc123
         mail:
-          type: string
-          example: sakthi@gmail.com
+          $ref: '#/components/schemas/email'
         roleName:
           type: string
           example: resident
@@ -366,8 +572,7 @@ components:
           type: string
           example: abc123
         mail:
-          type: string
-          example: sakthi@gmail.com
+          $ref: '#/components/schemas/email'
         roleName:
           type: string
           example: resident
@@ -378,6 +583,8 @@ components:
         visitorName:
           type: string
           example: ram
+        mail:
+          $ref: '#/components/schemas/email'
         date:
           type: string
           format: date
@@ -402,8 +609,7 @@ components:
           type: string
           example: sam
         mail:
-          type: string
-          example: sam@gmail.com
+          $ref: '#/components/schemas/email'
         userId:
           type: integer
           format: int32
@@ -432,20 +638,27 @@ components:
       type: object
       properties:
         mail:
-          type: string
+          $ref: '#/components/schemas/email'
         userName:
           type: string
         accessToken:
           type: string
-        refreshToken:
+
+    Visitor-pass-response:
+      type: object
+      properties:
+        mail:
+          $ref: '#/components/schemas/email'
+        userName:
+          type: string
+        visitorPass:
           type: string
 
     Authentication-request:
       type: object
       properties:
         mail:
-          type: string
-          example: sakthivel@gmail.com
+          $ref: '#/components/schemas/email'
         password:
           type: string
           example: abc123
@@ -473,4 +686,17 @@ components:
           format: date-time
           example: '2017-07-21T17:32:28Z'
         user:
-          $ref: '#/components/schemas/User-response'
+          type: object
+          properties:
+            name:
+              type: string
+              example: sakthi
+            mail:
+              $ref: '#/components/schemas/email'
+
+
+  securitySchemes:
+    bearerAuth:
+      type: http
+      scheme: bearer
+      bearerFormat: JWT

@@ -1,14 +1,19 @@
 package cdw.springTraining.gatekeeper.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.apache.logging.log4j.core.config.plugins.validation.constraints.Required;
 
 import java.util.ArrayList;
 import java.util.List;
 
+/**
+ *
+ */
 @Data
 @Builder
 @AllArgsConstructor
@@ -25,7 +30,8 @@ public class BlackList {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "mail")
+    @Column(name = "mail",unique = true)
+    @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
     private String mail;
 
     @Column(name = "user_id")

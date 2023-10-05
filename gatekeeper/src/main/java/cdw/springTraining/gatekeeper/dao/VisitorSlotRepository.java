@@ -5,8 +5,10 @@ import org.springframework.data.jpa.repository.JpaRepository;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 public interface VisitorSlotRepository extends JpaRepository<VisitorSlot,Integer> {
 
-    public List<VisitorSlot> findByDate(LocalDate date);
+    public Optional<List<VisitorSlot>> findByDate(LocalDate date);
+    public Optional<VisitorSlot> findByMail(String mail);
 }

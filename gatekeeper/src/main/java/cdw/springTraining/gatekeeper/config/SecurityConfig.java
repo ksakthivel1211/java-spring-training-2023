@@ -9,8 +9,11 @@ import org.springframework.security.config.Customizer;
 import org.springframework.security.config.annotation.web.builders.HttpSecurity;
 import org.springframework.security.config.annotation.web.configuration.EnableWebSecurity;
 import org.springframework.security.config.http.SessionCreationPolicy;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.web.SecurityFilterChain;
 import org.springframework.security.web.authentication.UsernamePasswordAuthenticationFilter;
+import org.springframework.security.web.authentication.logout.LogoutHandler;
+import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
 @Configuration
 @EnableWebSecurity
@@ -19,6 +22,8 @@ public class SecurityConfig {
 
     private final AuthenticationProvider authenticationProvider;
     private final JwtAuthenticationFilter jwtAuthenticationFilter;
+    private final JwtVisitorAuthFilter visitorAuthFilter;
+    private final LogoutHandler logoutHandler;
 
     @Bean
     public SecurityFilterChain filterChain(HttpSecurity http) throws Exception {
@@ -26,18 +31,35 @@ public class SecurityConfig {
         http.authorizeHttpRequests(configure ->
                         configure
                                 .requestMatchers("/registration/**").permitAll()
-                                .requestMatchers("/admin/**").permitAll()
+                                .requestMatchers("/admin/**").hasAuthority("admin")
                                 .requestMatchers("/login").permitAll()
-                                .requestMatchers("/resident/**").permitAll()
-                                .requestMatchers("/gate-keeper/**").permitAll()
+                                .requestMatchers("/logout").permitAll()
+                                .requestMatchers("/resident/**").hasAuthority("resident")
+                                .requestMatchers("/gate-keeper/**").hasAuthority("gateKeeper")
+                                .requestMatchers("/visitor/**").permitAll()
                                 .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(csrf -> csrf.disable())
                 .cors(Customizer.withDefaults())
                 .authenticationProvider(authenticationProvider)
                 .addFilterBefore(jwtAuthenticationFilter, UsernamePasswordAuthenticationFilter.class)
-
+                .addFilterBefore(visitorAuthFilter, BasicAuthenticationFilter.class)
+                .logout()
+                .logoutUrl("/logout")
+                .addLogoutHandler(logoutHandler)
+                .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext())
         ;
+
+//        http.authorizeHttpRequests(configure ->
+//                        configure
+//                                .requestMatchers("/visitor/pass").permitAll()
+//                                .anyRequest().authenticated())
+//                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
+//                .csrf(csrf -> csrf.disable())
+//                .cors(Customizer.withDefaults())
+//                .authenticationProvider(authenticationProvider)
+//                .addFilterBefore(visitorAuthFilter, BasicAuthenticationFilter.class)
+//        ;
 
         return http.build();
     }

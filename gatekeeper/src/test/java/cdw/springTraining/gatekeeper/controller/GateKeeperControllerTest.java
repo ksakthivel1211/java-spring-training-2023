@@ -4,8 +4,8 @@ import cdw.springTraining.gatekeeper.model.ApprovalResponse;
 import cdw.springTraining.gatekeeper.model.BlackListRequest;
 import cdw.springTraining.gatekeeper.model.ControllerResponse;
 import cdw.springTraining.gatekeeper.model.SlotApprovalRequest;
-import cdw.springTraining.gatekeeper.service.BlackListService;
-import cdw.springTraining.gatekeeper.service.GateKeeperService;
+import cdw.springTraining.gatekeeper.service.BlackListServiceImpl;
+import cdw.springTraining.gatekeeper.service.GateKeeperServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -26,17 +26,17 @@ public class GateKeeperControllerTest {
     private GateKeeperController gateKeeperController;
 
     @Mock
-    private GateKeeperService gateKeeperService;
+    private GateKeeperServiceImpl gateKeeperServiceImpl;
 
     @Mock
-    private BlackListService blackListService;
+    private BlackListServiceImpl blackListServiceImpl;
 
     @Test
     public void testViewApprovalList()
     {
         List<ApprovalResponse> responses = new ArrayList<>();
         LocalDate date = LocalDate.parse("2021-01-07");
-        when(gateKeeperService.getAllApproval(date)).thenReturn(responses);
+        when(gateKeeperServiceImpl.getAllApproval(date)).thenReturn(responses);
         assertEquals(responses,gateKeeperController.viewApprovalList(date).getBody());
 
     }
@@ -46,7 +46,7 @@ public class GateKeeperControllerTest {
         BlackListRequest blackListRequest = new BlackListRequest();
         ControllerResponse controllerResponse = new ControllerResponse();
         controllerResponse.setMessage("The user has been black listed");
-        when(blackListService.addToBlackList(blackListRequest)).thenReturn(controllerResponse);
+        when(blackListServiceImpl.addToBlackList(blackListRequest)).thenReturn(controllerResponse);
         assertEquals(controllerResponse,gateKeeperController.gateKeeperBlackList(blackListRequest).getBody());
     }
 

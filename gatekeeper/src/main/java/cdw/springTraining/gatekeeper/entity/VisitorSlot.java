@@ -2,6 +2,7 @@ package cdw.springTraining.gatekeeper.entity;
 
 import cdw.springTraining.gatekeeper.model.UserResponse;
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -27,6 +28,10 @@ public class VisitorSlot {
     @Column(name = "visitor_name")
     private String visitorName;
 
+    @Column(name = "mail",unique = true)
+    @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
+    private String mail;
+
     @Column(name = "date")
     private LocalDate date;
 
@@ -43,9 +48,9 @@ public class VisitorSlot {
     @JoinColumn(name = "user_id")
     private User user;
 
-
-    public VisitorSlot(String visitorName, LocalDate date, OffsetDateTime inTime, OffsetDateTime outTime) {
+    public VisitorSlot(String visitorName, String mail, LocalDate date, OffsetDateTime inTime, OffsetDateTime outTime) {
         this.visitorName = visitorName;
+        this.mail = mail;
         this.date = date;
         this.inTime = inTime;
         this.outTime = outTime;

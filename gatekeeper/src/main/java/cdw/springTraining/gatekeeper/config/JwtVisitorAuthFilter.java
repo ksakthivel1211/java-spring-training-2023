@@ -1,13 +1,13 @@
 package cdw.springTraining.gatekeeper.config;
 
 import cdw.springTraining.gatekeeper.customException.GateKeepingCustomException;
-import cdw.springTraining.gatekeeper.dao.TokenRepository;
-import cdw.springTraining.gatekeeper.dao.UserRepository;
+import cdw.springTraining.gatekeeper.dao.VisitorSlotRepository;
 import cdw.springTraining.gatekeeper.service.JwtServiceImpl;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
 import com.auth0.jwt.interfaces.DecodedJWT;
+import io.swagger.v3.oas.models.PathItem;
 import jakarta.servlet.FilterChain;
 import jakarta.servlet.ServletException;
 import jakarta.servlet.http.HttpServletRequest;
@@ -16,29 +16,23 @@ import lombok.NonNull;
 import lombok.RequiredArgsConstructor;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.beans.factory.annotation.Value;
-import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
-import org.springframework.security.core.authority.SimpleGrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.security.core.userdetails.UserDetailsService;
+import org.springframework.security.web.util.matcher.AntPathRequestMatcher;
+import org.springframework.security.web.util.matcher.NegatedRequestMatcher;
+import org.springframework.security.web.util.matcher.RequestMatcher;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
 import java.io.IOException;
-import java.util.ArrayList;
-import java.util.Arrays;
-import java.util.Collection;
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
 @Component
 @RequiredArgsConstructor
-public class JwtAuthenticationFilter extends OncePerRequestFilter {
+public class JwtVisitorAuthFilter extends OncePerRequestFilter {
 
     @Autowired
-    private final UserRepository userRepository;
-
-    @Autowired
-    private final TokenRepository tokenRepository;
+    private final VisitorSlotRepository visitorSlotRepository;
 
     @Autowired
     private final UserDetailsService userDetailsService;
@@ -46,6 +40,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     JwtServiceImpl jwtServiceImpl;
 
+    private final RequestMatcher matcher= new AntPathRequestMatcher("/gate-keeping/visitor/residentCheck", PathItem.HttpMethod.POST.name());
 
     @Value("${secret.key}")
     private String secretKey;
@@ -63,26 +58,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                 JWTVerifier verifier= JWT.require(algorithm).build();
                 DecodedJWT decodedJWT=verifier.verify(token);
                 String username=decodedJWT.getSubject();
-                userRepository.findByMail(username).get();
-                    String[] roles=decodedJWT.getClaim("roles").asArray(String.class);
-                    Collection<SimpleGrantedAuthority> authorities=new ArrayList<>();
-                    Arrays.stream(roles).forEach(role->{
-                        authorities.add(new SimpleGrantedAuthority(role));
-                    });
-
-                    var isTokenValid = tokenRepository.findByTokenName(token).map(t-> !t.isExpired() && !t.isRevoked()).orElse(false);
-
-                    if(isTokenValid)
-                    {
-                        UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken=new UsernamePasswordAuthenticationToken(username,null,authorities);
-                        SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
-                        filterChain.doFilter(request,response);
-                    }
-
-                    else{
-                        throw new GateKeepingCustomException("token not valid");
-                    }
-
+                visitorSlotRepository.findByMail(username).get();
 
             } catch (Exception e) {
                 throw new GateKeepingCustomException(e.getMessage());
@@ -95,7 +71,7 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
-        String path = request.getRequestURI();
-        return "/gate-keeping/visitor/residentCheck".equals(path);
+        RequestMatcher requestMatcher = new NegatedRequestMatcher(matcher);
+        return requestMatcher.matches(request);
     }
 }

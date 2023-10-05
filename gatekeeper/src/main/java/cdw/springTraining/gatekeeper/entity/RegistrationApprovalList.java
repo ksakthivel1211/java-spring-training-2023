@@ -1,6 +1,7 @@
 package cdw.springTraining.gatekeeper.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -31,7 +32,8 @@ public class RegistrationApprovalList {
     @Column(name = "gender")
     private String gender;
 
-    @Column(name = "email")
+    @Column(name = "email",unique = true)
+    @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
     private String mail;
 
     @Column(name = "password")

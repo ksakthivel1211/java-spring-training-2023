@@ -1,12 +1,17 @@
 package cdw.springTraining.gatekeeper.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.Email;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.authority.SimpleGrantedAuthority;
+import org.springframework.security.core.userdetails.UserDetails;
 
 import java.util.ArrayList;
+import java.util.Collection;
 import java.util.List;
 
 @Data
@@ -15,7 +20,7 @@ import java.util.List;
 @NoArgsConstructor
 @Entity
 @Table(name = "user")
-public class User {
+public class User implements UserDetails {
 
     @Id
     @GeneratedValue(strategy = GenerationType.IDENTITY)
@@ -31,7 +36,8 @@ public class User {
     @Column(name = "gender")
     private String gender;
 
-    @Column(name = "mail")
+    @Column(name = "mail",unique = true)
+    @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
     private String mail;
 
     @Column(name = "password")
@@ -39,6 +45,9 @@ public class User {
 
     @Column(name = "role_name")
     private String roleName;
+
+    @Column(name = "checked")
+    private String checked;
 
     @OneToMany(fetch = FetchType.LAZY, cascade = {CascadeType.MERGE,CascadeType.PERSIST} , mappedBy = "user")
     private List<Token> tokens;
@@ -55,6 +64,11 @@ public class User {
         visitorSlots.add(slot);
     }
 
+    public void removeFromVisitorSlot(VisitorSlot slot)
+    {
+        visitorSlots.remove(slot);
+    }
+
     public User(String name, int age, String gender, String mail, String password, String roleName) {
         this.name = name;
         this.age = age;
@@ -62,5 +76,39 @@ public class User {
         this.mail = mail;
         this.password = password;
         this.roleName=roleName;
+    }
+
+    @Override
+    public Collection<? extends GrantedAuthority> getAuthorities() {
+        List<SimpleGrantedAuthority> authorities = new ArrayList<>();
+
+        authorities.add(new SimpleGrantedAuthority(roleName));
+
+        return authorities;
+    }
+
+    @Override
+    public String getUsername() {
+        return this.mail;
+    }
+
+    @Override
+    public boolean isAccountNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isAccountNonLocked() {
+        return true;
+    }
+
+    @Override
+    public boolean isCredentialsNonExpired() {
+        return true;
+    }
+
+    @Override
+    public boolean isEnabled() {
+        return true;
     }
 }
