@@ -10,6 +10,10 @@ import org.springframework.stereotype.Service;
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
+/**
+ * @author sakthivel
+ * Logout service implementation has the method of logout operation
+ */
 @Service
 @RequiredArgsConstructor
 public class LogoutServiceImpl implements LogoutHandler {
@@ -17,7 +21,7 @@ public class LogoutServiceImpl implements LogoutHandler {
     private final TokenRepository tokenRepository;
 
     /**
-     *
+     * logout function changes the token expired values to true
      * @param request
      * @param response
      * @param authentication

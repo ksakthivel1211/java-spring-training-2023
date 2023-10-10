@@ -7,6 +7,10 @@ import java.time.LocalDate;
 import java.util.List;
 import java.util.Optional;
 
+/**
+ * @author sakthivel
+ * VisitorSlotRepository class has the jpa methods of visitor slot
+ */
 public interface VisitorSlotRepository extends JpaRepository<VisitorSlot,Integer> {
 
     public Optional<List<VisitorSlot>> findByDate(LocalDate date);

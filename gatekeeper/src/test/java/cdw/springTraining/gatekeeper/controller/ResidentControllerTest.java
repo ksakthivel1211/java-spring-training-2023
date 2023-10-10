@@ -11,6 +11,7 @@ import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
 
+import static cdw.springTraining.gatekeeper.constant.SuccessConstants.RESIDENT_CHECKED;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -53,6 +54,28 @@ public class ResidentControllerTest {
         controllerResponse.setMessage("The user has been black listed");
         when(blackListServiceImpl.addToBlackList(blackListRequest)).thenReturn(controllerResponse);
         assertEquals(controllerResponse,residentController.residentBlackList(blackListRequest).getBody());
+    }
+
+    @Test
+    public void testResidentCheckIn()
+    {
+        int userId = 1;
+        String checked = "in";
+        ControllerResponse controllerResponse = new ControllerResponse();
+        controllerResponse.setMessage(RESIDENT_CHECKED+checked);
+        when(residentServiceImpl.userChecked(1,checked)).thenReturn(controllerResponse);
+        assertEquals(controllerResponse,residentController.residentCheckingIn(userId).getBody());
+    }
+
+    @Test
+    public void testResidentCheckOut()
+    {
+        int userId = 1;
+        String checked = "out";
+        ControllerResponse controllerResponse = new ControllerResponse();
+        controllerResponse.setMessage(RESIDENT_CHECKED+checked);
+        when(residentServiceImpl.userChecked(1,checked)).thenReturn(controllerResponse);
+        assertEquals(controllerResponse,residentController.residentCheckingOut(userId).getBody());
     }
 
 }

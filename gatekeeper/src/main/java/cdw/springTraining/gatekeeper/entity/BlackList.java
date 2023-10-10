@@ -6,13 +6,10 @@ import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
-import org.apache.logging.log4j.core.config.plugins.validation.constraints.Required;
-
-import java.util.ArrayList;
-import java.util.List;
 
 /**
- *
+ * @author sakthivel
+ * BlackList entity class has the details of Black listed users
  */
 @Data
 @Builder

@@ -1,5 +1,7 @@
 package cdw.springTraining.gatekeeper.service;
 
+import cdw.springTraining.gatekeeper.constant.ErrorConstants;
+import cdw.springTraining.gatekeeper.constant.SuccessConstants;
 import cdw.springTraining.gatekeeper.customException.GateKeepingCustomException;
 import cdw.springTraining.gatekeeper.dao.BlackListRepository;
 import cdw.springTraining.gatekeeper.dao.RegistrationApprovalListRepository;
@@ -11,13 +13,22 @@ import cdw.springTraining.gatekeeper.model.ControllerResponse;
 import cdw.springTraining.gatekeeper.model.RegistrationResponse;
 import cdw.springTraining.gatekeeper.model.UserResponse;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import static cdw.springTraining.gatekeeper.constant.ErrorConstants.*;
+import static cdw.springTraining.gatekeeper.constant.SuccessConstants.*;
+
+
+/**
+ * @author sakthivel
+ * Admin service implementation has the functional methods of admin operations
+ */
 @Service
 public class AdminServiceImpl implements AdminService{
 
@@ -40,24 +51,24 @@ public class AdminServiceImpl implements AdminService{
     @Override
     public List<RegistrationResponse> listAllRequest()
     {
-        List<RegistrationResponse> registrationResponses = new ArrayList<>();
+
         List<RegistrationApprovalList> approvalLists = registrationApprovalListRepository.findAll();
         if(approvalLists.isEmpty())
         {
-            throw new GateKeepingCustomException("There are no registration request yet");
+            throw new GateKeepingCustomException(NO_REGISTRATION_REQUEST, HttpStatus.NO_CONTENT);
         }
-        approvalLists.stream().forEach(registrationApprovalList -> {
-            RegistrationResponse tempResponse = new RegistrationResponse();
-            tempResponse.setAge(registrationApprovalList.getAge());
-            tempResponse.setId(registrationApprovalList.getApproval_id());
-            tempResponse.setStatus(registrationApprovalList.getStatus());
-            tempResponse.setName(registrationApprovalList.getName());
-            tempResponse.setGender(registrationApprovalList.getGender());
-            tempResponse.setPassword(registrationApprovalList.getPassword());
-            tempResponse.setMail(registrationApprovalList.getMail());
-            tempResponse.setRoleName(registrationApprovalList.getRoleName());
-            registrationResponses.add(tempResponse);
-        });
+        List<RegistrationResponse> registrationResponses = approvalLists.stream().map(registrationApprovalList -> {
+            RegistrationResponse currentResponse = new RegistrationResponse();
+            currentResponse.setAge(registrationApprovalList.getAge());
+            currentResponse.setId(registrationApprovalList.getApproval_id());
+            currentResponse.setStatus(registrationApprovalList.getStatus());
+            currentResponse.setName(registrationApprovalList.getName());
+            currentResponse.setGender(registrationApprovalList.getGender());
+            currentResponse.setPassword(registrationApprovalList.getPassword());
+            currentResponse.setMail(registrationApprovalList.getMail());
+            currentResponse.setRoleName(registrationApprovalList.getRoleName());
+            return currentResponse;
+        }).collect(Collectors.toList());
         return registrationResponses;
     }
 
@@ -69,10 +80,10 @@ public class AdminServiceImpl implements AdminService{
     @Override
     public ControllerResponse grantUserRequest(int requestId)
     {
-        RegistrationApprovalList request = registrationApprovalListRepository.findById(requestId).orElseThrow(()-> new GateKeepingCustomException("Request with the given id is not found"));
-        if(userRepository.findByMail(request.getMail()).isPresent())
+        RegistrationApprovalList request = registrationApprovalListRepository.findById(requestId).orElseThrow(()-> new GateKeepingCustomException(REQUEST_NOT_FOUND_BY_ID, HttpStatus.NOT_FOUND));
+        if(userRepository.existsByMail(request.getMail()))
         {
-            throw new GateKeepingCustomException("User already approved");
+            throw new GateKeepingCustomException(USER_ALREADY_APPROVED,HttpStatus.ALREADY_REPORTED);
         }
         User user = new User(request.getName(),request.getAge(),request.getGender(),request.getMail(),request.getPassword(),request.getRoleName());
         user.setUserId(0);
@@ -85,7 +96,7 @@ public class AdminServiceImpl implements AdminService{
         registrationApprovalListRepository.save(request);
 
         ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage("Request has been accepted");
+        controllerResponse.setMessage(REQUEST_ACCEPTED);
         return controllerResponse;
     }
 
@@ -97,11 +108,11 @@ public class AdminServiceImpl implements AdminService{
     @Override
     public ControllerResponse rejectUserRequest(int requestId)
     {
-        RegistrationApprovalList request = registrationApprovalListRepository.findById(requestId).orElseThrow(()-> new GateKeepingCustomException("Request with the given id is not found"));
+        RegistrationApprovalList request = registrationApprovalListRepository.findById(requestId).orElseThrow(()-> new GateKeepingCustomException(REQUEST_NOT_FOUND_BY_ID, HttpStatus.NOT_FOUND));
         request.setStatus("rejected");
         registrationApprovalListRepository.save(request);
         ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage("Request has been rejected");
+        controllerResponse.setMessage(REQUEST_REJECTED);
         return controllerResponse;
     }
 
@@ -113,10 +124,10 @@ public class AdminServiceImpl implements AdminService{
     @Override
     public ControllerResponse deleteUser(int userId)
     {
-        User user = userRepository.findById(userId).orElseThrow(()-> new GateKeepingCustomException("Request with the given id is not found"));
+        User user = userRepository.findById(userId).orElseThrow(()-> new GateKeepingCustomException(REQUEST_NOT_FOUND_BY_ID,HttpStatus.NOT_FOUND));
         userRepository.delete(user);
         ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage("User has been deleted successfully");
+        controllerResponse.setMessage(USER_DELETED);
         return controllerResponse;
     }
 
@@ -128,21 +139,21 @@ public class AdminServiceImpl implements AdminService{
     @Override
     public ControllerResponse updateUser(UserResponse user)
     {
-        User tempUser = userRepository.findByMail(user.getMail()).orElseThrow(()-> new GateKeepingCustomException("user with the given user details is not found"));
+        User currentUser = userRepository.findByMail(user.getMail()).orElseThrow(()-> new GateKeepingCustomException(USER_NOT_FOUND_BY_MAIL,HttpStatus.NOT_FOUND));
 
-        tempUser.setName(user.getName());
-        tempUser.setAge(user.getAge());
-        tempUser.setGender(user.getGender());
-        tempUser.setMail(user.getMail());
-        tempUser.setRoleName(user.getRoleName());
+        currentUser.setName(user.getName());
+        currentUser.setAge(user.getAge());
+        currentUser.setGender(user.getGender());
+        currentUser.setMail(user.getMail());
+        currentUser.setRoleName(user.getRoleName());
 
         PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
         String encodedPassword = passwordEncoder.encode(user.getPassword());
 
-        tempUser.setPassword(encodedPassword);
-        userRepository.save(tempUser);
+        currentUser.setPassword(encodedPassword);
+        userRepository.save(currentUser);
         ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage("User details has been updated");
+        controllerResponse.setMessage(USER_UPDATED);
         return controllerResponse;
     }
 

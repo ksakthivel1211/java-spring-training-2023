@@ -1,5 +1,9 @@
 package cdw.springTraining.gatekeeper.customException;
 
+/**
+ * @author sakthivel
+ * Error response class has the error response details
+ */
 public class ErrorResponse {
 
     private int status;

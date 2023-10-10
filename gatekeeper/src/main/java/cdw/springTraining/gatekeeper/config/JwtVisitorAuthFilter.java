@@ -27,6 +27,10 @@ import java.io.IOException;
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
+/**
+ * @author sakthivel
+ * JwtAuthenticationFilter is used to validate the Jwt token of visitor
+ */
 @Component
 @RequiredArgsConstructor
 public class JwtVisitorAuthFilter extends OncePerRequestFilter {
@@ -45,6 +49,14 @@ public class JwtVisitorAuthFilter extends OncePerRequestFilter {
     @Value("${secret.key}")
     private String secretKey;
 
+    /**
+     * doFilterInternal method validates the jwt token for visitor
+     * @param request
+     * @param response
+     * @param filterChain
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
                                     @NonNull HttpServletResponse response,
@@ -69,6 +81,12 @@ public class JwtVisitorAuthFilter extends OncePerRequestFilter {
 
     }
 
+    /**
+     * shouldNot filter method neglects the given endpoint for validation
+     * @param request
+     * @return - returns boolean true/false weather the endpoint is valid or not
+     * @throws ServletException
+     */
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         RequestMatcher requestMatcher = new NegatedRequestMatcher(matcher);

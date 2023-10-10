@@ -1,8 +1,6 @@
 package cdw.springTraining.gatekeeper.aspect;
 
 import cdw.springTraining.gatekeeper.customException.GateKeepingCustomException;
-import org.apache.juli.logging.LogFactory;
-import org.apache.logging.log4j.LogManager;
 import org.aspectj.lang.ProceedingJoinPoint;
 import org.aspectj.lang.annotation.Around;
 import org.aspectj.lang.annotation.Aspect;
@@ -10,6 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+/**
+ * @author sakthivel
+ * GateKeeperLoggingAspect class file logs the return or error response through around advice
+ */
 @Aspect
 @Component
 public class GateKeeperLoggingAspect {
@@ -34,10 +36,8 @@ public class GateKeeperLoggingAspect {
         }
         catch (Exception exception)
         {
-            GateKeepingCustomException customException = new GateKeepingCustomException(exception.getMessage());
-            logger.error(String.valueOf(customException));
-//            throw customException;
-            result = customException;
+            logger.error(exception.getMessage());
+            result =  new GateKeepingCustomException(exception.getMessage());
         }
         long end = System.currentTimeMillis();
 

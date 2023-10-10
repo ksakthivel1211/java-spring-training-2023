@@ -1,16 +1,26 @@
 package cdw.springTraining.gatekeeper.customException;
 
+import org.springframework.http.HttpStatus;
+
+/**
+ * @author sakthivel
+ * GateKeepingCustomException class provides custom runtime exception for the program
+ */
 public class GateKeepingCustomException extends RuntimeException{
 
+    private final HttpStatus httpStatus;
+
     public GateKeepingCustomException(String message) {
+        this(message,HttpStatus.BAD_REQUEST);
+    }
+
+    public GateKeepingCustomException(String message, HttpStatus httpStatus) {
         super(message);
+        this.httpStatus = httpStatus;
     }
 
-    public GateKeepingCustomException(String message, Throwable cause) {
-        super(message, cause);
-    }
 
-    public GateKeepingCustomException(Throwable cause) {
-        super(cause);
+    public HttpStatus getHttpStatus() {
+        return httpStatus;
     }
 }

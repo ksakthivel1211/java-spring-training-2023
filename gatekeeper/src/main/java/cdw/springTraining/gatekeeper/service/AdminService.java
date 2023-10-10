@@ -6,6 +6,10 @@ import cdw.springTraining.gatekeeper.model.UserResponse;
 
 import java.util.List;
 
+/**
+ * @author sakthivel
+ * Admin service has the functional methods of admin operations
+ */
 public interface AdminService {
 
     public List<RegistrationResponse> listAllRequest();

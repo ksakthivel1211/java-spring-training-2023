@@ -9,9 +9,12 @@ import lombok.Data;
 import lombok.NoArgsConstructor;
 
 import java.time.LocalDate;
-import java.time.LocalTime;
 import java.time.OffsetDateTime;
 
+/**
+ * @author sakthivel
+ * VisitorSlot entity class has the details of visitor slot booked by the user
+ */
 @Data
 @Builder
 @AllArgsConstructor

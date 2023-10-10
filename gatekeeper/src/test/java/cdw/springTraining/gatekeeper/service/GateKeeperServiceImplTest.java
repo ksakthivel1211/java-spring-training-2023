@@ -31,6 +31,7 @@ public class GateKeeperServiceImplTest {
     @Mock
     private VisitorSlotRepository visitorSlotRepository;
 
+
     @Test
     public void testSlotApproval()
     {

@@ -7,6 +7,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author sakthivel
+ * RegistrationApprovalList entity class has the regsitration request details made by the users
+ */
 @Data
 @Builder
 @AllArgsConstructor

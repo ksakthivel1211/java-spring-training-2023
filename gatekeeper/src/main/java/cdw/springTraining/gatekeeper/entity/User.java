@@ -14,6 +14,10 @@ import java.util.ArrayList;
 import java.util.Collection;
 import java.util.List;
 
+/**
+ * @author sakthivel
+ * User entity class has the details of users
+ */
 @Data
 @Builder
 @AllArgsConstructor

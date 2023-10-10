@@ -43,6 +43,7 @@ public class ResidentServiceImplTest {
         visitorSlotRequest.setInTime(dateTime);
         visitorSlotRequest.setOutTime(dateTime);
         User user = new User("sam",21,"male","sam@gmail.com","abc","resident");
+        user.setUserId(1);
         when(userRepository.findById(1)).thenReturn(Optional.of(user));
         ControllerResponse controllerResponse = new ControllerResponse();
         controllerResponse.setMessage("Slot for the visitor has been booked");
@@ -78,18 +79,7 @@ public class ResidentServiceImplTest {
         User user = new User();
         when(userRepository.findById(userId)).thenReturn(Optional.of(user));
         ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage("User has been checked"+checked);
+        controllerResponse.setMessage("The resident has checked"+checked);
         assertEquals(controllerResponse, residentServiceImpl.userChecked(userId,checked));
     }
-
-//    @Test
-//    public void testUserCheckedUserCheckedStatusInvalid()
-//    {
-//        int userId = 1;
-//        String checked = "innings";
-//        User user = new User();
-//        when(userRepository.findById(userId)).thenReturn(Optional.of(user));
-//        GateKeepingCustomException exception = new GateKeepingCustomException("Invalid checked variable");
-//        assertEquals(exception,residentService.userChecked(userId,checked));
-//    }
 }

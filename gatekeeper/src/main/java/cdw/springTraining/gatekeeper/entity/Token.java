@@ -6,6 +6,10 @@ import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
 
+/**
+ * @author sakthivel
+ * Token entity class has the details of token of the user
+ */
 @Data
 @Builder
 @AllArgsConstructor

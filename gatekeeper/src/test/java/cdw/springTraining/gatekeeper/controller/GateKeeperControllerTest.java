@@ -1,5 +1,6 @@
 package cdw.springTraining.gatekeeper.controller;
 
+import cdw.springTraining.gatekeeper.entity.VisitorSlot;
 import cdw.springTraining.gatekeeper.model.ApprovalResponse;
 import cdw.springTraining.gatekeeper.model.BlackListRequest;
 import cdw.springTraining.gatekeeper.model.ControllerResponse;
@@ -16,6 +17,7 @@ import java.time.LocalDate;
 import java.util.ArrayList;
 import java.util.List;
 
+import static cdw.springTraining.gatekeeper.constant.SuccessConstants.VISITOR_SLOT_APPROVAL;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -53,7 +55,12 @@ public class GateKeeperControllerTest {
     @Test
     public void testSlotApproval()
     {
+        VisitorSlot visitorSlot = new VisitorSlot();
         SlotApprovalRequest approvalRequest = new SlotApprovalRequest();
-
+        approvalRequest.setApprovalStatus("approved");
+        ControllerResponse controllerResponse = new ControllerResponse();
+        controllerResponse.setMessage(VISITOR_SLOT_APPROVAL + approvalRequest.getApprovalStatus());
+        when(gateKeeperServiceImpl.slotApproval(approvalRequest)).thenReturn(controllerResponse);
+        assertEquals(controllerResponse,gateKeeperController.slotApproval(approvalRequest).getBody());
     }
 }

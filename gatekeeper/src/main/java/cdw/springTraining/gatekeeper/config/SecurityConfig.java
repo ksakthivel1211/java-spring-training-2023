@@ -15,6 +15,10 @@ import org.springframework.security.web.authentication.UsernamePasswordAuthentic
 import org.springframework.security.web.authentication.logout.LogoutHandler;
 import org.springframework.security.web.authentication.www.BasicAuthenticationFilter;
 
+/**
+ * @author sakthivel
+ * SecurityConfig class has security configurations
+ */
 @Configuration
 @EnableWebSecurity
 @RequiredArgsConstructor
@@ -49,17 +53,6 @@ public class SecurityConfig {
                 .addLogoutHandler(logoutHandler)
                 .logoutSuccessHandler((request, response, authentication) -> SecurityContextHolder.clearContext())
         ;
-
-//        http.authorizeHttpRequests(configure ->
-//                        configure
-//                                .requestMatchers("/visitor/pass").permitAll()
-//                                .anyRequest().authenticated())
-//                .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
-//                .csrf(csrf -> csrf.disable())
-//                .cors(Customizer.withDefaults())
-//                .authenticationProvider(authenticationProvider)
-//                .addFilterBefore(visitorAuthFilter, BasicAuthenticationFilter.class)
-//        ;
 
         return http.build();
     }

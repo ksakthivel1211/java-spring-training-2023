@@ -3,7 +3,7 @@ package cdw.springTraining.gatekeeper.config;
 import cdw.springTraining.gatekeeper.customException.GateKeepingCustomException;
 import cdw.springTraining.gatekeeper.dao.TokenRepository;
 import cdw.springTraining.gatekeeper.dao.UserRepository;
-import cdw.springTraining.gatekeeper.service.JwtServiceImpl;
+import cdw.springTraining.gatekeeper.entity.Token;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;
@@ -19,7 +19,6 @@ import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.authentication.UsernamePasswordAuthenticationToken;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.context.SecurityContextHolder;
-import org.springframework.security.core.userdetails.UserDetailsService;
 import org.springframework.stereotype.Component;
 import org.springframework.web.filter.OncePerRequestFilter;
 
@@ -30,6 +29,10 @@ import java.util.Collection;
 
 import static org.springframework.http.HttpHeaders.AUTHORIZATION;
 
+/**
+ * @author sakthivel
+ * JwtAuthenticationFilter is used to validate the Jwt token of user
+ */
 @Component
 @RequiredArgsConstructor
 public class JwtAuthenticationFilter extends OncePerRequestFilter {
@@ -40,16 +43,18 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Autowired
     private final TokenRepository tokenRepository;
 
-    @Autowired
-    private final UserDetailsService userDetailsService;
-
-    @Autowired
-    JwtServiceImpl jwtServiceImpl;
-
 
     @Value("${secret.key}")
     private String secretKey;
 
+    /**
+     * doFilterInternal method validates the jwt token
+     * @param request
+     * @param response
+     * @param filterChain
+     * @throws ServletException
+     * @throws IOException
+     */
     @Override
     protected void doFilterInternal(@NonNull HttpServletRequest request,
                                     @NonNull HttpServletResponse response,
@@ -70,20 +75,15 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
                         authorities.add(new SimpleGrantedAuthority(role));
                     });
 
-                    var isTokenValid = tokenRepository.findByTokenName(token).map(t-> !t.isExpired() && !t.isRevoked()).orElse(false);
-
-                    if(isTokenValid)
+                    if(tokenRepository.existsByExpiredAndRevoked(false,false))
                     {
                         UsernamePasswordAuthenticationToken usernamePasswordAuthenticationToken=new UsernamePasswordAuthenticationToken(username,null,authorities);
                         SecurityContextHolder.getContext().setAuthentication(usernamePasswordAuthenticationToken);
                         filterChain.doFilter(request,response);
                     }
-
                     else{
                         throw new GateKeepingCustomException("token not valid");
                     }
-
-
             } catch (Exception e) {
                 throw new GateKeepingCustomException(e.getMessage());
             }
@@ -93,6 +93,12 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
 
     }
 
+    /**
+     * shouldNot filter method neglects the given endpoint for validation
+     * @param request
+     * @return - returns boolean true/false weather the endpoint is valid or not
+     * @throws ServletException
+     */
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         String path = request.getRequestURI();

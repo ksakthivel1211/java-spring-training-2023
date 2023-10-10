@@ -9,12 +9,20 @@ import cdw.springTraining.gatekeeper.model.ApprovalResponseUser;
 import cdw.springTraining.gatekeeper.model.ControllerResponse;
 import cdw.springTraining.gatekeeper.model.SlotApprovalRequest;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.http.HttpStatus;
 import org.springframework.stereotype.Service;
 
 import java.time.LocalDate;
-import java.util.ArrayList;
 import java.util.List;
+import java.util.stream.Collectors;
 
+import static cdw.springTraining.gatekeeper.constant.ErrorConstants.*;
+import static cdw.springTraining.gatekeeper.constant.SuccessConstants.VISITOR_SLOT_APPROVAL;
+
+/**
+ * @author sakthivel
+ * Gate keeper service implementation has the functional methods of Gate keeper operations
+ */
 @Service
 public class GateKeeperServiceImpl implements GateKeeperService{
 
@@ -36,13 +44,13 @@ public class GateKeeperServiceImpl implements GateKeeperService{
     {
         if(!slotApprovalRequest.getApprovalStatus().matches("approved|rejected"))
         {
-            throw new RuntimeException("Invalid approval status : Gate keeper can only approve or reject");
+            throw new GateKeepingCustomException(INVALID_APPROVAL_STATUS, HttpStatus.BAD_REQUEST);
         }
-        VisitorSlot visitorSlot = visitorSlotRepository.findById(slotApprovalRequest.getSlotId()).orElseThrow(()-> new GateKeepingCustomException("Visitor slot with the given request id is not found"));
+        VisitorSlot visitorSlot = visitorSlotRepository.findById(slotApprovalRequest.getSlotId()).orElseThrow(()-> new GateKeepingCustomException(SLOT_NOT_FOUND_BY_ID,HttpStatus.NOT_FOUND));
         visitorSlot.setStatus(slotApprovalRequest.getApprovalStatus());
         visitorSlotRepository.save(visitorSlot);
         ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage("The visitor slot has been : "+ slotApprovalRequest.getApprovalStatus());
+        controllerResponse.setMessage(VISITOR_SLOT_APPROVAL + slotApprovalRequest.getApprovalStatus());
         return controllerResponse;
     }
 
@@ -54,9 +62,9 @@ public class GateKeeperServiceImpl implements GateKeeperService{
     @Override
     public List<ApprovalResponse> getAllApproval(LocalDate date)
     {
-        List<ApprovalResponse> approvalResponseList = new ArrayList<>();
-        List<VisitorSlot> visitorSlots = visitorSlotRepository.findByDate(date).orElseThrow(()-> new GateKeepingCustomException("Visitor slot with the given date is not found"));
-        visitorSlots.stream().forEach(slot ->{
+
+        List<VisitorSlot> visitorSlots = visitorSlotRepository.findByDate(date).orElseThrow(()-> new GateKeepingCustomException(SLOT_NOT_FOUND_BY_DATE,HttpStatus.NOT_FOUND));
+        List<ApprovalResponse> approvalResponseList = visitorSlots.stream().map(slot ->{
             User user = slot.getUser();
             ApprovalResponseUser userDetails = new ApprovalResponseUser();
             userDetails.setName(user.getName());
@@ -68,9 +76,9 @@ public class GateKeeperServiceImpl implements GateKeeperService{
             approvalResponse.setVisitorName(slot.getVisitorName());
             approvalResponse.setInTime(slot.getOffSetInTime());
             approvalResponse.setOutTime(slot.getOffSetOutTime());
-            approvalResponseList.add(approvalResponse);
+            return approvalResponse;
                 }
-        );
+        ).collect(Collectors.toList());
         return approvalResponseList;
     }
 
