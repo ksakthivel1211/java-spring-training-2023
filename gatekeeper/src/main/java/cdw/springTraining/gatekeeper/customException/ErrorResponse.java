@@ -1,18 +1,19 @@
 package cdw.springTraining.gatekeeper.customException;
 
+import lombok.AllArgsConstructor;
+import lombok.NoArgsConstructor;
+
 /**
  * @author sakthivel
  * Error response class has the error response details
  */
+@NoArgsConstructor
+@AllArgsConstructor
 public class ErrorResponse {
 
     private int status;
     private String message;
-    private long timeStamp;
-
-    public ErrorResponse(){
-
-    }
+    private String timeStamp;
 
     public int getStatus() {
         return status;
@@ -30,11 +31,11 @@ public class ErrorResponse {
         this.message = message;
     }
 
-    public long getTimeStamp() {
+    public String getTimeStamp() {
         return timeStamp;
     }
 
-    public void setTimeStamp(long timeStamp) {
+    public void setTimeStamp(String timeStamp) {
         this.timeStamp = timeStamp;
     }
 

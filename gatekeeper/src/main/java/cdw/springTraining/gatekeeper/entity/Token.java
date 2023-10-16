@@ -1,6 +1,7 @@
 package cdw.springTraining.gatekeeper.entity;
 
 import jakarta.persistence.*;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -24,10 +25,12 @@ public class Token {
     private int tokenId;
 
     @Column(name = "token_name")
+    @NotNull(message = "token name is required")
     private String tokenName;
 
     @Column(name = "token_type")
     @Enumerated(EnumType.STRING)
+    @NotNull(message = "token type is required")
     private TokenType tokenType;
 
     @Column(name = "expired")

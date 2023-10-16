@@ -3,6 +3,7 @@ package cdw.springTraining.gatekeeper.entity;
 import cdw.springTraining.gatekeeper.model.UserResponse;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -29,19 +30,24 @@ public class VisitorSlot {
     private int slotId;
 
     @Column(name = "visitor_name")
+    @NotNull(message = "visitor is required")
     private String visitorName;
 
     @Column(name = "mail",unique = true)
+    @NotNull(message = "email is required")
     @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
     private String mail;
 
     @Column(name = "date")
+    @NotNull(message = "date is required")
     private LocalDate date;
 
     @Column(name = "in_time")
+    @NotNull(message = "in time is required")
     private OffsetDateTime inTime;
 
     @Column(name = "out_time")
+    @NotNull(message = "out time is required")
     private OffsetDateTime outTime;
 
     @Column(name = "status")
@@ -66,15 +72,5 @@ public class VisitorSlot {
     public OffsetDateTime getOffSetOutTime()
     {
         return OffsetDateTime.from(outTime);
-    }
-
-    public UserResponse getUserResponse()
-    {
-        UserResponse response = new UserResponse();
-        response.setName(user.getName());
-        response.setAge(user.getAge());
-        response.setGender(user.getGender());
-        response.setMail(user.getMail());
-        return response;
     }
 }

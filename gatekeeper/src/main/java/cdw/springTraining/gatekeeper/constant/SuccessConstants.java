@@ -15,7 +15,7 @@ public class SuccessConstants {
     public static final String VISITOR_SLOT_CANCELLED = "The visitor slot has been cancelled";
     public static final String VISITOR_SLOT_APPROVAL = "The visitor slot has been : ";
     public static final String USER_BLACK_LISTED = "The user has been black listed";
-    public static final String REQUEST_ACCEPTED = "Request has been accepted";
+    public static final String REQUEST_ACCEPTED = "Request has been accepted and user has been added";
     public static final String REQUEST_REJECTED = "Request has been rejected";
     public static final String USER_DELETED = "User has been deleted successfully";
     public static final String USER_UPDATED = "User details has been updated";

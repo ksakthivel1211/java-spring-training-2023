@@ -1,7 +1,5 @@
 package cdw.springTraining.gatekeeper.service;
 
-import cdw.springTraining.gatekeeper.constant.ErrorConstants;
-import cdw.springTraining.gatekeeper.constant.SuccessConstants;
 import cdw.springTraining.gatekeeper.customException.GateKeepingCustomException;
 import cdw.springTraining.gatekeeper.dao.BlackListRepository;
 import cdw.springTraining.gatekeeper.dao.RegistrationApprovalListRepository;
@@ -124,7 +122,7 @@ public class AdminServiceImpl implements AdminService{
     @Override
     public ControllerResponse deleteUser(int userId)
     {
-        User user = userRepository.findById(userId).orElseThrow(()-> new GateKeepingCustomException(REQUEST_NOT_FOUND_BY_ID,HttpStatus.NOT_FOUND));
+        User user = userRepository.findById(userId).orElseThrow(()-> new GateKeepingCustomException(USER_NOT_FOUND_BY_ID,HttpStatus.NOT_FOUND));
         userRepository.delete(user);
         ControllerResponse controllerResponse = new ControllerResponse();
         controllerResponse.setMessage(USER_DELETED);

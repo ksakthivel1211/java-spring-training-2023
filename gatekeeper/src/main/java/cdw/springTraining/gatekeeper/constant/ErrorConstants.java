@@ -7,7 +7,7 @@ package cdw.springTraining.gatekeeper.constant;
 public class ErrorConstants {
 
     public static final String NO_REGISTRATION_REQUEST = "There are no registration request yet";
-    public static final String INVALID_REGISTRATION_NAME = "Only Residents and Gate keepers are allowed to register";
+    public static final String INVALID_REGISTRATION_NAME = "Only Residents and Gate keepers can be register";
     public static final String USER_BLACK_LISTED_INVALID_REGISTRATION = "Unable to register : The user has been black listed";
     public static final String USER_NOT_FOUND_BY_MAIL = "User with the given mail is not found";
     public static final String USER_NOT_FOUND_BY_ID = "User with the given id is not found";

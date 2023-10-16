@@ -1,61 +1,653 @@
-2023-10-10 11:02:42,194 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 60974 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
-2023-10-10 11:02:42,219 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
-2023-10-10 11:02:42,406 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-10-10 11:02:42,407 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-10-10 11:02:43,886 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-10 11:02:44,034 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 141 ms. Found 5 JPA repository interfaces.
-2023-10-10 11:02:45,330 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-2023-10-10 11:02:45,340 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2023-10-10 11:02:45,340 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-10 11:02:45,427 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
-2023-10-10 11:02:45,428 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3020 ms
-2023-10-10 11:02:45,797 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-10 11:02:45,895 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-10 11:02:45,929 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
-2023-10-10 11:02:46,086 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-10-10 11:02:46,214 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-10 11:02:46,233 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2023-10-10 11:02:46,693 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6b9261c8
-2023-10-10 11:02:46,696 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2023-10-10 11:02:47,065 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-10-10 11:02:47,972 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-10 11:02:48,140 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-10 11:02:49,655 [restartedMain] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-10-10 11:02:50,071 [restartedMain] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@63750fc2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@21d6dacf, org.springframework.security.web.context.SecurityContextHolderFilter@3626d9d0, org.springframework.security.web.header.HeaderWriterFilter@4f56953b, org.springframework.web.filter.CorsFilter@4a592c9c, org.springframework.security.web.authentication.logout.LogoutFilter@61de767e, cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter@12124c5, cdw.springTraining.gatekeeper.config.JwtVisitorAuthFilter@2b3fff7a, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@457bde58, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@26c7580c, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7d9fc82c, org.springframework.security.web.session.SessionManagementFilter@d2071dd, org.springframework.security.web.access.ExceptionTranslationFilter@1332ef33, org.springframework.security.web.access.intercept.AuthorizationFilter@158ae41c]
-2023-10-10 11:02:50,363 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2023-10-10 11:02:50,390 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/gate-keeping'
-2023-10-10 11:02:50,416 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Started GatekeeperApplication in 9.195 seconds (process running for 10.066)
-2023-10-10 11:03:14,604 [http-nio-8080-exec-1] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-10 11:03:14,605 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2023-10-10 11:03:14,610 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 5 ms
-2023-10-10 11:07:38,955 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-10 11:07:38,968 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2023-10-10 11:07:39,002 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-10-10 15:36:48,459 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 66244 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
-2023-10-10 15:36:48,473 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
-2023-10-10 15:36:48,629 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-10-10 15:36:48,630 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-10-10 15:36:49,976 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-10 15:36:50,122 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 139 ms. Found 5 JPA repository interfaces.
-2023-10-10 15:36:51,389 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-2023-10-10 15:36:51,400 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2023-10-10 15:36:51,400 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-10 15:36:51,477 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
-2023-10-10 15:36:51,478 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2847 ms
-2023-10-10 15:36:51,756 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-10 15:36:51,865 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-10 15:36:51,896 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
-2023-10-10 15:36:52,055 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-10-10 15:36:52,199 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-10 15:36:52,222 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2023-10-10 15:36:52,701 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@61eeb1d8
-2023-10-10 15:36:52,704 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2023-10-10 15:36:53,059 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-10-10 15:36:54,050 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-10 15:36:54,230 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-10 15:36:55,176 [restartedMain] ERROR org.springframework.boot.web.embedded.tomcat.TomcatStarter - Error starting Tomcat context. Exception: org.springframework.beans.factory.UnsatisfiedDependencyException. Message: Error creating bean with name 'jwtVisitorAuthFilter': Unsatisfied dependency expressed through field 'jwtServiceImpl': Error creating bean with name 'jwtServiceImpl' defined in file [/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes/cdw/springTraining/gatekeeper/service/JwtServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'cdw.springTraining.gatekeeper.constant.TimeConstant' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2023-10-10 15:36:55,207 [restartedMain] INFO org.apache.catalina.core.StandardService - Stopping service [Tomcat]
-2023-10-10 15:36:55,213 [restartedMain] WARN org.apache.catalina.loader.WebappClassLoaderBase - The web application [gate-keeping] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
+2023-10-13 00:06:14,776 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=16m24s662ms).
+2023-10-13 00:07:59,431 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=1m44s656ms).
+2023-10-13 00:18:31,515 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=10m32s84ms).
+2023-10-13 00:39:10,107 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=20m38s592ms).
+2023-10-13 01:20:02,164 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=40m52s57ms).
+2023-10-13 01:54:08,479 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=34m6s315ms).
+2023-10-13 02:51:16,216 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=20m37s481ms).
+2023-10-13 03:31:59,463 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=40m43s248ms).
+2023-10-13 03:56:22,306 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=24m22s843ms).
+2023-10-13 04:16:59,725 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=20m37s419ms).
+2023-10-13 04:27:34,826 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=10m35s101ms).
+2023-10-13 04:38:09,099 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=10m34s273ms).
+2023-10-13 04:58:45,662 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=20m36s563ms).
+2023-10-13 05:38:59,341 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=40m13s679ms).
+2023-10-13 06:09:34,576 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=30m35s235ms).
+2023-10-13 06:50:14,394 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=40m39s817ms).
+2023-10-13 07:31:04,367 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=40m49s974ms).
+2023-10-13 08:11:31,996 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=40m27s629ms).
+2023-10-13 08:42:05,580 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=30m33s584ms).
+2023-10-13 09:22:50,165 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=40m44s585ms).
+2023-10-13 10:03:20,650 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=40m30s484ms).
+2023-10-13 10:23:49,744 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=20m29s94ms).
+2023-10-13 10:46:55,506 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=20m35s729ms).
+2023-10-13 11:17:40,486 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=30m44s982ms).
+2023-10-13 11:58:07,372 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=40m26s887ms).
+2023-10-13 12:05:48,262 [HikariPool-3 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Thread starvation or clock leap detected (housekeeper delta=7m40s890ms).
+2023-10-13 12:14:56,305 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 12:14:56,313 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2023-10-13 12:14:56,327 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2023-10-13 12:21:48,880 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 40953 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
+2023-10-13 12:21:48,894 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-13 12:21:49,032 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-13 12:21:49,033 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-13 12:21:50,384 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-13 12:21:50,537 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 146 ms. Found 5 JPA repository interfaces.
+2023-10-13 12:21:51,822 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-10-13 12:21:51,832 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-13 12:21:51,833 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-13 12:21:51,911 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
+2023-10-13 12:21:51,911 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2877 ms
+2023-10-13 12:21:52,195 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-13 12:21:52,310 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-13 12:21:52,343 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2023-10-13 12:21:52,503 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-13 12:21:52,632 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-13 12:21:52,645 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-13 12:21:53,059 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@61eeb1d8
+2023-10-13 12:21:53,062 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-13 12:21:53,401 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-13 12:21:54,375 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-13 12:21:54,526 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 12:21:55,912 [restartedMain] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-13 12:21:56,295 [restartedMain] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7055c79d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6c4ee6a3, org.springframework.security.web.context.SecurityContextHolderFilter@1be2efd1, org.springframework.security.web.header.HeaderWriterFilter@6e6350ba, org.springframework.web.filter.CorsFilter@170784ca, org.springframework.security.web.authentication.logout.LogoutFilter@4113e97e, cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter@1f76f86a, cdw.springTraining.gatekeeper.config.JwtVisitorAuthFilter@446fd3c0, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@665a0b6f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@481e3e20, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@509e311c, org.springframework.security.web.session.SessionManagementFilter@3d15976b, org.springframework.security.web.access.ExceptionTranslationFilter@7b2f081f, org.springframework.security.web.access.intercept.AuthorizationFilter@457bde58]
+2023-10-13 12:21:56,591 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-10-13 12:21:56,621 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/gate-keeping'
+2023-10-13 12:21:56,635 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Started GatekeeperApplication in 8.364 seconds (process running for 9.084)
+2023-10-13 12:30:34,805 [http-nio-8080-exec-1] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-13 12:30:34,807 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-10-13 12:30:34,816 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2023-10-13 12:30:35,042 [http-nio-8080-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/gate-keeping] threw exception
+cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: The Token has expired on Thu Oct 12 15:00:18 IST 2023.
+	at cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:87)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+2023-10-13 12:30:51,210 [http-nio-8080-exec-3] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : RegistrationController.registrationRequest(..)
+Arguments : [Ljava.lang.Object;@540b3f91
+Time : 13-Oct-2023 12:30:51 pm
+2023-10-13 12:30:51,532 [http-nio-8080-exec-3] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/gate-keeping] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "cdw.springTraining.gatekeeper.entity.User.getRoleName()" because "admin" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "cdw.springTraining.gatekeeper.entity.User.getRoleName()" because "admin" is null
+	at cdw.springTraining.gatekeeper.service.RegistrationServiceImpl.addUser(RegistrationServiceImpl.java:64)
+	at cdw.springTraining.gatekeeper.controller.RegistrationController.registrationRequest(RegistrationController.java:33)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.validation.beanvalidation.MethodValidationInterceptor.invoke(MethodValidationInterceptor.java:141)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect.controllerLogging(GateKeeperLoggingAspect.java:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:637)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:627)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703)
+	at cdw.springTraining.gatekeeper.controller.RegistrationController$$SpringCGLIB$$0.registrationRequest(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+2023-10-13 12:30:59,691 [http-nio-8080-exec-4] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : AuthenticationController.authenticate(..)
+Arguments : [Ljava.lang.Object;@485145db
+Time : 13-Oct-2023 12:30:59 pm
+2023-10-13 12:31:13,474 [http-nio-8080-exec-5] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : RegistrationController.registrationRequest(..)
+Arguments : [Ljava.lang.Object;@20617f8f
+Time : 13-Oct-2023 12:31:13 pm
+2023-10-13 12:31:13,571 [http-nio-8080-exec-5] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
+2023-10-13 12:31:13,571 [http-nio-8080-exec-5] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry 'ramesh@gmail.com' for key 'registration_approval_list.UK_mf265epsrd2gb9sum1belikjj'
+2023-10-13 12:31:13,583 [http-nio-8080-exec-5] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/gate-keeping] threw exception
+cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry 'ramesh@gmail.com' for key 'registration_approval_list.UK_mf265epsrd2gb9sum1belikjj'] [insert into registration_approval_list (age,gender,email,user_name,password,role_name,status) values (?,?,?,?,?,?,?)]; SQL [insert into registration_approval_list (age,gender,email,user_name,password,role_name,status) values (?,?,?,?,?,?,?)]; constraint [registration_approval_list.UK_mf265epsrd2gb9sum1belikjj]
+	at cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:87)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+2023-10-13 12:32:49,170 [http-nio-8080-exec-8] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : RegistrationController.registrationRequest(..)
+Arguments : [Ljava.lang.Object;@2211f48e
+Time : 13-Oct-2023 12:32:49 pm
+2023-10-13 12:32:49,297 [http-nio-8080-exec-8] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
+2023-10-13 12:32:49,298 [http-nio-8080-exec-8] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry 'ramesh@gmail.com' for key 'registration_approval_list.UK_mf265epsrd2gb9sum1belikjj'
+2023-10-13 12:32:49,301 [http-nio-8080-exec-8] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/gate-keeping] threw exception [Request processing failed: org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry 'ramesh@gmail.com' for key 'registration_approval_list.UK_mf265epsrd2gb9sum1belikjj'] [insert into registration_approval_list (age,gender,email,user_name,password,role_name,status) values (?,?,?,?,?,?,?)]; SQL [insert into registration_approval_list (age,gender,email,user_name,password,role_name,status) values (?,?,?,?,?,?,?)]; constraint [registration_approval_list.UK_mf265epsrd2gb9sum1belikjj]] with root cause
+java.sql.SQLIntegrityConstraintViolationException: Duplicate entry 'ramesh@gmail.com' for key 'registration_approval_list.UK_mf265epsrd2gb9sum1belikjj'
+	at com.mysql.cj.jdbc.exceptions.SQLError.createSQLException(SQLError.java:118)
+	at com.mysql.cj.jdbc.exceptions.SQLExceptionsMapping.translateException(SQLExceptionsMapping.java:122)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeInternal(ClientPreparedStatement.java:916)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1061)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdateInternal(ClientPreparedStatement.java:1009)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeLargeUpdate(ClientPreparedStatement.java:1320)
+	at com.mysql.cj.jdbc.ClientPreparedStatement.executeUpdate(ClientPreparedStatement.java:994)
+	at com.zaxxer.hikari.pool.ProxyPreparedStatement.executeUpdate(ProxyPreparedStatement.java:61)
+	at com.zaxxer.hikari.pool.HikariProxyPreparedStatement.executeUpdate(HikariProxyPreparedStatement.java)
+	at org.hibernate.engine.jdbc.internal.ResultSetReturnImpl.executeUpdate(ResultSetReturnImpl.java:275)
+	at org.hibernate.id.insert.GetGeneratedKeysDelegate.performInsert(GetGeneratedKeysDelegate.java:107)
+	at org.hibernate.engine.jdbc.mutation.internal.MutationExecutorPostInsertSingleTable.execute(MutationExecutorPostInsertSingleTable.java:100)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.doStaticInserts(InsertCoordinator.java:169)
+	at org.hibernate.persister.entity.mutation.InsertCoordinator.coordinateInsert(InsertCoordinator.java:111)
+	at org.hibernate.persister.entity.AbstractEntityPersister.insert(AbstractEntityPersister.java:2779)
+	at org.hibernate.action.internal.EntityIdentityInsertAction.execute(EntityIdentityInsertAction.java:81)
+	at org.hibernate.engine.spi.ActionQueue.execute(ActionQueue.java:676)
+	at org.hibernate.engine.spi.ActionQueue.addResolvedEntityInsertAction(ActionQueue.java:291)
+	at org.hibernate.engine.spi.ActionQueue.addInsertAction(ActionQueue.java:272)
+	at org.hibernate.engine.spi.ActionQueue.addAction(ActionQueue.java:322)
+	at org.hibernate.event.internal.AbstractSaveEventListener.addInsertAction(AbstractSaveEventListener.java:363)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSaveOrReplicate(AbstractSaveEventListener.java:277)
+	at org.hibernate.event.internal.AbstractSaveEventListener.performSave(AbstractSaveEventListener.java:180)
+	at org.hibernate.event.internal.AbstractSaveEventListener.saveWithGeneratedId(AbstractSaveEventListener.java:140)
+	at org.hibernate.event.internal.DefaultPersistEventListener.entityIsTransient(DefaultPersistEventListener.java:175)
+	at org.hibernate.event.internal.DefaultPersistEventListener.persist(DefaultPersistEventListener.java:93)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:77)
+	at org.hibernate.event.internal.DefaultPersistEventListener.onPersist(DefaultPersistEventListener.java:54)
+	at org.hibernate.event.service.internal.EventListenerGroupImpl.fireEventOnEachListener(EventListenerGroupImpl.java:127)
+	at org.hibernate.internal.SessionImpl.firePersist(SessionImpl.java:755)
+	at org.hibernate.internal.SessionImpl.persist(SessionImpl.java:739)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.orm.jpa.ExtendedEntityManagerCreator$ExtendedEntityManagerInvocationHandler.invoke(ExtendedEntityManagerCreator.java:360)
+	at jdk.proxy4/jdk.proxy4.$Proxy128.persist(Unknown Source)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.orm.jpa.SharedEntityManagerCreator$SharedEntityManagerInvocationHandler.invoke(SharedEntityManagerCreator.java:311)
+	at jdk.proxy4/jdk.proxy4.$Proxy128.persist(Unknown Source)
+	at org.springframework.data.jpa.repository.support.SimpleJpaRepository.save(SimpleJpaRepository.java:618)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker$RepositoryFragmentMethodInvoker.lambda$new$0(RepositoryMethodInvoker.java:288)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.doInvoke(RepositoryMethodInvoker.java:136)
+	at org.springframework.data.repository.core.support.RepositoryMethodInvoker.invoke(RepositoryMethodInvoker.java:120)
+	at org.springframework.data.repository.core.support.RepositoryComposition$RepositoryFragments.invoke(RepositoryComposition.java:516)
+	at org.springframework.data.repository.core.support.RepositoryComposition.invoke(RepositoryComposition.java:285)
+	at org.springframework.data.repository.core.support.RepositoryFactorySupport$ImplementationMethodExecutionInterceptor.invoke(RepositoryFactorySupport.java:628)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.doInvoke(QueryExecutorMethodInterceptor.java:168)
+	at org.springframework.data.repository.core.support.QueryExecutorMethodInterceptor.invoke(QueryExecutorMethodInterceptor.java:143)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.projection.DefaultMethodInvokingMethodInterceptor.invoke(DefaultMethodInvokingMethodInterceptor.java:72)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.transaction.interceptor.TransactionInterceptor$1.proceedWithInvocation(TransactionInterceptor.java:123)
+	at org.springframework.transaction.interceptor.TransactionAspectSupport.invokeWithinTransaction(TransactionAspectSupport.java:391)
+	at org.springframework.transaction.interceptor.TransactionInterceptor.invoke(TransactionInterceptor.java:119)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.dao.support.PersistenceExceptionTranslationInterceptor.invoke(PersistenceExceptionTranslationInterceptor.java:137)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.data.jpa.repository.support.CrudMethodMetadataPostProcessor$CrudMethodMetadataPopulatingMethodInterceptor.invoke(CrudMethodMetadataPostProcessor.java:164)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.JdkDynamicAopProxy.invoke(JdkDynamicAopProxy.java:244)
+	at jdk.proxy4/jdk.proxy4.$Proxy143.save(Unknown Source)
+	at cdw.springTraining.gatekeeper.service.RegistrationServiceImpl.addUser(RegistrationServiceImpl.java:62)
+	at cdw.springTraining.gatekeeper.controller.RegistrationController.registrationRequest(RegistrationController.java:33)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.validation.beanvalidation.MethodValidationInterceptor.invoke(MethodValidationInterceptor.java:141)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect.controllerLogging(GateKeeperLoggingAspect.java:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:637)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:627)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703)
+	at cdw.springTraining.gatekeeper.controller.RegistrationController$$SpringCGLIB$$0.registrationRequest(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+2023-10-13 12:33:14,129 [http-nio-8080-exec-9] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : RegistrationController.registrationRequest(..)
+Arguments : [Ljava.lang.Object;@345ea639
+Time : 13-Oct-2023 12:33:14 pm
+2023-10-13 12:33:14,237 [http-nio-8080-exec-9] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/gate-keeping] threw exception [Request processing failed: java.lang.NullPointerException: Cannot invoke "cdw.springTraining.gatekeeper.entity.User.getRoleName()" because "admin" is null] with root cause
+java.lang.NullPointerException: Cannot invoke "cdw.springTraining.gatekeeper.entity.User.getRoleName()" because "admin" is null
+	at cdw.springTraining.gatekeeper.service.RegistrationServiceImpl.addUser(RegistrationServiceImpl.java:64)
+	at cdw.springTraining.gatekeeper.controller.RegistrationController.registrationRequest(RegistrationController.java:33)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.aop.support.AopUtils.invokeJoinpointUsingReflection(AopUtils.java:343)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.invokeJoinpoint(ReflectiveMethodInvocation.java:196)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:163)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.validation.beanvalidation.MethodValidationInterceptor.invoke(MethodValidationInterceptor.java:141)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.aspectj.MethodInvocationProceedingJoinPoint.proceed(MethodInvocationProceedingJoinPoint.java:89)
+	at cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect.controllerLogging(GateKeeperLoggingAspect.java:42)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethodWithGivenArgs(AbstractAspectJAdvice.java:637)
+	at org.springframework.aop.aspectj.AbstractAspectJAdvice.invokeAdviceMethod(AbstractAspectJAdvice.java:627)
+	at org.springframework.aop.aspectj.AspectJAroundAdvice.invoke(AspectJAroundAdvice.java:71)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.interceptor.ExposeInvocationInterceptor.invoke(ExposeInvocationInterceptor.java:97)
+	at org.springframework.aop.framework.ReflectiveMethodInvocation.proceed(ReflectiveMethodInvocation.java:184)
+	at org.springframework.aop.framework.CglibAopProxy$CglibMethodInvocation.proceed(CglibAopProxy.java:751)
+	at org.springframework.aop.framework.CglibAopProxy$DynamicAdvisedInterceptor.intercept(CglibAopProxy.java:703)
+	at cdw.springTraining.gatekeeper.controller.RegistrationController$$SpringCGLIB$$0.registrationRequest(<generated>)
+	at java.base/jdk.internal.reflect.DirectMethodHandleAccessor.invoke(DirectMethodHandleAccessor.java:104)
+	at java.base/java.lang.reflect.Method.invoke(Method.java:578)
+	at org.springframework.web.method.support.InvocableHandlerMethod.doInvoke(InvocableHandlerMethod.java:205)
+	at org.springframework.web.method.support.InvocableHandlerMethod.invokeForRequest(InvocableHandlerMethod.java:150)
+	at org.springframework.web.servlet.mvc.method.annotation.ServletInvocableHandlerMethod.invokeAndHandle(ServletInvocableHandlerMethod.java:118)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.invokeHandlerMethod(RequestMappingHandlerAdapter.java:884)
+	at org.springframework.web.servlet.mvc.method.annotation.RequestMappingHandlerAdapter.handleInternal(RequestMappingHandlerAdapter.java:797)
+	at org.springframework.web.servlet.mvc.method.AbstractHandlerMethodAdapter.handle(AbstractHandlerMethodAdapter.java:87)
+	at org.springframework.web.servlet.DispatcherServlet.doDispatch(DispatcherServlet.java:1081)
+	at org.springframework.web.servlet.DispatcherServlet.doService(DispatcherServlet.java:974)
+	at org.springframework.web.servlet.FrameworkServlet.processRequest(FrameworkServlet.java:1011)
+	at org.springframework.web.servlet.FrameworkServlet.doPost(FrameworkServlet.java:914)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:590)
+	at org.springframework.web.servlet.FrameworkServlet.service(FrameworkServlet.java:885)
+	at jakarta.servlet.http.HttpServlet.service(HttpServlet.java:658)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:205)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.tomcat.websocket.server.WsFilter.doFilter(WsFilter.java:51)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:110)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.security.web.FilterChainProxy.lambda$doFilterInternal$3(FilterChainProxy.java:231)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:365)
+	at org.springframework.security.web.access.intercept.AuthorizationFilter.doFilter(AuthorizationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:126)
+	at org.springframework.security.web.access.ExceptionTranslationFilter.doFilter(ExceptionTranslationFilter.java:120)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:131)
+	at org.springframework.security.web.session.SessionManagementFilter.doFilter(SessionManagementFilter.java:85)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.AnonymousAuthenticationFilter.doFilter(AnonymousAuthenticationFilter.java:100)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter.doFilter(SecurityContextHolderAwareRequestFilter.java:179)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.savedrequest.RequestCacheAwareFilter.doFilter(RequestCacheAwareFilter.java:63)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:101)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:90)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+2023-10-13 12:35:24,111 [File Watcher] INFO org.springframework.boot.devtools.autoconfigure.LocalDevToolsAutoConfiguration$RestartingClassPathChangeChangedEventListener - Restarting due to 1 class path change (0 additions, 1 deletion, 0 modifications)
+2023-10-13 12:35:24,143 [Thread-5] INFO org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2023-10-13 12:35:24,148 [Thread-5] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Destroying Spring FrameworkServlet 'dispatcherServlet'
+2023-10-13 12:35:24,168 [Thread-5] WARN org.apache.catalina.loader.WebappClassLoaderBase - The web application [gate-keeping] appears to have started a thread named [HikariPool-1 housekeeper] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
  java.base/jdk.internal.misc.Unsafe.park(Native Method)
  java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
  java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1758)
@@ -65,23 +657,36 @@
  java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
  java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
  java.base/java.lang.Thread.run(Thread.java:1623)
-2023-10-10 15:36:55,213 [restartedMain] WARN org.apache.catalina.loader.WebappClassLoaderBase - The web application [gate-keeping] appears to have started a thread named [HikariPool-1 connection adder] but has failed to stop it. This is very likely to create a memory leak. Stack trace of thread:
- java.base/jdk.internal.misc.Unsafe.park(Native Method)
- java.base/java.util.concurrent.locks.LockSupport.parkNanos(LockSupport.java:269)
- java.base/java.util.concurrent.locks.AbstractQueuedSynchronizer$ConditionObject.awaitNanos(AbstractQueuedSynchronizer.java:1758)
- java.base/java.util.concurrent.LinkedBlockingQueue.poll(LinkedBlockingQueue.java:460)
- java.base/java.util.concurrent.ThreadPoolExecutor.getTask(ThreadPoolExecutor.java:1069)
- java.base/java.util.concurrent.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1130)
- java.base/java.util.concurrent.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:642)
- java.base/java.lang.Thread.run(Thread.java:1623)
-2023-10-10 15:36:55,216 [restartedMain] WARN org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.context.ApplicationContextException: Unable to start web server
-2023-10-10 15:36:55,217 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-10 15:36:55,219 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2023-10-10 15:36:55,228 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-10-10 15:36:55,243 [restartedMain] INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
+2023-10-13 12:35:24,185 [Thread-5] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 12:35:24,193 [Thread-5] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-13 12:35:24,206 [Thread-5] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-13 12:35:24,711 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 40953 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
+2023-10-13 12:35:24,715 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-13 12:35:25,298 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-13 12:35:25,354 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 55 ms. Found 5 JPA repository interfaces.
+2023-10-13 12:35:25,752 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-10-13 12:35:25,757 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-13 12:35:25,759 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-13 12:35:25,888 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
+2023-10-13 12:35:25,897 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 1164 ms
+2023-10-13 12:35:26,293 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-13 12:35:26,311 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-13 12:35:26,313 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-13 12:35:26,315 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Starting...
+2023-10-13 12:35:26,412 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-2 - Added connection com.mysql.cj.jdbc.ConnectionImpl@63578b80
+2023-10-13 12:35:26,417 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Start completed.
+2023-10-13 12:35:26,512 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-13 12:35:26,870 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-13 12:35:26,917 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 12:35:27,509 [restartedMain] WARN org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'registrationController' defined in file [/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes/cdw/springTraining/gatekeeper/controller/RegistrationController.class]: Unsatisfied dependency expressed through constructor parameter 0: No qualifying bean of type 'cdw.springTraining.gatekeeper.service.RegistrationServiceImpl' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
+2023-10-13 12:35:27,510 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 12:35:27,513 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown initiated...
+2023-10-13 12:35:27,520 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-2 - Shutdown completed.
+2023-10-13 12:35:27,522 [restartedMain] INFO org.apache.catalina.core.StandardService - Stopping service [Tomcat]
+2023-10-13 12:35:27,535 [restartedMain] INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
 
 Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2023-10-10 15:36:55,277 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
+2023-10-13 12:35:27,569 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
 
 ***************************
 APPLICATION FAILED TO START
@@ -89,141 +694,177 @@ APPLICATION FAILED TO START
 
 Description:
 
-Parameter 0 of constructor in cdw.springTraining.gatekeeper.service.JwtServiceImpl required a bean of type 'cdw.springTraining.gatekeeper.constant.TimeConstant' that could not be found.
-
-The injection point has the following annotations:
-	- @org.springframework.beans.factory.annotation.Autowired(required=true)
+Parameter 0 of constructor in cdw.springTraining.gatekeeper.controller.RegistrationController required a bean of type 'cdw.springTraining.gatekeeper.service.RegistrationServiceImpl' that could not be found.
 
 
 Action:
 
-Consider defining a bean of type 'cdw.springTraining.gatekeeper.constant.TimeConstant' in your configuration.
+Consider defining a bean of type 'cdw.springTraining.gatekeeper.service.RegistrationServiceImpl' in your configuration.
 
-2023-10-10 15:37:36,517 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 66270 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
-2023-10-10 15:37:36,530 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
-2023-10-10 15:37:36,663 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-10-10 15:37:36,664 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-10-10 15:37:37,951 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-10 15:37:38,107 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 149 ms. Found 5 JPA repository interfaces.
-2023-10-10 15:37:39,413 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-2023-10-10 15:37:39,422 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2023-10-10 15:37:39,423 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-10 15:37:39,510 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
-2023-10-10 15:37:39,511 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2846 ms
-2023-10-10 15:37:39,786 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-10 15:37:39,901 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-10 15:37:39,933 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
-2023-10-10 15:37:40,087 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-10-10 15:37:40,228 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-10 15:37:40,243 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2023-10-10 15:37:40,657 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@61eeb1d8
-2023-10-10 15:37:40,659 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2023-10-10 15:37:40,972 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-10-10 15:37:41,925 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-10 15:37:42,084 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-10 15:37:43,204 [restartedMain] WARN org.springframework.boot.web.servlet.context.AnnotationConfigServletWebServerApplicationContext - Exception encountered during context initialization - cancelling refresh attempt: org.springframework.beans.factory.UnsatisfiedDependencyException: Error creating bean with name 'adminController' defined in file [/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes/cdw/springTraining/gatekeeper/controller/AdminController.class]: Unsatisfied dependency expressed through constructor parameter 0: Error creating bean with name 'adminServiceImpl' defined in file [/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes/cdw/springTraining/gatekeeper/service/AdminServiceImpl.class]: Unsatisfied dependency expressed through constructor parameter 3: No qualifying bean of type 'cdw.springTraining.gatekeeper.constant.ErrorConstants' available: expected at least 1 bean which qualifies as autowire candidate. Dependency annotations: {}
-2023-10-10 15:37:43,206 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-10 15:37:43,209 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2023-10-10 15:37:43,218 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-10-10 15:37:43,222 [restartedMain] INFO org.apache.catalina.core.StandardService - Stopping service [Tomcat]
-2023-10-10 15:37:43,238 [restartedMain] INFO org.springframework.boot.autoconfigure.logging.ConditionEvaluationReportLogger - 
-
-Error starting ApplicationContext. To display the condition evaluation report re-run your application with 'debug' enabled.
-2023-10-10 15:37:43,272 [restartedMain] ERROR org.springframework.boot.diagnostics.LoggingFailureAnalysisReporter - 
-
-***************************
-APPLICATION FAILED TO START
-***************************
-
-Description:
-
-Parameter 3 of constructor in cdw.springTraining.gatekeeper.service.AdminServiceImpl required a bean of type 'cdw.springTraining.gatekeeper.constant.ErrorConstants' that could not be found.
-
-
-Action:
-
-Consider defining a bean of type 'cdw.springTraining.gatekeeper.constant.ErrorConstants' in your configuration.
-
-2023-10-10 15:39:31,085 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 66347 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
-2023-10-10 15:39:31,097 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
-2023-10-10 15:39:31,239 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-10-10 15:39:31,240 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-10-10 15:39:32,659 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-10 15:39:32,823 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 155 ms. Found 5 JPA repository interfaces.
-2023-10-10 15:39:34,314 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-2023-10-10 15:39:34,324 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2023-10-10 15:39:34,324 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-10 15:39:34,398 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
-2023-10-10 15:39:34,399 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 3157 ms
-2023-10-10 15:39:34,720 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-10 15:39:34,834 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-10 15:39:34,866 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
-2023-10-10 15:39:35,036 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-10-10 15:39:35,185 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-10 15:39:35,202 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2023-10-10 15:39:35,618 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ee44de4
-2023-10-10 15:39:35,621 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2023-10-10 15:39:35,945 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-10-10 15:39:36,926 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-10 15:39:37,083 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-10 15:39:38,489 [restartedMain] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-10-10 15:39:38,903 [restartedMain] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@23556127, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@c5d7f01, org.springframework.security.web.context.SecurityContextHolderFilter@4ec60f6b, org.springframework.security.web.header.HeaderWriterFilter@7796f0e9, org.springframework.web.filter.CorsFilter@2741c091, org.springframework.security.web.authentication.logout.LogoutFilter@4e57113, cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter@1df3532e, cdw.springTraining.gatekeeper.config.JwtVisitorAuthFilter@85e71fe, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@2d13d307, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@36a94ad9, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@7c4087b1, org.springframework.security.web.session.SessionManagementFilter@4ddf4156, org.springframework.security.web.access.ExceptionTranslationFilter@5a5bdb3a, org.springframework.security.web.access.intercept.AuthorizationFilter@40b3b1eb]
-2023-10-10 15:39:39,248 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2023-10-10 15:39:39,284 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/gate-keeping'
-2023-10-10 15:39:39,311 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Started GatekeeperApplication in 8.86 seconds (process running for 9.591)
-2023-10-10 15:40:37,111 [http-nio-8080-exec-2] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-10 15:40:37,112 [http-nio-8080-exec-2] INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2023-10-10 15:40:37,116 [http-nio-8080-exec-2] INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 4 ms
-2023-10-10 15:40:37,354 [http-nio-8080-exec-2] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+2023-10-13 12:35:29,074 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 40953 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
+2023-10-13 12:35:29,074 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-13 12:35:29,349 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-13 12:35:29,383 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 32 ms. Found 5 JPA repository interfaces.
+2023-10-13 12:35:29,587 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-10-13 12:35:29,589 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-13 12:35:29,589 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-13 12:35:29,602 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat-1].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
+2023-10-13 12:35:29,603 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 519 ms
+2023-10-13 12:35:29,669 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-13 12:35:29,682 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-13 12:35:29,683 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-13 12:35:29,683 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Starting...
+2023-10-13 12:35:29,703 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-3 - Added connection com.mysql.cj.jdbc.ConnectionImpl@8fb6e88
+2023-10-13 12:35:29,703 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Start completed.
+2023-10-13 12:35:29,744 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-13 12:35:29,914 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-13 12:35:29,944 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 12:35:30,930 [restartedMain] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-13 12:35:31,182 [restartedMain] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@24c049b2, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@29ff1b64, org.springframework.security.web.context.SecurityContextHolderFilter@245f3a5e, org.springframework.security.web.header.HeaderWriterFilter@2ce6ae8a, org.springframework.web.filter.CorsFilter@59d54ea0, org.springframework.security.web.authentication.logout.LogoutFilter@349724ba, cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter@473f2bc0, cdw.springTraining.gatekeeper.config.JwtVisitorAuthFilter@37f96232, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@18a60a8b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@12d65eb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@25e5bfa, org.springframework.security.web.session.SessionManagementFilter@88c11c1, org.springframework.security.web.access.ExceptionTranslationFilter@788889af, org.springframework.security.web.access.intercept.AuthorizationFilter@7625beae]
+2023-10-13 12:35:31,332 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-10-13 12:35:31,349 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/gate-keeping'
+2023-10-13 12:35:31,357 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Started GatekeeperApplication in 2.349 seconds (process running for 823.802)
+2023-10-13 12:35:31,365 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.ConditionEvaluationDeltaLoggingListener - Condition evaluation unchanged
+2023-10-13 12:35:33,692 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 12:35:33,695 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown initiated...
+2023-10-13 12:35:33,718 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-3 - Shutdown completed.
+2023-10-13 12:35:40,268 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 42101 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
+2023-10-13 12:35:40,279 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-13 12:35:40,413 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-13 12:35:40,414 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-13 12:35:41,746 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-13 12:35:41,896 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 143 ms. Found 5 JPA repository interfaces.
+2023-10-13 12:35:43,164 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-10-13 12:35:43,176 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-13 12:35:43,176 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-13 12:35:43,262 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
+2023-10-13 12:35:43,264 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2848 ms
+2023-10-13 12:35:43,568 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-13 12:35:43,660 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-13 12:35:43,694 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2023-10-13 12:35:43,845 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-13 12:35:43,981 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-13 12:35:43,996 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-13 12:35:44,447 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@61eeb1d8
+2023-10-13 12:35:44,451 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-13 12:35:44,817 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-13 12:35:45,778 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-13 12:35:45,927 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 12:35:47,294 [restartedMain] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-13 12:35:47,693 [restartedMain] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7055c79d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@6c4ee6a3, org.springframework.security.web.context.SecurityContextHolderFilter@1be2efd1, org.springframework.security.web.header.HeaderWriterFilter@6e6350ba, org.springframework.web.filter.CorsFilter@170784ca, org.springframework.security.web.authentication.logout.LogoutFilter@4113e97e, cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter@11ea87db, cdw.springTraining.gatekeeper.config.JwtVisitorAuthFilter@1c717b38, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@665a0b6f, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@481e3e20, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@509e311c, org.springframework.security.web.session.SessionManagementFilter@3d15976b, org.springframework.security.web.access.ExceptionTranslationFilter@7b2f081f, org.springframework.security.web.access.intercept.AuthorizationFilter@457bde58]
+2023-10-13 12:35:48,007 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-10-13 12:35:48,036 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/gate-keeping'
+2023-10-13 12:35:48,053 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Started GatekeeperApplication in 8.41 seconds (process running for 9.084)
+2023-10-13 12:36:03,811 [http-nio-8080-exec-1] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-13 12:36:03,812 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-10-13 12:36:03,814 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2023-10-13 12:36:04,007 [http-nio-8080-exec-1] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : RegistrationController.registrationRequest(..)
+Arguments : [Ljava.lang.Object;@2148c4eb
+Time : 13-Oct-2023 12:36:04 pm
+2023-10-13 12:36:56,415 [http-nio-8080-exec-3] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
 Method : AuthenticationController.authenticate(..)
-Arguments : [Ljava.lang.Object;@69c0e965
-Time : 1696932637344
-2023-10-10 15:47:29,430 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-10 15:47:29,457 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2023-10-10 15:47:29,473 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-10-10 15:56:21,375 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 3454 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
-2023-10-10 15:56:21,388 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
-2023-10-10 15:56:21,518 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-10-10 15:56:21,519 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-10-10 15:56:22,934 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-10 15:56:23,090 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 148 ms. Found 5 JPA repository interfaces.
-2023-10-10 15:56:24,404 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-2023-10-10 15:56:24,415 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2023-10-10 15:56:24,415 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-10 15:56:24,501 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
-2023-10-10 15:56:24,502 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2981 ms
-2023-10-10 15:56:24,829 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-10 15:56:24,942 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-10 15:56:24,974 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
-2023-10-10 15:56:25,134 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-10-10 15:56:25,262 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-10 15:56:25,275 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2023-10-10 15:56:25,767 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@6c51997a
-2023-10-10 15:56:25,769 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2023-10-10 15:56:26,102 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-10-10 15:56:27,035 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-10 15:56:27,196 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-10 15:56:28,694 [restartedMain] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-10-10 15:56:29,109 [restartedMain] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4f56953b, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@4b19a095, org.springframework.security.web.context.SecurityContextHolderFilter@5403a13, org.springframework.security.web.header.HeaderWriterFilter@404e7f3c, org.springframework.web.filter.CorsFilter@5e0448a4, org.springframework.security.web.authentication.logout.LogoutFilter@1be2efd1, cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter@67a3d2ab, cdw.springTraining.gatekeeper.config.JwtVisitorAuthFilter@4213d874, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7afcdaa1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@7b2f081f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1e6699cd, org.springframework.security.web.session.SessionManagementFilter@2091d423, org.springframework.security.web.access.ExceptionTranslationFilter@6746fae3, org.springframework.security.web.access.intercept.AuthorizationFilter@774e7bed]
-2023-10-10 15:56:29,426 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2023-10-10 15:56:29,454 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/gate-keeping'
-2023-10-10 15:56:29,470 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Started GatekeeperApplication in 8.681 seconds (process running for 9.393)
-2023-10-10 15:57:10,855 [http-nio-8080-exec-1] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-10 15:57:10,856 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2023-10-10 15:57:10,863 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 7 ms
-2023-10-10 15:57:11,046 [http-nio-8080-exec-1] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Arguments : [Ljava.lang.Object;@439194b0
+Time : 13-Oct-2023 12:36:56 pm
+2023-10-13 12:37:08,679 [http-nio-8080-exec-4] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : AdminController.viewRequest()
+Arguments : [Ljava.lang.Object;@1bdc531
+Time : 13-Oct-2023 12:37:08 pm
+2023-10-13 12:37:40,491 [http-nio-8080-exec-5] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : AdminController.approveRequest(..)
+Arguments : [Ljava.lang.Object;@76509d78
+Time : 13-Oct-2023 12:37:40 pm
+2023-10-13 12:38:05,379 [http-nio-8080-exec-7] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : AdminController.rejectRequest(..)
+Arguments : [Ljava.lang.Object;@1506d0ef
+Time : 13-Oct-2023 12:38:05 pm
+2023-10-13 12:39:07,590 [http-nio-8080-exec-9] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : AdminController.updateResident(..)
+Arguments : [Ljava.lang.Object;@1e90d09c
+Time : 13-Oct-2023 12:39:07 pm
+2023-10-13 12:39:19,025 [http-nio-8080-exec-10] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/gate-keeping] threw exception
+cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: The Token's Signature resulted invalid when verified using the Algorithm: HmacSHA256
+	at cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:87)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)
+2023-10-13 12:39:27,001 [http-nio-8080-exec-2] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MissingServletRequestParameterException: Required request parameter 'residentId' for method parameter type Integer is not present]
+2023-10-13 12:40:51,126 [http-nio-8080-exec-3] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : AdminController.deleteResident(..)
+Arguments : [Ljava.lang.Object;@183e66f0
+Time : 13-Oct-2023 12:40:51 pm
+2023-10-13 12:41:54,860 [http-nio-8080-exec-7] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
 Method : AuthenticationController.authenticate(..)
-Arguments : [Ljava.lang.Object;@36b00854
-Time : 1696933631041
-2023-10-10 15:58:52,488 [http-nio-8080-exec-4] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.http.converter.HttpMessageNotReadableException: JSON parse error: Unrecognized token 'maaamathi': was expecting (JSON String, Number, Array, Object or token 'null', 'true' or 'false')]
-2023-10-10 15:59:22,814 [http-nio-8080-exec-6] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Arguments : [Ljava.lang.Object;@2cb0fa65
+Time : 13-Oct-2023 12:41:54 pm
+2023-10-13 12:42:07,131 [http-nio-8080-exec-8] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
 Method : ResidentController.bookVisitorSlot(..)
-Arguments : [Ljava.lang.Object;@706ae8f2
-Time : 1696933762814
-2023-10-10 15:59:22,879 [http-nio-8080-exec-6] ERROR cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - only resident will be able to book visitor slot
-2023-10-10 15:59:22,884 [http-nio-8080-exec-6] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/gate-keeping] threw exception
-cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: Request processing failed: java.lang.ClassCastException: class cdw.springTraining.gatekeeper.customException.GateKeepingCustomException cannot be cast to class org.springframework.http.ResponseEntity (cdw.springTraining.gatekeeper.customException.GateKeepingCustomException is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @2d3095a1; org.springframework.http.ResponseEntity is in unnamed module of loader 'app')
-	at cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:88)
+Arguments : [Ljava.lang.Object;@6c24f164
+Time : 13-Oct-2023 12:42:07 pm
+2023-10-13 12:43:30,461 [http-nio-8080-exec-2] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<cdw.springTraining.gatekeeper.model.ControllerResponse> cdw.springTraining.gatekeeper.controller.ResidentController.bookVisitorSlot(cdw.springTraining.gatekeeper.model.VisitorSlotRequest): [Field error in object 'visitorSlotRequest' on field 'mail': rejected value [arungmail.com]; codes [Email.visitorSlotRequest.mail,Email.mail,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [visitorSlotRequest.mail,mail]; arguments []; default message [mail],[Ljakarta.validation.constraints.Pattern$Flag;@347faf80,.*]; default message [must be a well-formed email address]] ]
+2023-10-13 12:44:05,601 [http-nio-8080-exec-1] WARN org.springframework.web.servlet.mvc.support.DefaultHandlerExceptionResolver - Resolved [org.springframework.web.bind.MethodArgumentNotValidException: Validation failed for argument [0] in public org.springframework.http.ResponseEntity<cdw.springTraining.gatekeeper.model.ControllerResponse> cdw.springTraining.gatekeeper.controller.ResidentController.bookVisitorSlot(cdw.springTraining.gatekeeper.model.VisitorSlotRequest): [Field error in object 'visitorSlotRequest' on field 'mail': rejected value [arungmail.com]; codes [Email.visitorSlotRequest.mail,Email.mail,Email.java.lang.String,Email]; arguments [org.springframework.context.support.DefaultMessageSourceResolvable: codes [visitorSlotRequest.mail,mail]; arguments []; default message [mail],[Ljakarta.validation.constraints.Pattern$Flag;@347faf80,.*]; default message [must be a well-formed email address]] ]
+2023-10-13 12:44:18,453 [http-nio-8080-exec-4] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : ResidentController.bookVisitorSlot(..)
+Arguments : [Ljava.lang.Object;@1890809c
+Time : 13-Oct-2023 12:44:18 pm
+2023-10-13 12:44:18,492 [http-nio-8080-exec-4] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/gate-keeping] threw exception
+cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: Request processing failed: jakarta.validation.ConstraintViolationException: Validation failed for classes [cdw.springTraining.gatekeeper.entity.VisitorSlot] during persist time for groups [jakarta.validation.groups.Default, ]
+List of constraint violations:[
+	ConstraintViolationImpl{interpolatedMessage='email is required', propertyPath=mail, rootBeanClass=class cdw.springTraining.gatekeeper.entity.VisitorSlot, messageTemplate='email is required'}
+]
+	at cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:87)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
@@ -279,20 +920,19 @@ cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: Reques
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
-2023-10-10 15:59:46,794 [http-nio-8080-exec-7] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
-Method : ResidentController.bookVisitorSlot(..)
-Arguments : [Ljava.lang.Object;@2233f6e6
-Time : 1696933786794
-2023-10-10 15:59:49,561 [http-nio-8080-exec-8] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
-Method : ResidentController.bookVisitorSlot(..)
-Arguments : [Ljava.lang.Object;@2d1ea6a7
-Time : 1696933789561
-2023-10-10 15:59:49,577 [http-nio-8080-exec-8] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
-2023-10-10 15:59:49,578 [http-nio-8080-exec-8] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry 'maaamathi@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'
-2023-10-10 15:59:49,591 [http-nio-8080-exec-8] ERROR cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - could not execute statement [Duplicate entry 'maaamathi@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'] [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; SQL [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; constraint [visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl]
-2023-10-10 15:59:49,593 [http-nio-8080-exec-8] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/gate-keeping] threw exception
-cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: Request processing failed: java.lang.ClassCastException: class cdw.springTraining.gatekeeper.customException.GateKeepingCustomException cannot be cast to class org.springframework.http.ResponseEntity (cdw.springTraining.gatekeeper.customException.GateKeepingCustomException is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @2d3095a1; org.springframework.http.ResponseEntity is in unnamed module of loader 'app')
-	at cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:88)
+2023-10-13 12:48:24,923 [http-nio-8080-exec-5] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : AuthenticationController.authenticate(..)
+Arguments : [Ljava.lang.Object;@32c4e25d
+Time : 13-Oct-2023 12:48:24 pm
+2023-10-13 12:53:51,561 [http-nio-8080-exec-9] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : RegistrationController.registrationRequest(..)
+Arguments : [Ljava.lang.Object;@22918e90
+Time : 13-Oct-2023 12:53:51 pm
+2023-10-13 12:53:51,565 [http-nio-8080-exec-9] ERROR cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - Only Residents and Gate keepers can be register
+2023-10-13 12:53:51,595 [http-nio-8080-exec-9] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: Only Residents and Gate keepers can be register]
+2023-10-13 12:54:24,363 [http-nio-8080-exec-10] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/gate-keeping] threw exception
+cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: The Token's Signature resulted invalid when verified using the Algorithm: HmacSHA256
+	at cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:87)
 	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
 	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
 	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
@@ -348,203 +988,115 @@ cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: Reques
 	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
 	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
 	at java.base/java.lang.Thread.run(Thread.java:1623)
-2023-10-10 16:00:36,887 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-10 16:00:36,891 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2023-10-10 16:00:36,901 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-10-10 16:02:01,060 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 3589 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
-2023-10-10 16:02:01,075 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
-2023-10-10 16:02:01,203 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-10-10 16:02:01,204 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-10-10 16:02:02,571 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-10 16:02:02,745 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 167 ms. Found 5 JPA repository interfaces.
-2023-10-10 16:02:04,084 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-2023-10-10 16:02:04,094 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2023-10-10 16:02:04,094 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-10 16:02:04,177 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
-2023-10-10 16:02:04,178 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2974 ms
-2023-10-10 16:02:04,483 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-10 16:02:04,607 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-10 16:02:04,647 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
-2023-10-10 16:02:04,803 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-10-10 16:02:04,924 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-10 16:02:04,941 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2023-10-10 16:02:05,374 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@42aa40cb
-2023-10-10 16:02:05,377 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2023-10-10 16:02:05,812 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-10-10 16:02:06,823 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-10 16:02:06,954 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-10 16:02:08,359 [restartedMain] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-10-10 16:02:08,736 [restartedMain] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@4b19a095, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5e0448a4, org.springframework.security.web.context.SecurityContextHolderFilter@2bded654, org.springframework.security.web.header.HeaderWriterFilter@108f0434, org.springframework.web.filter.CorsFilter@1e6699cd, org.springframework.security.web.authentication.logout.LogoutFilter@a5d9d09, cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter@67a54962, cdw.springTraining.gatekeeper.config.JwtVisitorAuthFilter@6668b122, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@3e3fc78e, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3beca343, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@65622877, org.springframework.security.web.session.SessionManagementFilter@77a4daf4, org.springframework.security.web.access.ExceptionTranslationFilter@37a69da3, org.springframework.security.web.access.intercept.AuthorizationFilter@4e18a41a]
-2023-10-10 16:02:09,024 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2023-10-10 16:02:09,053 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/gate-keeping'
-2023-10-10 16:02:09,077 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Started GatekeeperApplication in 8.622 seconds (process running for 9.37)
-2023-10-10 16:02:32,919 [http-nio-8080-exec-1] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-10 16:02:32,919 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2023-10-10 16:02:32,924 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
-2023-10-10 16:02:33,487 [http-nio-8080-exec-1] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
-Method : ResidentController.bookVisitorSlot(..)
-Arguments : [Ljava.lang.Object;@682baba0
-Time : 1696933953450
-2023-10-10 16:02:33,738 [http-nio-8080-exec-1] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
-2023-10-10 16:02:33,739 [http-nio-8080-exec-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry 'maaamathi@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'
-2023-10-10 16:02:33,749 [http-nio-8080-exec-1] ERROR cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - could not execute statement [Duplicate entry 'maaamathi@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'] [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; SQL [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; constraint [visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl]
-2023-10-10 16:02:33,766 [http-nio-8080-exec-1] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/gate-keeping] threw exception
-cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: Request processing failed: java.lang.ClassCastException: class cdw.springTraining.gatekeeper.customException.GateKeepingCustomException cannot be cast to class org.springframework.http.ResponseEntity (cdw.springTraining.gatekeeper.customException.GateKeepingCustomException is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @2d3095a1; org.springframework.http.ResponseEntity is in unnamed module of loader 'app')
-	at cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:88)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-2023-10-10 16:03:52,559 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-10 16:03:52,565 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2023-10-10 16:03:52,574 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
-2023-10-10 16:05:26,387 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 3674 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
-2023-10-10 16:05:26,400 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
-2023-10-10 16:05:26,541 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
-2023-10-10 16:05:26,542 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
-2023-10-10 16:05:27,834 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
-2023-10-10 16:05:27,977 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 135 ms. Found 5 JPA repository interfaces.
-2023-10-10 16:05:29,252 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
-2023-10-10 16:05:29,259 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
-2023-10-10 16:05:29,260 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
-2023-10-10 16:05:29,341 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
-2023-10-10 16:05:29,343 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2800 ms
-2023-10-10 16:05:29,639 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
-2023-10-10 16:05:29,731 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
-2023-10-10 16:05:29,762 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
-2023-10-10 16:05:29,918 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-10-10 16:05:30,045 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
-2023-10-10 16:05:30,060 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
-2023-10-10 16:05:30,447 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ee44de4
-2023-10-10 16:05:30,449 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
-2023-10-10 16:05:30,740 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
-2023-10-10 16:05:31,675 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
-2023-10-10 16:05:31,806 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
-2023-10-10 16:05:33,100 [restartedMain] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
-2023-10-10 16:05:33,481 [restartedMain] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7c4087b1, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@74948d47, org.springframework.security.web.context.SecurityContextHolderFilter@23bee9e5, org.springframework.security.web.header.HeaderWriterFilter@61666968, org.springframework.web.filter.CorsFilter@13d641a3, org.springframework.security.web.authentication.logout.LogoutFilter@7f082aea, cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter@4dced7b4, cdw.springTraining.gatekeeper.config.JwtVisitorAuthFilter@da70206, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@5113a97, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@5bb00a5a, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@3a3a4e00, org.springframework.security.web.session.SessionManagementFilter@4ec60f6b, org.springframework.security.web.access.ExceptionTranslationFilter@7796f0e9, org.springframework.security.web.access.intercept.AuthorizationFilter@17ed628e]
-2023-10-10 16:05:33,771 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
-2023-10-10 16:05:33,800 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/gate-keeping'
-2023-10-10 16:05:33,814 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Started GatekeeperApplication in 8.013 seconds (process running for 8.677)
-2023-10-10 16:05:55,848 [http-nio-8080-exec-2] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring DispatcherServlet 'dispatcherServlet'
-2023-10-10 16:05:55,848 [http-nio-8080-exec-2] INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
-2023-10-10 16:05:55,851 [http-nio-8080-exec-2] INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
-2023-10-10 16:05:56,250 [http-nio-8080-exec-2] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
-Method : ResidentController.bookVisitorSlot(..)
-Arguments : [Ljava.lang.Object;@47b4c24f
-Time : 1696934156244
-2023-10-10 16:05:56,354 [http-nio-8080-exec-2] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
-2023-10-10 16:05:56,355 [http-nio-8080-exec-2] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry 'maaamathi@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'
-2023-10-10 16:05:56,364 [http-nio-8080-exec-2] ERROR cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - could not execute statement [Duplicate entry 'maaamathi@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'] [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; SQL [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; constraint [visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl]
-2023-10-10 16:05:56,372 [http-nio-8080-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/gate-keeping] threw exception
-cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: Request processing failed: java.lang.ClassCastException: class cdw.springTraining.gatekeeper.customException.GateKeepingCustomException cannot be cast to class org.springframework.http.ResponseEntity (cdw.springTraining.gatekeeper.customException.GateKeepingCustomException is in unnamed module of loader org.springframework.boot.devtools.restart.classloader.RestartClassLoader @6884f309; org.springframework.http.ResponseEntity is in unnamed module of loader 'app')
-	at cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:88)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
-	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
-	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
-	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
-	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
-	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
-	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
-	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
-	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
-	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
-	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
-	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
-	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
-	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
-	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
-	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
-	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
-	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
-	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
-	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
-	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
-	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
-	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
-	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
-	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
-	at java.base/java.lang.Thread.run(Thread.java:1623)
-2023-10-10 16:09:31,092 [HikariPool-1 housekeeper] WARN com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Thread starvation or clock leap detected (housekeeper delta=1m508ms).
-2023-10-10 16:15:55,397 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
-2023-10-10 16:15:55,404 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
-2023-10-10 16:15:55,416 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-13 12:54:58,034 [http-nio-8080-exec-2] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : AuthenticationController.authenticate(..)
+Arguments : [Ljava.lang.Object;@469801ac
+Time : 13-Oct-2023 12:54:58 pm
+2023-10-13 12:55:14,774 [http-nio-8080-exec-1] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : ResidentController.removeVisitorSlot(..)
+Arguments : [Ljava.lang.Object;@7658acc0
+Time : 13-Oct-2023 12:55:14 pm
+2023-10-13 12:55:14,788 [http-nio-8080-exec-1] ERROR cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - User with the given id is not found
+2023-10-13 12:55:14,791 [http-nio-8080-exec-1] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: User with the given id is not found]
+2023-10-13 12:56:29,929 [http-nio-8080-exec-6] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : AuthenticationController.authenticate(..)
+Arguments : [Ljava.lang.Object;@4cf0cc3a
+Time : 13-Oct-2023 12:56:29 pm
+2023-10-13 12:57:23,208 [http-nio-8080-exec-5] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : GateKeeperController.slotApproval(..)
+Arguments : [Ljava.lang.Object;@3324b448
+Time : 13-Oct-2023 12:57:23 pm
+2023-10-13 12:58:31,090 [http-nio-8080-exec-9] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : GateKeeperController.slotApproval(..)
+Arguments : [Ljava.lang.Object;@8d54fea
+Time : 13-Oct-2023 12:58:31 pm
+2023-10-13 13:02:03,779 [http-nio-8080-exec-1] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : GateKeeperController.slotApproval(..)
+Arguments : [Ljava.lang.Object;@30007c9f
+Time : 13-Oct-2023 01:02:03 pm
+2023-10-13 13:02:03,781 [http-nio-8080-exec-1] ERROR cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - Invalid approval status : Gate keeper can only approve or reject
+2023-10-13 13:02:03,783 [http-nio-8080-exec-1] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: Invalid approval status : Gate keeper can only approve or reject]
+2023-10-13 13:03:38,228 [http-nio-8080-exec-4] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : AuthenticationController.authenticate(..)
+Arguments : [Ljava.lang.Object;@5d19a95a
+Time : 13-Oct-2023 01:03:38 pm
+2023-10-13 13:04:01,033 [http-nio-8080-exec-6] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : ResidentController.residentCheckingIn(..)
+Arguments : [Ljava.lang.Object;@47b22ecf
+Time : 13-Oct-2023 01:04:01 pm
+2023-10-13 13:05:42,310 [http-nio-8080-exec-8] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : VisitorController.getPass(..)
+Arguments : [Ljava.lang.Object;@53ab32f6
+Time : 13-Oct-2023 01:05:42 pm
+2023-10-13 13:05:42,383 [http-nio-8080-exec-8] ERROR cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - User with the given mail is not found
+2023-10-13 13:05:42,395 [http-nio-8080-exec-8] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: User with the given mail is not found]
+2023-10-13 13:05:55,381 [http-nio-8080-exec-9] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : VisitorController.getPass(..)
+Arguments : [Ljava.lang.Object;@73414499
+Time : 13-Oct-2023 01:05:55 pm
+2023-10-13 13:06:17,153 [http-nio-8080-exec-10] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : VisitorController.residentCheck(..)
+Arguments : [Ljava.lang.Object;@74b574d6
+Time : 13-Oct-2023 01:06:17 pm
+2023-10-13 13:06:51,806 [http-nio-8080-exec-2] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : ResidentController.residentCheckingOut(..)
+Arguments : [Ljava.lang.Object;@5a4112d1
+Time : 13-Oct-2023 01:06:51 pm
+2023-10-13 13:06:55,917 [http-nio-8080-exec-1] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : VisitorController.residentCheck(..)
+Arguments : [Ljava.lang.Object;@61f1e7ef
+Time : 13-Oct-2023 01:06:55 pm
+2023-10-13 13:08:04,524 [http-nio-8080-exec-4] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : GateKeeperController.gateKeeperBlackList(..)
+Arguments : [Ljava.lang.Object;@739e8ece
+Time : 13-Oct-2023 01:08:04 pm
+2023-10-13 13:08:31,132 [http-nio-8080-exec-6] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : RegistrationController.registrationRequest(..)
+Arguments : [Ljava.lang.Object;@2473b837
+Time : 13-Oct-2023 01:08:31 pm
+2023-10-13 13:08:31,147 [http-nio-8080-exec-6] ERROR cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - Unable to register : The user has been black listed
+2023-10-13 13:08:31,149 [http-nio-8080-exec-6] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springTraining.gatekeeper.customException.GateKeepingCustomException: Unable to register : The user has been black listed]
+2023-10-13 13:25:38,668 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 13:25:38,676 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-13 13:25:38,690 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-13 13:25:45,559 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 44202 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
+2023-10-13 13:25:45,571 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-13 13:25:45,704 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-13 13:25:45,705 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-13 13:25:47,043 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-13 13:25:47,191 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 142 ms. Found 5 JPA repository interfaces.
+2023-10-13 13:25:48,423 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-10-13 13:25:48,436 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-13 13:25:48,436 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-13 13:25:48,514 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
+2023-10-13 13:25:48,514 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2809 ms
+2023-10-13 13:25:48,773 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-13 13:25:48,883 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-13 13:25:48,915 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2023-10-13 13:25:49,065 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-13 13:25:49,198 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-13 13:25:49,221 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-13 13:25:49,614 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@2ee44de4
+2023-10-13 13:25:49,617 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-13 13:25:49,948 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-13 13:25:50,940 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-13 13:25:51,080 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 13:25:52,678 [restartedMain] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-13 13:25:53,071 [restartedMain] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@5d674ef9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5b4f6f8c, org.springframework.security.web.context.SecurityContextHolderFilter@7f082aea, org.springframework.security.web.header.HeaderWriterFilter@3b863eb9, org.springframework.web.filter.CorsFilter@2ca2f0c9, org.springframework.security.web.authentication.logout.LogoutFilter@609262b4, cdw.springTraining.gatekeeper.config.JwtAuthenticationFilter@3968aaba, cdw.springTraining.gatekeeper.config.JwtVisitorAuthFilter@b0d1d2d, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@7cd020bd, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@40b3b1eb, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@25b00141, org.springframework.security.web.session.SessionManagementFilter@4e57113, org.springframework.security.web.access.ExceptionTranslationFilter@5bb00a5a, org.springframework.security.web.access.intercept.AuthorizationFilter@427dbdac]
+2023-10-13 13:25:53,356 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-10-13 13:25:53,387 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/gate-keeping'
+2023-10-13 13:25:53,401 [restartedMain] INFO cdw.springTraining.gatekeeper.GatekeeperApplication - Started GatekeeperApplication in 8.523 seconds (process running for 9.247)
+2023-10-13 13:26:38,021 [http-nio-8080-exec-2] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-13 13:26:38,022 [http-nio-8080-exec-2] INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-10-13 13:26:38,026 [http-nio-8080-exec-2] INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 4 ms
+2023-10-13 13:26:38,209 [http-nio-8080-exec-2] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : AuthenticationController.authenticate(..)
+Arguments : [Ljava.lang.Object;@62cf6a87
+Time : 13-Oct-2023 01:26:38 pm
+2023-10-13 13:26:58,191 [http-nio-8080-exec-3] INFO cdw.springTraining.gatekeeper.aspect.GateKeeperLoggingAspect - 
+Method : RegistrationController.registrationRequest(..)
+Arguments : [Ljava.lang.Object;@4c51d0e3
+Time : 13-Oct-2023 01:26:58 pm
+2023-10-13 13:27:39,553 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-13 13:27:39,559 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-13 13:27:39,569 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.

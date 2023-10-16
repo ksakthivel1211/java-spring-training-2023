@@ -8,6 +8,10 @@ import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.stereotype.Component;
 
+import java.text.SimpleDateFormat;
+import java.util.Calendar;
+import java.util.Date;
+
 /**
  * @author sakthivel
  * GateKeeperLoggingAspect class file logs the return or error response through around advice
@@ -23,21 +27,23 @@ public class GateKeeperLoggingAspect {
 
         String method = proceedingJoinPoint.getSignature().toShortString();
         Object[] args = proceedingJoinPoint.getArgs();
+        String val = args.getClass().getName();
 
+        SimpleDateFormat dateformat = new SimpleDateFormat("dd-MMM-yyyy hh:mm:ss aa");
+        String datetime = dateformat.format(new Date().getTime());
         Object result = null;
-        logger.info("\nMethod : "+method+"\nArguments : "+args+"\nTime : "+System.currentTimeMillis());
+        logger.info("\nMethod : "+method+"\nArguments : "+args+"\nTime : "+datetime);
 
-        System.out.println("\nMethod : "+method+"\nArguments : "+args+"\nTime : "+System.currentTimeMillis());
+        System.out.println("\nMethod : "+method+"\nArguments : "+val+"\nTime : "+datetime);
 
         long begin = System.currentTimeMillis();
         try
         {
             result = proceedingJoinPoint.proceed();
         }
-        catch (Exception exception)
-        {
-            logger.error(exception.getMessage());
-            result =  new GateKeepingCustomException(exception.getMessage());
+        catch (GateKeepingCustomException gateKeepingCustomException) {
+            logger.error(gateKeepingCustomException.getMessage());
+            throw gateKeepingCustomException;
         }
         long end = System.currentTimeMillis();
 

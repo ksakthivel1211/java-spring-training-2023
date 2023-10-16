@@ -3,7 +3,6 @@ package cdw.springTraining.gatekeeper.config;
 import cdw.springTraining.gatekeeper.customException.GateKeepingCustomException;
 import cdw.springTraining.gatekeeper.dao.TokenRepository;
 import cdw.springTraining.gatekeeper.dao.UserRepository;
-import cdw.springTraining.gatekeeper.entity.Token;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.JWTVerifier;
 import com.auth0.jwt.algorithms.Algorithm;

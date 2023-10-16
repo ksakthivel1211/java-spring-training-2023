@@ -2,6 +2,7 @@ package cdw.springTraining.gatekeeper.entity;
 
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
+import jakarta.validation.constraints.NotNull;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
@@ -28,6 +29,7 @@ public class RegistrationApprovalList {
     private String status;
 
     @Column(name="user_name")
+    @NotNull(message = "name is required")
     private String name;
 
     @Column(name="age")
@@ -41,9 +43,11 @@ public class RegistrationApprovalList {
     private String mail;
 
     @Column(name = "password")
+    @NotNull(message = "password is required")
     private String password;
 
     @Column(name = "role_name")
+    @NotNull(message = "role name is required")
     private String roleName;
 
     public RegistrationApprovalList(String status, String name, int age, String gender, String mail, String password, String roleName) {
