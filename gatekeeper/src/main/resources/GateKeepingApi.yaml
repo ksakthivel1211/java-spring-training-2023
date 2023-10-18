@@ -11,7 +11,7 @@ tags:
   - name: Registration
     description: User requesting for registration
   - name: Authentication
-    description: resident, gatekeeper and admin login endpoint which generates token
+    description: resident, gatekeepers and admin login endpoint which generates token
   - name: Resident
     description: Resident operations are carried out here
   - name: Gate keeper
@@ -206,7 +206,7 @@ paths:
           content:
             application/json:
               schema:
-                $ref: '#/components/schemas/Authentication-response'
+                $ref: '#/components/schemas/Authentication-response-vo'
         '400':
           description: Bad request.
         '401':
@@ -616,7 +616,7 @@ components:
           type: string
           example: processSuccess
 
-    Authentication-response:
+    Authentication-response-vo:
       type: object
       properties:
         mail:

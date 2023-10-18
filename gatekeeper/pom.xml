@@ -19,8 +19,8 @@
 	<dependencies>
 		<dependency>
 			<groupId>org.mockito</groupId>
-			<artifactId>mockito-core</artifactId>
-			<version>3.2.4</version>
+			<artifactId>mockito-inline</artifactId>
+			<version>4.0.0</version>
 			<scope>test</scope>
 		</dependency>
 		<dependency>
@@ -142,8 +142,8 @@
 								${project.basedir}/src/main/resources/GateKeepingApi.yaml
 							</inputSpec>
 							<generatorName>spring</generatorName>
-							<apiPackage>cdw.springTraining.gatekeeper.controller</apiPackage>
-							<modelPackage>cdw.springTraining.gatekeeper.model</modelPackage>
+							<apiPackage>cdw.springtraining.gatekeeper.controller</apiPackage>
+							<modelPackage>cdw.springtraining.gatekeeper.model</modelPackage>
 							<supportingFilesToGenerate>
 								ApiUtil.java
 							</supportingFilesToGenerate>
