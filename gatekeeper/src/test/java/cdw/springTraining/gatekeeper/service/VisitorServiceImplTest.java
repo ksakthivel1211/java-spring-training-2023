@@ -3,6 +3,7 @@ package cdw.springTraining.gatekeeper.service;
 import cdw.springTraining.gatekeeper.dao.UserRepository;
 import cdw.springTraining.gatekeeper.dao.VisitorSlotRepository;
 import cdw.springTraining.gatekeeper.entity.User;
+import cdw.springTraining.gatekeeper.model.VisitorRequest;
 import cdw.springTraining.gatekeeper.entity.VisitorSlot;
 import cdw.springTraining.gatekeeper.model.ControllerResponse;
 import cdw.springTraining.gatekeeper.model.VisitorPassResponse;
@@ -42,6 +43,8 @@ public class VisitorServiceImplTest {
         String secretKey = "123";
         String mail = "sakthi@gmail.com";
         String name = "sakthi";
+        VisitorRequest request = new VisitorRequest();
+        request.setEmail(mail);
         VisitorSlot visitorSlot = new VisitorSlot();
         visitorSlot.setMail(mail);
         visitorSlot.setVisitorName(name);
@@ -55,7 +58,7 @@ public class VisitorServiceImplTest {
         visitorPassResponse.setMail(mail);
         visitorPassResponse.setUserName(name);
         visitorPassResponse.setVisitorPass(pass);
-        assertEquals(visitorPassResponse,visitorService.keyGen(mail));
+        assertEquals(visitorPassResponse,visitorService.keyGen(request));
     }
 
     @Test
@@ -63,12 +66,14 @@ public class VisitorServiceImplTest {
     {
         String mail = "sakthi@gmail.com";
         String residentChecked = "in";
+        VisitorRequest request = new VisitorRequest();
+        request.setEmail(mail);
         User user = new User();
         user.setChecked(residentChecked);
         user.setMail(mail);
         when(userRepository.findByMail(mail)).thenReturn(Optional.of(user));
         ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage("The resident has checked" + residentChecked);
-        assertEquals(controllerResponse,visitorService.checkResident(mail));
+        controllerResponse.setMessage("The resident has checked-" + residentChecked);
+        assertEquals(controllerResponse,visitorService.checkResident(request));
     }
 }

@@ -45,13 +45,13 @@ paths:
         - Admin
       description: Approving users registration request
       operationId: approveRequest
-      parameters:
-        - name: requestId
-          in: query
-          description: Its the id related to the registration request
-          required: true
-          schema:
-            type: integer
+      requestBody:
+        description: Request Id to be approved
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Approval-request'
       responses:
         '200':
           description: Successful operation
@@ -76,13 +76,13 @@ paths:
         - Admin
       description: Rejecting users registration request
       operationId: rejectRequest
-      parameters:
-        - name: requestId
-          in: query
-          description: Its the id related to the registration request
-          required: true
-          schema:
-            type: integer
+      requestBody:
+        description: Request Id to be approved
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Approval-request'
       responses:
         '200':
           description: Successful operation
@@ -310,13 +310,6 @@ paths:
         - Resident
       description: Endpoint for checking in or out for the resident
       operationId: residentCheckingIn
-      parameters:
-        - name: userId
-          in: query
-          description: The id related to the user
-          required: true
-          schema:
-            type: integer
       responses:
         '200':
           description: Successful operation
@@ -339,13 +332,6 @@ paths:
         - Resident
       description: Endpoint for checking in or out for the resident
       operationId: residentCheckingOut
-      parameters:
-        - name: userId
-          in: query
-          description: The id related to the user
-          required: true
-          schema:
-            type: integer
       responses:
         '200':
           description: Successful operation
@@ -462,13 +448,13 @@ paths:
         - Visitor
       description: Endpoint for getting temporary pass for the visitor
       operationId: getPass
-      parameters:
-        - name: mail
-          in: query
-          description: Visitor mail to check if visitor present and to generate pass for him
-          required: true
-          schema:
-            $ref: '#/components/schemas/email'
+      requestBody:
+        description: Visitor mail to generate pass for him
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Visitor-request'
       responses:
         '200':
           description: Successful operation
@@ -489,14 +475,13 @@ paths:
         - Visitor
       description: Endpoint for visitor to check whether resident has checked in or out
       operationId: residentCheck
-      parameters:
-        - name: residentMail
-          in: query
-          description: Resident mail to check if resident has checked in or out
-          required: true
-          schema:
-            type: string
-            example: sakthi@gmail.com
+      requestBody:
+        description: Resident mail to check whether resident has checked in or out
+        required: true
+        content:
+          application/json:
+            schema:
+              $ref: '#/components/schemas/Visitor-request'
       responses:
         '200':
           description: Successful operation
@@ -568,9 +553,6 @@ components:
         gender:
           type: string
           example: male
-        password:
-          type: string
-          example: abc123
         mail:
           $ref: '#/components/schemas/email'
         roleName:
@@ -663,6 +645,14 @@ components:
           type: string
           example: abc123
 
+    Approval-request:
+      type: object
+      properties:
+        requestId:
+          type: integer
+          format: int32
+          example: 9
+
     Approval-response:
       type: object
       properties:
@@ -693,6 +683,12 @@ components:
               example: sakthi
             mail:
               $ref: '#/components/schemas/email'
+
+    Visitor-request:
+      type: object
+      properties:
+        email:
+          $ref: '#/components/schemas/email'
 
 
   securitySchemes:

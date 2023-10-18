@@ -4,6 +4,7 @@ import cdw.springTraining.gatekeeper.model.ControllerResponse;
 import cdw.springTraining.gatekeeper.model.RegistrationResponse;
 import cdw.springTraining.gatekeeper.model.UserResponse;
 import cdw.springTraining.gatekeeper.service.AdminServiceImpl;
+import cdw.springTraining.gatekeeper.model.ApprovalRequest;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -40,11 +41,13 @@ public class AdminControllerTest {
     public void testApproveRequest()
     {
         int requestId = 12;
+        ApprovalRequest request = new ApprovalRequest();
+        request.setRequestId(requestId);
         ControllerResponse controllerResponse = new ControllerResponse();
         controllerResponse.setMessage("Request has been accepted");
         when(adminServiceImpl.grantUserRequest(requestId)).thenReturn(controllerResponse);
 
-        ResponseEntity<ControllerResponse> approvalResponse = adminController.approveRequest(requestId);
+        ResponseEntity<ControllerResponse> approvalResponse = adminController.approveRequest(request);
         assertEquals(controllerResponse,approvalResponse.getBody());
     }
 
@@ -52,13 +55,15 @@ public class AdminControllerTest {
     public void testRejectRequest()
     {
         int requestId = 12;
+        ApprovalRequest request = new ApprovalRequest();
+        request.setRequestId(requestId);
         ControllerResponse controllerResponse = new ControllerResponse();
 
         controllerResponse.setMessage("Request has been rejected");
 
         when(adminServiceImpl.rejectUserRequest(requestId)).thenReturn(controllerResponse);
 
-        ResponseEntity<ControllerResponse> rejectResponse = adminController.rejectRequest(requestId);
+        ResponseEntity<ControllerResponse> rejectResponse = adminController.rejectRequest(request);
 
         assertEquals(controllerResponse,rejectResponse.getBody());
     }

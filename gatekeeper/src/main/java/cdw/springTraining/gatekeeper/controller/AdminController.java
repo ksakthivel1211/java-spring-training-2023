@@ -2,6 +2,8 @@ package cdw.springTraining.gatekeeper.controller;
 
 import cdw.springTraining.gatekeeper.model.ControllerResponse;
 import cdw.springTraining.gatekeeper.model.RegistrationResponse;
+import cdw.springTraining.gatekeeper.controller.AdminApi;
+import cdw.springTraining.gatekeeper.model.ApprovalRequest;
 import cdw.springTraining.gatekeeper.model.UserResponse;
 import cdw.springTraining.gatekeeper.service.AdminServiceImpl;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -16,7 +18,7 @@ import java.util.List;
  * Admin controller has the endpoints of admin operations
  */
 @RestController
-public class AdminController implements AdminApi{
+public class AdminController implements AdminApi {
 
     private AdminServiceImpl adminServiceImpl;
     @Autowired
@@ -27,12 +29,12 @@ public class AdminController implements AdminApi{
 
     /**
      * approveRequest method calls the grantUserRequest method to change the status of registration request
-     * @param requestId Its the id related to the registration request (required)
+     * @param request - Its the id related to the registration request (required)
      * @return - Controller response of success status
      */
     @Override
-    public ResponseEntity<ControllerResponse> approveRequest(Integer requestId) {
-        return ResponseEntity.status(HttpStatus.OK).body(adminServiceImpl.grantUserRequest(requestId));
+    public ResponseEntity<ControllerResponse> approveRequest(ApprovalRequest request) {
+        return ResponseEntity.status(HttpStatus.OK).body(adminServiceImpl.grantUserRequest(request.getRequestId()));
     }
 
     /**
@@ -47,12 +49,12 @@ public class AdminController implements AdminApi{
 
     /**
      * rejectRequest method gets requestId and passes it to rejectUserRequest method to change the request status
-     * @param requestId Its the id related to the registration request (required)
+     * @param request - Its the id related to the registration request (required)
      * @return - Controller response of success status
      */
     @Override
-    public ResponseEntity<ControllerResponse> rejectRequest(Integer requestId) {
-        return ResponseEntity.status(HttpStatus.OK).body(adminServiceImpl.rejectUserRequest(requestId));
+    public ResponseEntity<ControllerResponse> rejectRequest(ApprovalRequest request) {
+        return ResponseEntity.status(HttpStatus.OK).body(adminServiceImpl.rejectUserRequest(request.getRequestId()));
     }
 
     /**

@@ -34,8 +34,6 @@ public class GateKeeperLoggingAspect {
         Object result = null;
         logger.info("\nMethod : "+method+"\nArguments : "+args+"\nTime : "+datetime);
 
-        System.out.println("\nMethod : "+method+"\nArguments : "+val+"\nTime : "+datetime);
-
         long begin = System.currentTimeMillis();
         try
         {
@@ -45,9 +43,14 @@ public class GateKeeperLoggingAspect {
             logger.error(gateKeepingCustomException.getMessage());
             throw gateKeepingCustomException;
         }
+        catch (Exception exception)
+        {
+            logger.error(exception.getMessage());
+            throw new GateKeepingCustomException(exception.getMessage());
+        }
         long end = System.currentTimeMillis();
 
-        System.out.println("\nReturn value : "+result+"\nTime taken to complete the process : "+(end-begin)/1000);
+        logger.info("\nReturn value : "+result+"\nTime taken to complete the process : "+(end-begin)/1000);
         return result;
     }
 }

@@ -10,7 +10,7 @@ import org.springframework.stereotype.Service;
 public class SuccessConstants {
 
     public static final String USER_REGISTERED_SUCCESS = "User request has been successfully saved";
-    public static final String RESIDENT_CHECKED = "The resident has checked";
+    public static final String RESIDENT_CHECKED = "The resident has checked-";
     public static final String VISITOR_SLOT_BOOKED = "Slot for the visitor has been booked";
     public static final String VISITOR_SLOT_CANCELLED = "The visitor slot has been cancelled";
     public static final String VISITOR_SLOT_APPROVAL = "The visitor slot has been : ";

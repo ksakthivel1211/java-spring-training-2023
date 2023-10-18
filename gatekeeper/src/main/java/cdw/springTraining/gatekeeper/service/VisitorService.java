@@ -2,6 +2,7 @@ package cdw.springTraining.gatekeeper.service;
 
 import cdw.springTraining.gatekeeper.model.ControllerResponse;
 import cdw.springTraining.gatekeeper.model.VisitorPassResponse;
+import cdw.springTraining.gatekeeper.model.VisitorRequest;
 
 /**
  * @author sakthivel
@@ -9,6 +10,6 @@ import cdw.springTraining.gatekeeper.model.VisitorPassResponse;
  */
 public interface VisitorService {
 
-    public ControllerResponse checkResident(String residentMail);
-    public VisitorPassResponse keyGen(String mail);
+    public ControllerResponse checkResident(VisitorRequest request);
+    public VisitorPassResponse keyGen(VisitorRequest request);
 }

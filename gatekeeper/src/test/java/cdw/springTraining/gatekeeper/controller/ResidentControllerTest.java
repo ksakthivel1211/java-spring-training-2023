@@ -10,6 +10,7 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.security.core.Authentication;
 
 import static cdw.springTraining.gatekeeper.constant.SuccessConstants.RESIDENT_CHECKED;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -63,8 +64,8 @@ public class ResidentControllerTest {
         String checked = "in";
         ControllerResponse controllerResponse = new ControllerResponse();
         controllerResponse.setMessage(RESIDENT_CHECKED+checked);
-        when(residentServiceImpl.userChecked(1,checked)).thenReturn(controllerResponse);
-        assertEquals(controllerResponse,residentController.residentCheckingIn(userId).getBody());
+        when(residentServiceImpl.userChecked(checked)).thenReturn(controllerResponse);
+        assertEquals(controllerResponse,residentController.residentCheckingIn().getBody());
     }
 
     @Test
@@ -74,8 +75,8 @@ public class ResidentControllerTest {
         String checked = "out";
         ControllerResponse controllerResponse = new ControllerResponse();
         controllerResponse.setMessage(RESIDENT_CHECKED+checked);
-        when(residentServiceImpl.userChecked(1,checked)).thenReturn(controllerResponse);
-        assertEquals(controllerResponse,residentController.residentCheckingOut(userId).getBody());
+        when(residentServiceImpl.userChecked(checked)).thenReturn(controllerResponse);
+        assertEquals(controllerResponse,residentController.residentCheckingOut().getBody());
     }
 
 }

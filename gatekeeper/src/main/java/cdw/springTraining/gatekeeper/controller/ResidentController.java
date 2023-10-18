@@ -2,6 +2,7 @@ package cdw.springTraining.gatekeeper.controller;
 
 import cdw.springTraining.gatekeeper.model.BlackListRequest;
 import cdw.springTraining.gatekeeper.model.ControllerResponse;
+import cdw.springTraining.gatekeeper.controller.ResidentApi;
 import cdw.springTraining.gatekeeper.model.VisitorSlotRequest;
 import cdw.springTraining.gatekeeper.service.BlackListServiceImpl;
 import cdw.springTraining.gatekeeper.service.ResidentServiceImpl;
@@ -15,7 +16,7 @@ import org.springframework.web.bind.annotation.RestController;
  * Resident controller has the endpoints of resident operations
  */
 @RestController
-public class ResidentController implements ResidentApi{
+public class ResidentController implements ResidentApi {
     private ResidentServiceImpl residentServiceImpl;
     private BlackListServiceImpl blackListServiceImpl;
 
@@ -58,12 +59,11 @@ public class ResidentController implements ResidentApi{
 
     /**
      * residentCheckingIn method is used to change the user checked status to "in"
-     * @param userId The id related to the user (required)
      * @return - Controller response of success status
      */
     @Override
-    public ResponseEntity<ControllerResponse> residentCheckingIn(Integer userId) {
-        return ResponseEntity.status(HttpStatus.OK).body(residentServiceImpl.userChecked(userId,"in"));
+    public ResponseEntity<ControllerResponse> residentCheckingIn() {
+        return ResponseEntity.status(HttpStatus.OK).body(residentServiceImpl.userChecked("in"));
     }
 
     /**
@@ -72,7 +72,7 @@ public class ResidentController implements ResidentApi{
      * @return - Controller response of success status
      */
     @Override
-    public ResponseEntity<ControllerResponse> residentCheckingOut(Integer userId) {
-        return ResponseEntity.status(HttpStatus.OK).body(residentServiceImpl.userChecked(userId,"out"));
+    public ResponseEntity<ControllerResponse> residentCheckingOut() {
+        return ResponseEntity.status(HttpStatus.OK).body(residentServiceImpl.userChecked("out"));
     }
 }

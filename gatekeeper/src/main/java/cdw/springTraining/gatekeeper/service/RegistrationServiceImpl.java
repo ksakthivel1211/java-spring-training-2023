@@ -8,6 +8,7 @@ import cdw.springTraining.gatekeeper.entity.RegistrationApprovalList;
 import cdw.springTraining.gatekeeper.entity.User;
 import cdw.springTraining.gatekeeper.model.ControllerResponse;
 import cdw.springTraining.gatekeeper.model.UserResponse;
+import cdw.springTraining.gatekeeper.utils.UserInformation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
 import org.springframework.security.core.Authentication;
@@ -31,6 +32,8 @@ public class RegistrationServiceImpl implements RegistrationService{
     private BlackListRepository blackListRepository;
     private UserRepository userRepository;
     private AdminServiceImpl adminService;
+
+    private UserInformation userInformation;
 
     @Autowired
     public RegistrationServiceImpl(RegistrationApprovalListRepository registrationApprovalListRepository, BlackListRepository blackListRepository, UserRepository userRepository, AdminServiceImpl adminService)
@@ -56,20 +59,24 @@ public class RegistrationServiceImpl implements RegistrationService{
             PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encodedPassword = passwordEncoder.encode(user.getPassword());
 
-            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
-            User admin = userRepository.findByMail(authentication.getName()).orElse(null);
+//            Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
+
+            String userName = userInformation.getUserName();
 
             RegistrationApprovalList approvalList = registrationApprovalListRepository.save(new RegistrationApprovalList("notApproved",user.getName(),user.getAge(),user.getGender(), user.getMail(), encodedPassword, user.getRoleName()));
 
-            if(admin.getRoleName().equals("admin"))
+            User userDetails = userRepository.findByMail(userName).orElse(null);
+            if(userDetails!=null)
             {
-                return adminService.grantUserRequest(approvalList.getApproval_id());
+                if(userDetails.getRoleName().equals("admin")) {
+                    return adminService.grantUserRequest(approvalList.getApproval_id());
+                }
             }
-            else{
+
+
             ControllerResponse controllerResponse = new ControllerResponse();
             controllerResponse.setMessage(USER_REGISTERED_SUCCESS);
             return controllerResponse;
-        }
 
         }
         else {

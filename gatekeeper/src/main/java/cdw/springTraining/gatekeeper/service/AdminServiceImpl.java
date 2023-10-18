@@ -22,7 +22,6 @@ import java.util.stream.Collectors;
 import static cdw.springTraining.gatekeeper.constant.ErrorConstants.*;
 import static cdw.springTraining.gatekeeper.constant.SuccessConstants.*;
 
-
 /**
  * @author sakthivel
  * Admin service implementation has the functional methods of admin operations
@@ -49,7 +48,6 @@ public class AdminServiceImpl implements AdminService{
     @Override
     public List<RegistrationResponse> listAllRequest()
     {
-
         List<RegistrationApprovalList> approvalLists = registrationApprovalListRepository.findAll();
         if(approvalLists.isEmpty())
         {
@@ -62,7 +60,6 @@ public class AdminServiceImpl implements AdminService{
             currentResponse.setStatus(registrationApprovalList.getStatus());
             currentResponse.setName(registrationApprovalList.getName());
             currentResponse.setGender(registrationApprovalList.getGender());
-            currentResponse.setPassword(registrationApprovalList.getPassword());
             currentResponse.setMail(registrationApprovalList.getMail());
             currentResponse.setRoleName(registrationApprovalList.getRoleName());
             return currentResponse;

@@ -14,9 +14,11 @@ public class ErrorConstants {
     public static final String REQUEST_NOT_FOUND_BY_ID = "Request with the given id is not found";
     public static final String ONLY_RESIDENT_BOOKING = "only resident will be able to book visitor slot";
     public static final String INVALID_CHECKED_VARIABLE = "Invalid checked variable";
+    public static final String ONLY_RESIDENT_CHECKING = "only residents are allowed to checking";
     public static final String INVALID_APPROVAL_STATUS = "Invalid approval status : Gate keeper can only approve or reject";
     public static final String SLOT_NOT_FOUND_BY_ID = "Visitor slot with the given request id is not found";
     public static final String SLOT_NOT_FOUND_BY_DATE = "Visitor slot with the given request date is not found";
     public static final String USER_ALREADY_BLACK_LISTED = "User has already been black listed";
     public static final String USER_ALREADY_APPROVED = "User has already been approved";
+    public static final String IN_TIME_OUT_TIME_CONTRADICTION = "In time should be lesser than out time";
 }

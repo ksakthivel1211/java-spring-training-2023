@@ -11,5 +11,5 @@ public interface ResidentService {
 
     public ControllerResponse bookVisitorSlot(VisitorSlotRequest visitorSlotRequest);
     public ControllerResponse removeVisitorSlot(int slotId);
-    public ControllerResponse userChecked(int userId, String checked);
+    public ControllerResponse userChecked(String checked);
 }

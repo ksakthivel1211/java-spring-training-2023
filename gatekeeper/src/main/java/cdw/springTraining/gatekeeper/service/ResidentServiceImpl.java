@@ -12,7 +12,13 @@ import cdw.springTraining.gatekeeper.model.ControllerResponse;
 import cdw.springTraining.gatekeeper.model.VisitorSlotRequest;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.security.core.Authentication;
+import org.springframework.security.core.GrantedAuthority;
+import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
+
+import java.util.Collection;
+import java.util.List;
 
 import static cdw.springTraining.gatekeeper.constant.ErrorConstants.*;
 import static cdw.springTraining.gatekeeper.constant.SuccessConstants.*;
@@ -46,6 +52,10 @@ public class ResidentServiceImpl implements ResidentService{
         if(!user.getRoleName().equals("resident")){
             throw new GateKeepingCustomException(ONLY_RESIDENT_BOOKING,HttpStatus.NOT_FOUND);
         }
+        if(visitorSlotRequest.getInTime().isAfter(visitorSlotRequest.getOutTime()))
+        {
+            throw new GateKeepingCustomException(IN_TIME_OUT_TIME_CONTRADICTION,HttpStatus.BAD_REQUEST);
+        }
         VisitorSlot visitorSlot = new VisitorSlot(visitorSlotRequest.getVisitorName(),visitorSlotRequest.getMail(),visitorSlotRequest.getDate(),visitorSlotRequest.getInTime(),visitorSlotRequest.getOutTime());
         visitorSlot.setSlotId(0);
         visitorSlot.setStatus("notApproved");
@@ -74,16 +84,23 @@ public class ResidentServiceImpl implements ResidentService{
 
     /**
      * residentCheckingOut method is used to change the user checked status to "out" or "in"
-     * @param userId - type int
      * @param checked - type string
      * @return - Controller response of success status
      */
     @Override
-    public ControllerResponse userChecked(int userId, String checked)
+    public ControllerResponse userChecked(String checked)
     {
+        Authentication authentication = SecurityContextHolder.getContext().getAuthentication();
         if(checked.matches("in|out"))
         {
-            User user = userRepository.findById(userId).orElseThrow(()-> new GateKeepingCustomException(USER_NOT_FOUND_BY_ID,HttpStatus.NOT_FOUND));
+            Collection<? extends GrantedAuthority> roles = authentication.getAuthorities();
+            roles.stream().forEach(role-> {
+                if(!role.getAuthority().equals("resident"))
+                {
+                    throw new GateKeepingCustomException(ONLY_RESIDENT_CHECKING,HttpStatus.UNAUTHORIZED);
+                }
+            });
+            User user = userRepository.findByMail(authentication.getName()).orElseThrow(()-> new GateKeepingCustomException(USER_NOT_FOUND_BY_ID,HttpStatus.NOT_FOUND));
             user.setChecked(checked);
             userRepository.save(user);
             ControllerResponse controllerResponse = new ControllerResponse();

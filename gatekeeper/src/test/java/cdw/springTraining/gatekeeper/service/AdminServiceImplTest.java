@@ -61,7 +61,6 @@ public class AdminServiceImplTest {
         tempResponse.setStatus(list.getStatus());
         tempResponse.setName(list.getName());
         tempResponse.setGender(list.getGender());
-        tempResponse.setPassword(list.getPassword());
         tempResponse.setMail(list.getMail());
         tempResponse.setRoleName(list.getRoleName());
         registrationResponses.add(tempResponse);
@@ -78,7 +77,7 @@ public class AdminServiceImplTest {
         RegistrationApprovalList request = new RegistrationApprovalList();
         when(registrationApprovalListRepository.findById(requestId)).thenReturn(Optional.of(request));
         ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage("Request has been accepted");
+        controllerResponse.setMessage("Request has been accepted and user has been added");
         assertEquals(controllerResponse, adminServiceImpl.grantUserRequest(requestId));
     }
 
