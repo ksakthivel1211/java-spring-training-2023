@@ -10,11 +10,10 @@ import cdw.springtraining.gatekeeper.entity.VisitorSlot;
 import cdw.springtraining.gatekeeper.utils.UserInformation;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
-import org.springframework.security.core.Authentication;
 import org.springframework.security.core.GrantedAuthority;
-import org.springframework.security.core.context.SecurityContextHolder;
 import org.springframework.stereotype.Service;
 
+import java.time.OffsetDateTime;
 import java.util.Collection;
 
 import static cdw.springtraining.gatekeeper.constant.ErrorConstants.*;
@@ -73,6 +72,15 @@ public class ResidentServiceImpl implements ResidentService{
     public ControllerResponse removeVisitorSlot(int slotId)
     {
         VisitorSlot visitorSlot = visitorSlotRepository.findById(slotId).orElseThrow(()-> new GateKeepingCustomException(USER_NOT_FOUND_BY_ID,HttpStatus.NOT_FOUND));
+
+        if(visitorSlot.getStatus().equals("rejected"))
+        {
+            throw new GateKeepingCustomException(VISITOR_SLOT_REJECTED,HttpStatus.UNAUTHORIZED);
+        }
+        if(visitorSlot.getInTime().isAfter(OffsetDateTime.now()))
+        {
+            throw new GateKeepingCustomException(VISITOR_SLOT_DELETE_AFTER_TIME,HttpStatus.FORBIDDEN);
+        }
         visitorSlotRepository.delete(visitorSlot);
         ControllerResponse controllerResponse = new ControllerResponse();
         controllerResponse.setMessage(VISITOR_SLOT_CANCELLED);

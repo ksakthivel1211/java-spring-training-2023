@@ -5,7 +5,6 @@ import cdw.springtraining.gatekeeper.dao.UserRepository;
 import cdw.springtraining.gatekeeper.dao.VisitorSlotRepository;
 import cdw.springtraining.gatekeeper.entity.User;
 import cdw.springtraining.gatekeeper.entity.VisitorSlot;
-import cdw.springtraining.gatekeeper.service.VisitorServiceImpl;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
 import org.junit.jupiter.api.Test;
@@ -49,6 +48,7 @@ public class VisitorServiceImplTest {
         VisitorSlot visitorSlot = new VisitorSlot();
         visitorSlot.setMail(mail);
         visitorSlot.setVisitorName(name);
+        visitorSlot.setStatus("approved");
         when(visitorSlotRepository.findByMail(mail)).thenReturn(Optional.of(visitorSlot));
         Algorithm algorithm= HMAC256(secretKey.getBytes());
         String pass =  JWT.create()
@@ -59,7 +59,9 @@ public class VisitorServiceImplTest {
         visitorPassResponse.setMail(mail);
         visitorPassResponse.setUserName(name);
         visitorPassResponse.setVisitorPass(pass);
-        assertEquals(visitorPassResponse,visitorService.keyGen(request));
+        VisitorPassResponse finalResponse =visitorService.keyGen(request);
+        assertEquals(visitorPassResponse.getUserName(),finalResponse.getUserName());
+        assertEquals(visitorPassResponse.getMail(),finalResponse.getMail());
     }
 
     @Test

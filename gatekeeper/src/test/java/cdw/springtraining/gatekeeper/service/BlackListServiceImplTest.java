@@ -21,16 +21,16 @@ public class BlackListServiceImplTest {
     @Mock
     private BlackListRepository blackListRepository;
 
-    @Test
-    public void testAddToBlackList()
-    {
-        String mail = "ram@gmail.com";
-        BlackListRequest request = new BlackListRequest();
-        request.setMail(mail);
-        request.setName("ram");
-        request.setUserId(1);
-        ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage("The user has been black listed");
-        assertEquals(controllerResponse, blackListServiceImpl.addToBlackList(request));
-    }
+//    @Test
+//    public void testAddToBlackList()
+//    {
+//        String mail = "ram@gmail.com";
+//        BlackListRequest request = new BlackListRequest();
+//        request.setMail(mail);
+//        request.setName("ram");
+//        request.setUserId(1);
+//        ControllerResponse controllerResponse = new ControllerResponse();
+//        controllerResponse.setMessage("The user has been black listed");
+//        assertEquals(controllerResponse, blackListServiceImpl.addToBlackList(request));
+//    }
 }

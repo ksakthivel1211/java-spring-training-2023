@@ -18,6 +18,7 @@ import cdw.springtraining.gatekeeper.model.ControllerResponse;
 import cdw.springtraining.gatekeeper.model.VisitorRequest;
 import cdw.springtraining.gatekeeper.model.VisitorPassResponse;
 import static cdw.springtraining.gatekeeper.constant.ErrorConstants.USER_NOT_FOUND_BY_MAIL;
+import static cdw.springtraining.gatekeeper.constant.ErrorConstants.VISITOR_SLOT_NOT_ACCEPTED_NO_VISITOR_PASS;
 import static cdw.springtraining.gatekeeper.constant.SuccessConstants.RESIDENT_CHECKED;
 import static com.auth0.jwt.algorithms.Algorithm.HMAC256;
 
@@ -66,6 +67,10 @@ public class VisitorServiceImpl implements VisitorService{
     {
         String secretKey = "123";
         VisitorSlot visitorSlot = visitorSlotRepository.findByMail(request.getEmail()).orElseThrow(()-> new GateKeepingCustomException(USER_NOT_FOUND_BY_MAIL,HttpStatus.NOT_FOUND));
+        if(visitorSlot.getStatus().equals("rejected") || visitorSlot.getStatus().equals("notApproved"))
+        {
+            throw new GateKeepingCustomException(VISITOR_SLOT_NOT_ACCEPTED_NO_VISITOR_PASS + visitorSlot.getStatus(),HttpStatus.UNAUTHORIZED);
+        }
         Algorithm algorithm= HMAC256(secretKey.getBytes());
         String pass =  JWT.create()
                 .withSubject(visitorSlot.getMail())

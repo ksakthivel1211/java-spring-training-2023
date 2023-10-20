@@ -592,10 +592,6 @@ components:
           example: sam
         mail:
           $ref: '#/components/schemas/email'
-        userId:
-          type: integer
-          format: int32
-          example: 9
 
     Slot-approval-request:
       type: object

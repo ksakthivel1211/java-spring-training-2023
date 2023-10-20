@@ -16,6 +16,7 @@ import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
 
+import static cdw.springtraining.gatekeeper.constant.ErrorConstants.*;
 import static cdw.springtraining.gatekeeper.constant.SuccessConstants.USER_REGISTERED_SUCCESS;
 
 /**
@@ -50,7 +51,9 @@ public class RegistrationServiceImpl implements RegistrationService{
         if(user.getRoleName().matches("resident|gateKeeper"))
         {
 
-            blackListRepository.findByMail(user.getMail()).ifPresent(value-> {throw new GateKeepingCustomException(ErrorConstants.USER_BLACK_LISTED_INVALID_REGISTRATION, HttpStatus.ALREADY_REPORTED);});
+            blackListRepository.findByMail(user.getMail()).ifPresent(value-> {throw new GateKeepingCustomException(USER_BLACK_LISTED_INVALID_REGISTRATION, HttpStatus.ALREADY_REPORTED);});
+            userRepository.findByMail(user.getMail()).ifPresent(value-> {throw new GateKeepingCustomException(USER_ALREADY_EXISTS, HttpStatus.ALREADY_REPORTED);});
+            registrationApprovalListRepository.findByMail(user.getMail()).ifPresent(value-> {throw new GateKeepingCustomException(REGISTRATION_REQUEST_ALREADY_EXISTS, HttpStatus.ALREADY_REPORTED);});
             PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
             String encodedPassword = passwordEncoder.encode(user.getPassword());
 
@@ -73,7 +76,7 @@ public class RegistrationServiceImpl implements RegistrationService{
 
         }
         else {
-            throw new GateKeepingCustomException(ErrorConstants.INVALID_REGISTRATION_NAME,HttpStatus.UNAUTHORIZED);
+            throw new GateKeepingCustomException(INVALID_REGISTRATION_NAME,HttpStatus.UNAUTHORIZED);
         }
 
     }

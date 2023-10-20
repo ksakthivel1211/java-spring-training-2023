@@ -64,6 +64,7 @@ public class ResidentServiceImplTest {
         String mail = "sakthi@gmail.com";
         User user = new User("sam",21,"male","sam@gmail.com","abc","resident");
         VisitorSlot visitorSlot = new VisitorSlot(name,mail,date,inTime,outTime);
+        visitorSlot.setStatus("approved");
         user.addToVisitorSlot(visitorSlot);
         visitorSlot.setUser(user);
         when(visitorSlotRepository.findById(slotId)).thenReturn(Optional.of(visitorSlot));
