@@ -11,6 +11,8 @@ import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
 import org.mockito.junit.jupiter.MockitoExtension;
+import org.springframework.http.HttpStatus;
+import org.springframework.http.ResponseEntity;
 
 import static cdw.springtraining.gatekeeper.constant.SuccessConstants.RESIDENT_CHECKED;
 import static org.junit.jupiter.api.Assertions.assertEquals;
@@ -41,10 +43,11 @@ public class ResidentControllerTest {
     public void testRemoveVisitor()
     {
         int slotId = 1;
-        ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage("The visitor slot has been cancelled");
-        when(residentServiceImpl.removeVisitorSlot(slotId)).thenReturn(controllerResponse);
-        assertEquals(controllerResponse,residentController.removeVisitorSlot(slotId).getBody());
+        ResponseEntity<Void> response = ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        ResponseEntity<Void> deleteUserResponse = residentController.removeVisitorSlot(slotId);
+
+        assertEquals(response.getStatusCode(),deleteUserResponse.getStatusCode());
+        assertEquals(response.getBody(),deleteUserResponse.getBody());
     }
 
     @Test

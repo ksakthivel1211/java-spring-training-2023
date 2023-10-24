@@ -101,7 +101,7 @@ paths:
       security:
         - bearerAuth: []
 
-  /admin/resident:
+  /admin/resident/{residentId}:
     delete:
       tags:
         - Admin
@@ -109,18 +109,14 @@ paths:
       operationId: deleteResident
       parameters:
         - name: residentId
-          in: query
+          in: path
           description: Its the id related to the user(resident)
           required: true
           schema:
             type: integer
       responses:
-        '200':
+        '204':
           description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Controller-response'
         '400':
           description: Bad request. Request ID must be an integer and larger than 0.
         '401':
@@ -132,6 +128,7 @@ paths:
       security:
         - bearerAuth: []
 
+  /admin/resident:
     put:
       tags:
         - Admin
@@ -147,12 +144,8 @@ paths:
               $ref: '#/components/schemas/User-response'
 
       responses:
-        '200':
+        '204':
           description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Controller-response'
         '400':
           description: Bad request.
         '401':
@@ -243,6 +236,7 @@ paths:
       security:
         - bearerAuth: []
 
+  /resident/visitor-slot/{slotId}:
     delete:
       tags:
         - Resident
@@ -250,7 +244,7 @@ paths:
       operationId: removeVisitorSlot
       parameters:
         - name: slotId
-          in: query
+          in: path
           description: The id related to the slot
           required: true
           schema:
@@ -258,12 +252,8 @@ paths:
 
 
       responses:
-        '200':
+        '204':
           description: Successful operation
-          content:
-            application/json:
-              schema:
-                $ref: '#/components/schemas/Controller-response'
         '400':
           description: Bad request. Request ID must be an integer and larger than 0.
         '401':
@@ -304,7 +294,7 @@ paths:
       security:
         - bearerAuth: []
 
-  /resident/checkIn:
+  /resident/check-in:
     post:
       tags:
         - Resident
@@ -326,7 +316,7 @@ paths:
       security:
         - bearerAuth: []
 
-  /resident/checkOut:
+  /resident/check-out:
     post:
       tags:
         - Resident
@@ -384,10 +374,10 @@ paths:
         - bearerAuth: []
 
 
-  /gate-keeper/black-lists:
+  /admin/black-lists:
     post:
       tags:
-        - Gate keeper
+        - Admin
       description: Endpoint for black listing a visitor
       operationId: gateKeeperBlackList
       requestBody:
@@ -469,7 +459,7 @@ paths:
         '405':
           description: Invalid input
 
-  /visitor/residentCheck:
+  /visitor/resident-check:
     post:
       tags:
         - Visitor
@@ -579,10 +569,6 @@ components:
           type: string
           format: date-time
           example: '2017-07-21T17:32:28Z'
-        userId:
-          type: integer
-          format: int32
-          example: 9
 
     Black-list-request:
       type: object

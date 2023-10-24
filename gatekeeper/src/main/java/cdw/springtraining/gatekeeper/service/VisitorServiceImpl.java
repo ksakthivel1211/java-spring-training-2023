@@ -69,7 +69,7 @@ public class VisitorServiceImpl implements VisitorService{
         VisitorSlot visitorSlot = visitorSlotRepository.findByMail(request.getEmail()).orElseThrow(()-> new GateKeepingCustomException(USER_NOT_FOUND_BY_MAIL,HttpStatus.NOT_FOUND));
         if(visitorSlot.getStatus().equals("rejected") || visitorSlot.getStatus().equals("notApproved"))
         {
-            throw new GateKeepingCustomException(VISITOR_SLOT_NOT_ACCEPTED_NO_VISITOR_PASS + visitorSlot.getStatus(),HttpStatus.UNAUTHORIZED);
+            throw new GateKeepingCustomException(VISITOR_SLOT_NOT_ACCEPTED_NO_VISITOR_PASS +" "+ visitorSlot.getStatus(),HttpStatus.UNAUTHORIZED);
         }
         Algorithm algorithm= HMAC256(secretKey.getBytes());
         String pass =  JWT.create()

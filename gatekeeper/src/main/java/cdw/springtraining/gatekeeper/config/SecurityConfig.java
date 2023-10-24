@@ -2,6 +2,7 @@ package cdw.springtraining.gatekeeper.config;
 
 
 import lombok.RequiredArgsConstructor;
+import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Configuration;
 import org.springframework.security.authentication.AuthenticationProvider;
@@ -41,6 +42,7 @@ public class SecurityConfig {
                                 .requestMatchers("/resident/**").hasAuthority("resident")
                                 .requestMatchers("/gate-keeper/**").hasAuthority("gateKeeper")
                                 .requestMatchers("/visitor/**").permitAll()
+                                .requestMatchers("/gate-keeper/black-lists").hasAuthority("admin")
                                 .anyRequest().authenticated())
                 .sessionManagement(session -> session.sessionCreationPolicy(SessionCreationPolicy.STATELESS))
                 .csrf(csrf -> csrf.disable())

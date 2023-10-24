@@ -12,6 +12,7 @@ import cdw.springtraining.gatekeeper.entity.RegistrationApprovalList;
 import cdw.springtraining.gatekeeper.entity.User;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.http.HttpStatus;
+import org.springframework.http.HttpStatusCode;
 import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
 import org.springframework.security.crypto.password.PasswordEncoder;
 import org.springframework.stereotype.Service;
@@ -118,13 +119,10 @@ public class AdminServiceImpl implements AdminService{
      * @return - Controller response of success status
      */
     @Override
-    public ControllerResponse deleteUser(int userId)
+    public void deleteUser(int userId)
     {
         User user = userRepository.findById(userId).orElseThrow(()-> new GateKeepingCustomException(USER_NOT_FOUND_BY_ID,HttpStatus.NOT_FOUND));
         userRepository.delete(user);
-        ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage(USER_DELETED);
-        return controllerResponse;
     }
 
     /**
@@ -133,7 +131,7 @@ public class AdminServiceImpl implements AdminService{
      * @return - Controller response of success status
      */
     @Override
-    public ControllerResponse updateUser(UserResponse user)
+    public void updateUser(UserResponse user)
     {
         User currentUser = userRepository.findByMail(user.getMail()).orElseThrow(()-> new GateKeepingCustomException(USER_NOT_FOUND_BY_MAIL,HttpStatus.NOT_FOUND));
 
@@ -148,9 +146,6 @@ public class AdminServiceImpl implements AdminService{
 
         currentUser.setPassword(encodedPassword);
         userRepository.save(currentUser);
-        ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage(USER_UPDATED);
-        return controllerResponse;
     }
 
 }

@@ -42,15 +42,7 @@ public class GateKeeperController implements GateKeeperApi {
         return ResponseEntity.status(HttpStatus.OK).body(gateKeeperServiceImpl.getAllApproval(date));
     }
 
-    /**
-     * gateKeeperBlacklist method black lists users
-     * @param blackListRequest Black list object (required)
-     * @return - Controller response of success status
-     */
-    @Override
-    public ResponseEntity<ControllerResponse> gateKeeperBlackList(BlackListRequest blackListRequest) {
-        return ResponseEntity.status(HttpStatus.OK).body(blackListServiceImpl.addToBlackList(blackListRequest));
-    }
+
 
     /**
      * slotApproval method used to approve or reject visitor request of resident

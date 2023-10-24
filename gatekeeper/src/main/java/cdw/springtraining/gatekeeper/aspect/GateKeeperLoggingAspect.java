@@ -45,7 +45,7 @@ public class GateKeeperLoggingAspect {
         catch (Exception exception)
         {
             logger.error(exception.getMessage());
-            throw new GateKeepingCustomException(exception.getMessage());
+            throw exception;
         }
         long end = System.currentTimeMillis();
 

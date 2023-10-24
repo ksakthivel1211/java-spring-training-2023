@@ -4,6 +4,7 @@ import cdw.springtraining.gatekeeper.constant.TimeConstant;
 import cdw.springtraining.gatekeeper.entity.User;
 import com.auth0.jwt.JWT;
 import com.auth0.jwt.algorithms.Algorithm;
+import com.auth0.jwt.interfaces.DecodedJWT;
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
@@ -38,6 +39,19 @@ public class JwtServiceImpl {
                 .withExpiresAt(new Date(System.currentTimeMillis()+ TimeConstant.USER_TOKEN_TIME))
                 .withClaim("roles", authorities.stream().map(GrantedAuthority::getAuthority).collect(Collectors.toList()))
                 .sign(algorithm);
+    }
+
+    /**
+     * Extract the remaining time in minutes until the JWT token expires
+     * @param token - users token
+     * @return - remaining time left in the time
+     */
+    public long extractRemainingTime(String token) {
+        DecodedJWT decodedJWT = JWT.decode(token);
+        Date expirationTime = decodedJWT.getExpiresAt();
+        Date currentTime = new Date();
+        long remainingMillis = expirationTime.getTime() - currentTime.getTime();
+        return remainingMillis ;
     }
 
 }

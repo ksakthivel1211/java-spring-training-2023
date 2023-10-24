@@ -44,7 +44,7 @@ public class JwtVisitorAuthFilter extends OncePerRequestFilter {
     @Autowired
     JwtServiceImpl jwtServiceImpl;
 
-    private final RequestMatcher matcher= new AntPathRequestMatcher("/gate-keeping/visitor/residentCheck", PathItem.HttpMethod.POST.name());
+    private final RequestMatcher matcher= new AntPathRequestMatcher("/gate-keeping/visitor/resident-check", PathItem.HttpMethod.POST.name());
 
     @Value("${secret.key}")
     private String secretKey;

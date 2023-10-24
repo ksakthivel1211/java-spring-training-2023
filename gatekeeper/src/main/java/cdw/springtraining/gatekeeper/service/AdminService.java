@@ -14,7 +14,7 @@ public interface AdminService {
     public List<RegistrationResponse> listAllRequest();
     public ControllerResponse grantUserRequest(int requestId);
     public ControllerResponse rejectUserRequest(int requestId);
-    public ControllerResponse deleteUser(int requestId);
-    public ControllerResponse updateUser(UserResponse user);
+    public void deleteUser(int requestId);
+    public void updateUser(UserResponse user);
 
 }

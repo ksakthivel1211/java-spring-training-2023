@@ -27,6 +27,6 @@ public class ErrorConstants {
     public static final String USER_ALREADY_APPROVED = "User has already been approved";
     public static final String IN_TIME_OUT_TIME_CONTRADICTION = "In time should be lesser than out time";
     public static final String RESIDENT_BLACK_LIST_ONLY_VISITOR = "Resident can only black-list a visitor and not a user";
-    public static final String ADMIN_BLACK_LIST_ONLY_VISITOR = "Admin can only black-list a gate-keeper";
+    public static final String ADMIN_BLACK_LIST_ONLY_VISITOR = "Admin can only black-list a gate-keeper and visitor";
     public static final String ONLY_ADMIN_RESIDENT_BLACK_LIST = "Only admin and gatekeeper are allowed to black list";
 }

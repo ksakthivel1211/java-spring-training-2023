@@ -11,6 +11,7 @@ import cdw.springtraining.gatekeeper.model.ControllerResponse;
 import cdw.springtraining.gatekeeper.model.ApprovalRequest;
 import cdw.springtraining.gatekeeper.model.UserResponse;
 import cdw.springtraining.gatekeeper.model.RegistrationResponse;
+import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
 
 import java.util.ArrayList;
@@ -73,22 +74,19 @@ public class AdminControllerTest {
     public void testDeleteResident()
     {
         int userId = 12;
-        ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage("User has been deleted successfully");
-        when(adminServiceImpl.deleteUser(userId)).thenReturn(controllerResponse);
-        ResponseEntity<ControllerResponse> deleteUserResponse = adminController.deleteResident(userId);
-        assertEquals(controllerResponse,deleteUserResponse.getBody());
+        ResponseEntity<Void> response = ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        ResponseEntity<Void> deleteUserResponse = adminController.deleteResident(userId);
+
+        assertEquals(response.getStatusCode(),deleteUserResponse.getStatusCode());
     }
 
     @Test
     public void testUpdateResident()
     {
         UserResponse user = new UserResponse();
-        ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage("User details has been updated");
-        when(adminServiceImpl.updateUser(user)).thenReturn(controllerResponse);
-        ResponseEntity<ControllerResponse> updateUserResponse = adminController.updateResident(user);
-        assertEquals(controllerResponse,updateUserResponse.getBody());
+        ResponseEntity<Void> response = ResponseEntity.status(HttpStatus.NO_CONTENT).build();
+        ResponseEntity<Void> updateResident = adminController.updateResident(user);
+        assertEquals(response.getStatusCode(),updateResident.getStatusCode());
     }
 
 

@@ -9,6 +9,6 @@ import cdw.springtraining.gatekeeper.model.VisitorSlotRequest;
 public interface ResidentService {
 
     public ControllerResponse bookVisitorSlot(VisitorSlotRequest visitorSlotRequest);
-    public ControllerResponse removeVisitorSlot(int slotId);
+    public void removeVisitorSlot(int slotId);
     public ControllerResponse userChecked(String checked);
 }

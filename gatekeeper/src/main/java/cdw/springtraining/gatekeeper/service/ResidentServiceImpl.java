@@ -44,7 +44,8 @@ public class ResidentServiceImpl implements ResidentService{
     @Override
     public ControllerResponse bookVisitorSlot(VisitorSlotRequest visitorSlotRequest)
     {
-        User user = userRepository.findById(visitorSlotRequest.getUserId()).orElseThrow(()-> new GateKeepingCustomException(USER_NOT_FOUND_BY_ID, HttpStatus.NOT_FOUND));
+        String email = UserInformation.getUserName();
+        User user = userRepository.findByMail(email).orElseThrow(()-> new GateKeepingCustomException(USER_NOT_FOUND_BY_ID, HttpStatus.NOT_FOUND));
         if(!user.getRoleName().equals("resident")){
             throw new GateKeepingCustomException(ONLY_RESIDENT_BOOKING,HttpStatus.NOT_FOUND);
         }
@@ -69,7 +70,7 @@ public class ResidentServiceImpl implements ResidentService{
      * @return - Controller response of success status
      */
     @Override
-    public ControllerResponse removeVisitorSlot(int slotId)
+    public void removeVisitorSlot(int slotId)
     {
         VisitorSlot visitorSlot = visitorSlotRepository.findById(slotId).orElseThrow(()-> new GateKeepingCustomException(USER_NOT_FOUND_BY_ID,HttpStatus.NOT_FOUND));
 
@@ -77,14 +78,11 @@ public class ResidentServiceImpl implements ResidentService{
         {
             throw new GateKeepingCustomException(VISITOR_SLOT_REJECTED,HttpStatus.UNAUTHORIZED);
         }
-        if(visitorSlot.getInTime().isAfter(OffsetDateTime.now()))
+        if(visitorSlot.getInTime().isBefore(OffsetDateTime.now()))
         {
             throw new GateKeepingCustomException(VISITOR_SLOT_DELETE_AFTER_TIME,HttpStatus.FORBIDDEN);
         }
         visitorSlotRepository.delete(visitorSlot);
-        ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage(VISITOR_SLOT_CANCELLED);
-        return controllerResponse;
     }
 
     /**

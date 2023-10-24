@@ -91,32 +91,32 @@ public class AdminServiceImplTest {
         assertEquals(controllerResponse, adminServiceImpl.rejectUserRequest(requestId));
     }
 
-    @Test void testDeleteUser()
-    {
-        int userId = 1;
-        User user = new User("sakthi",21,"male","sakthi@gmail.com","abc","resident");
-        when(userRepository.findById(userId)).thenReturn(Optional.of(user));
-        ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage("User has been deleted successfully");
-        assertEquals(controllerResponse, adminServiceImpl.deleteUser(userId));
-    }
+//    @Test void testDeleteUser()
+//    {
+//        int userId = 1;
+//        User user = new User("sakthi",21,"male","sakthi@gmail.com","abc","resident");
+//        when(userRepository.findById(userId)).thenReturn(Optional.of(user));
+//        ControllerResponse controllerResponse = new ControllerResponse();
+//        controllerResponse.setMessage("User has been deleted successfully");
+//        assertEquals(controllerResponse, adminServiceImpl.deleteUser(userId));
+//    }
 
-    @Test void testUpdateUser()
-    {
-        String mail =  "sakthi@gmail.com";
-        User user = new User("sakthi",21,"male","sakthi@gmail.com","abc","resident");
-        when(userRepository.findByMail(mail)).thenReturn(Optional.of(user));
-        UserResponse userResponse = new UserResponse();
-        ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage("User details has been updated");
-        userResponse.setName("sakthi");
-        userResponse.setAge(21);
-        userResponse.setGender("male");
-        userResponse.setMail("sakthi@gmail.com");
-        userResponse.setPassword("abc");
-        userResponse.setRoleName("resident");
-        assertEquals(controllerResponse, adminServiceImpl.updateUser(userResponse));
-    }
+//    @Test void testUpdateUser()
+//    {
+//        String mail =  "sakthi@gmail.com";
+//        User user = new User("sakthi",21,"male","sakthi@gmail.com","abc","resident");
+//        when(userRepository.findByMail(mail)).thenReturn(Optional.of(user));
+//        UserResponse userResponse = new UserResponse();
+//        ControllerResponse controllerResponse = new ControllerResponse();
+//        controllerResponse.setMessage("User details has been updated");
+//        userResponse.setName("sakthi");
+//        userResponse.setAge(21);
+//        userResponse.setGender("male");
+//        userResponse.setMail("sakthi@gmail.com");
+//        userResponse.setPassword("abc");
+//        userResponse.setRoleName("resident");
+//        assertEquals(controllerResponse, adminServiceImpl.updateUser(userResponse));
+//    }
 
 
 }

@@ -101,6 +101,6 @@ public class JwtAuthenticationFilter extends OncePerRequestFilter {
     @Override
     protected boolean shouldNotFilter(HttpServletRequest request) throws ServletException {
         String path = request.getRequestURI();
-        return "/gate-keeping/visitor/residentCheck".equals(path);
+        return "/gate-keeping/visitor/resident-check".equals(path);
     }
 }

@@ -45,15 +45,6 @@ public class GateKeeperControllerTest {
     }
 
     @Test
-    public void testGateKeeperBlackList(){
-        BlackListRequest blackListRequest = new BlackListRequest();
-        ControllerResponse controllerResponse = new ControllerResponse();
-        controllerResponse.setMessage("The user has been black listed");
-        when(blackListServiceImpl.addToBlackList(blackListRequest)).thenReturn(controllerResponse);
-        assertEquals(controllerResponse,gateKeeperController.gateKeeperBlackList(blackListRequest).getBody());
-    }
-
-    @Test
     public void testSlotApproval()
     {
         VisitorSlot visitorSlot = new VisitorSlot();

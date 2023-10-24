@@ -55,11 +55,12 @@ public class BlackListServiceImpl implements BlackListService{
             {
                 userRepository.findByMail(blackListRequest.getMail()).ifPresent(value-> {throw new GateKeepingCustomException(RESIDENT_BLACK_LIST_ONLY_VISITOR, HttpStatus.BAD_REQUEST);});
             } else if (role.getAuthority().equals("admin")) {
-                User blackListUser = userRepository.findByMail(blackListRequest.getMail()).orElseThrow(()->new GateKeepingCustomException(USER_NOT_FOUND_BY_MAIL, HttpStatus.NOT_FOUND));
-                if(!blackListUser.getRoleName().equals("gateKeeper"))
-                {
-                    throw new GateKeepingCustomException(ADMIN_BLACK_LIST_ONLY_VISITOR, HttpStatus.BAD_REQUEST);
-                }
+                userRepository.findByMail(blackListRequest.getMail()).ifPresent(user -> {
+                    if(user.getRoleName().matches("resident|admin"))
+                    {
+                        throw new GateKeepingCustomException(ADMIN_BLACK_LIST_ONLY_VISITOR, HttpStatus.BAD_REQUEST);
+                    }
+                });
             }
             else {
                 throw new GateKeepingCustomException(ONLY_ADMIN_RESIDENT_BLACK_LIST, HttpStatus.UNAUTHORIZED);
