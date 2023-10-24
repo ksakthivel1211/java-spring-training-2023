@@ -72,6 +72,40 @@ public class AdminServiceImplTest {
     }
 
     @Test
+    public void testListAllUnApprovedRequest()
+    {
+        List<RegistrationResponse> registrationResponses = new ArrayList<>();
+
+        List<RegistrationApprovalList>  approvalLists= new ArrayList<>();
+
+        RegistrationApprovalList list = new RegistrationApprovalList();
+
+        list.setAge(21);
+        list.setApproval_id(1);
+        list.setStatus("notApproved");
+        list.setGender("male");
+        list.setName("sakthi");
+        list.setPassword("abc123");
+        list.setMail("sakthi@gmail.com");
+        list.setRoleName("resident");
+        approvalLists.add(list);
+
+        RegistrationResponse tempResponse = new RegistrationResponse();
+        tempResponse.setAge(list.getAge());
+        tempResponse.setId(list.getApproval_id());
+        tempResponse.setStatus(list.getStatus());
+        tempResponse.setName(list.getName());
+        tempResponse.setGender(list.getGender());
+        tempResponse.setMail(list.getMail());
+        tempResponse.setRoleName(list.getRoleName());
+        registrationResponses.add(tempResponse);
+
+        when(registrationApprovalListRepository.findByStatus("notApproved")).thenReturn(approvalLists);
+
+        assertEquals(registrationResponses, adminServiceImpl.listAllUnAuthorizedRequest());
+    }
+
+    @Test
     public void testGrantUserRequest()
     {
         int requestId = 1;

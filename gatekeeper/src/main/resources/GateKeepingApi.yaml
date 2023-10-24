@@ -38,6 +38,24 @@ paths:
       security:
         - bearerAuth: []
 
+  /admin/un-approved-request:
+    get:
+      tags:
+        - Admin
+      description: view all the un-approved registration request
+      operationId: viewUnApprovedRequest
+      responses:
+        '200':
+          description: Successful operation
+          content:
+            application/json:
+              schema:
+                type: array
+                items:
+                  $ref: '#/components/schemas/Registration-response'
+      security:
+        - bearerAuth: []
+
 
   /admin/approve-request:
     post:

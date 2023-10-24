@@ -49,6 +49,10 @@ public class ResidentServiceImpl implements ResidentService{
         if(!user.getRoleName().equals("resident")){
             throw new GateKeepingCustomException(ONLY_RESIDENT_BOOKING,HttpStatus.NOT_FOUND);
         }
+        if(!visitorSlotRepository.findByDateAndMailAndInTimeLessThanAndOutTimeGreaterThan(visitorSlotRequest.getDate(),visitorSlotRequest.getMail(),visitorSlotRequest.getOutTime(),visitorSlotRequest.getInTime()).isEmpty())
+        {
+            throw new GateKeepingCustomException(VISITOR_ALREADY_BOOKED,HttpStatus.BAD_REQUEST);
+        }
 
         if(visitorSlotRequest.getInTime().isAfter(visitorSlotRequest.getOutTime()))
         {

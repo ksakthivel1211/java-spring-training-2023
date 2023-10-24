@@ -3,10 +3,12 @@ package cdw.springtraining.gatekeeper.entity;
 import jakarta.persistence.*;
 import jakarta.validation.constraints.Email;
 import jakarta.validation.constraints.NotNull;
+import jakarta.validation.constraints.Pattern;
 import lombok.AllArgsConstructor;
 import lombok.Builder;
 import lombok.Data;
 import lombok.NoArgsConstructor;
+import org.hibernate.validator.constraints.Range;
 import org.springframework.security.core.GrantedAuthority;
 import org.springframework.security.core.authority.SimpleGrantedAuthority;
 import org.springframework.security.core.userdetails.UserDetails;
@@ -37,9 +39,11 @@ public class User implements UserDetails {
     private String name;
 
     @Column(name="age")
+    @Range(min=18,max=100)
     private int age;
 
     @Column(name = "gender")
+    @Pattern(regexp = "male|female|others", message = "invalid gender")
     private String gender;
 
     @Column(name = "mail")
@@ -49,6 +53,7 @@ public class User implements UserDetails {
 
     @Column(name = "password")
     @NotNull(message = "password is required")
+    @Pattern(regexp = "^(?=.*[a-z])(?=.*[A-Z])(?=.*\\d)(?=.*[#$@!%&*?])[A-Za-z\\d#$@!%&*?]{8,}$", message = "wrong format for password")
     private String password;
 
     @Column(name = "role_name")

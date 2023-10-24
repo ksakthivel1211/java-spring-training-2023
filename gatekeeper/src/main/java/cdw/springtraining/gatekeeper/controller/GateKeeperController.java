@@ -11,9 +11,11 @@ import cdw.springtraining.gatekeeper.model.BlackListRequest;
 import cdw.springtraining.gatekeeper.controller.GateKeeperApi;
 import cdw.springtraining.gatekeeper.model.SlotApprovalRequest;
 import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.context.request.NativeWebRequest;
 
 import java.time.LocalDate;
 import java.util.List;
+import java.util.Optional;
 
 /**
  * @author sakthivel
@@ -41,7 +43,6 @@ public class GateKeeperController implements GateKeeperApi {
     public ResponseEntity<List<ApprovalResponse>> viewApprovalList(LocalDate date) {
         return ResponseEntity.status(HttpStatus.OK).body(gateKeeperServiceImpl.getAllApproval(date));
     }
-
 
 
     /**

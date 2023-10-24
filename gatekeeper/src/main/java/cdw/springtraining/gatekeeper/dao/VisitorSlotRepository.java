@@ -16,6 +16,5 @@ public interface VisitorSlotRepository extends JpaRepository<VisitorSlot,Integer
 
     public Optional<List<VisitorSlot>> findByDate(LocalDate date);
     public Optional<VisitorSlot> findByMail(String mail);
-
-    public Optional<VisitorSlot> findByDateAndMailAndInTimeAndOutTime(LocalDate date, String mail, OffsetDateTime inTime,OffsetDateTime outTime);
+    public List<VisitorSlot> findByDateAndMailAndInTimeLessThanAndOutTimeGreaterThan(LocalDate date, String mail, OffsetDateTime outTime,OffsetDateTime inTime);
 }

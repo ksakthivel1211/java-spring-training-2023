@@ -46,6 +46,7 @@ public class GateKeeperServiceImplTest {
         String mail = "sakthi@gmail.com";
 
         VisitorSlot visitorSlot = new VisitorSlot(name,mail,date,inTime,outTime);
+        visitorSlot.setStatus("notApproved");
 
         when(visitorSlotRepository.findById(approvalRequest.getSlotId())).thenReturn(Optional.of(visitorSlot));
         ControllerResponse response = new ControllerResponse();

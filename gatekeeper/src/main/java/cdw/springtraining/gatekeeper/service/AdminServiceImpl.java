@@ -70,6 +70,32 @@ public class AdminServiceImpl implements AdminService{
     }
 
     /**
+     * view request lists all the un-authorized registration request made by the users
+     * @return - List of registration response
+     */
+    @Override
+    public List<RegistrationResponse> listAllUnAuthorizedRequest()
+    {
+        List<RegistrationApprovalList> approvalLists = registrationApprovalListRepository.findByStatus("notApproved");
+        if(approvalLists.isEmpty())
+        {
+            throw new GateKeepingCustomException(NO_REGISTRATION_REQUEST, HttpStatus.NO_CONTENT);
+        }
+        List<RegistrationResponse> registrationResponses = approvalLists.stream().map(registrationApprovalList -> {
+            RegistrationResponse currentResponse = new RegistrationResponse();
+            currentResponse.setAge(registrationApprovalList.getAge());
+            currentResponse.setId(registrationApprovalList.getApproval_id());
+            currentResponse.setStatus(registrationApprovalList.getStatus());
+            currentResponse.setName(registrationApprovalList.getName());
+            currentResponse.setGender(registrationApprovalList.getGender());
+            currentResponse.setMail(registrationApprovalList.getMail());
+            currentResponse.setRoleName(registrationApprovalList.getRoleName());
+            return currentResponse;
+        }).collect(Collectors.toList());
+        return registrationResponses;
+    }
+
+    /**
      * grantUserRequest method used to change the status of registration request
      * @param requestId
      * @return - Controller response of success status

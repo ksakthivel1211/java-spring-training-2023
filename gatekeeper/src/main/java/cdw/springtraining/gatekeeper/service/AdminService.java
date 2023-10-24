@@ -12,6 +12,7 @@ import java.util.List;
 public interface AdminService {
 
     public List<RegistrationResponse> listAllRequest();
+    public List<RegistrationResponse> listAllUnAuthorizedRequest();
     public ControllerResponse grantUserRequest(int requestId);
     public ControllerResponse rejectUserRequest(int requestId);
     public void deleteUser(int requestId);

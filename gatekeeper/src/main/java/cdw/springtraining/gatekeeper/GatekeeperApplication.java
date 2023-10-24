@@ -25,10 +25,10 @@ public class GatekeeperApplication {
 
         return runner -> {
 
-            PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-            String encodedPassword = passwordEncoder.encode("abc123");
-            User admin = new User("sakthi",21,"male","sakthi@gmail.com",encodedPassword,"admin");
-            userRepository.save(admin);
+//            PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+//            String encodedPassword = passwordEncoder.encode("abc123");
+//            User admin = new User("sakthi",21,"male","sakthi@gmail.com",encodedPassword,"admin");
+//            userRepository.save(admin);
 
         };
 

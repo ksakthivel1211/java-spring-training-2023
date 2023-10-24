@@ -91,10 +91,12 @@ public class AdminController implements cdw.springtraining.gatekeeper.controller
         return ResponseEntity.status(HttpStatus.OK).body(blackListServiceImpl.addToBlackList(blackListRequest));
     }
 
-
-
-
-
-
-
+    /**
+     * view request lists all the registration request made by the users
+     * @return - List of registration response
+     */
+    @Override
+    public ResponseEntity<List<RegistrationResponse>> viewUnApprovedRequest() {
+        return ResponseEntity.status(HttpStatus.OK).body(adminServiceImpl.listAllUnAuthorizedRequest());
+    }
 }

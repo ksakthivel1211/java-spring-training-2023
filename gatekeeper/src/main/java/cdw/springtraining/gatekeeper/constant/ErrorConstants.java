@@ -25,6 +25,7 @@ public class ErrorConstants {
     public static final String USER_ALREADY_EXISTS = "User has already exists";
     public static final String REGISTRATION_REQUEST_ALREADY_EXISTS = "Registration request has already exists";
     public static final String USER_ALREADY_APPROVED_AND_ADDED = "User has already been approved and added to the user base";
+    public static final String VISITOR_ALREADY_BOOKED = "Visitor is busy during that slot ";
     public static final String USER_APPROVAL_ALREADY_DONE = "User has already been ";
     public static final String VISITOR_APPROVAL_ALREADY_DONE = "Visitor has already been ";
     public static final String IN_TIME_OUT_TIME_CONTRADICTION = "In time should be lesser than out time";

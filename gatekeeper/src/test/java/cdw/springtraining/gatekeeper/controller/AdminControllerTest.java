@@ -46,6 +46,16 @@ public class AdminControllerTest {
     }
 
     @Test
+    public void testGetAllUnApprovedRequest(){
+
+        List<RegistrationResponse> approvalLists= new ArrayList<>();
+
+        when(adminServiceImpl.listAllRequest()).thenReturn(approvalLists);
+
+        assertEquals(approvalLists,adminController.viewRequest().getBody());
+    }
+
+    @Test
     public void testApproveRequest()
     {
         int requestId = 12;
