@@ -80,7 +80,11 @@ public class AdminServiceImpl implements AdminService{
         RegistrationApprovalList request = registrationApprovalListRepository.findById(requestId).orElseThrow(()-> new GateKeepingCustomException(REQUEST_NOT_FOUND_BY_ID, HttpStatus.NOT_FOUND));
         if(userRepository.existsByMail(request.getMail()))
         {
-            throw new GateKeepingCustomException(USER_ALREADY_APPROVED,HttpStatus.ALREADY_REPORTED);
+            throw new GateKeepingCustomException(USER_ALREADY_APPROVED_AND_ADDED,HttpStatus.ALREADY_REPORTED);
+        }
+        if(request.getStatus().matches("approved|rejected"))
+        {
+            throw new GateKeepingCustomException(USER_APPROVAL_ALREADY_DONE+request.getStatus(),HttpStatus.ALREADY_REPORTED);
         }
         User user = new User(request.getName(),request.getAge(),request.getGender(),request.getMail(),request.getPassword(),request.getRoleName());
         user.setUserId(0);
@@ -106,6 +110,10 @@ public class AdminServiceImpl implements AdminService{
     public ControllerResponse rejectUserRequest(int requestId)
     {
         RegistrationApprovalList request = registrationApprovalListRepository.findById(requestId).orElseThrow(()-> new GateKeepingCustomException(REQUEST_NOT_FOUND_BY_ID, HttpStatus.NOT_FOUND));
+        if(request.getStatus().matches("approved|rejected"))
+        {
+            throw new GateKeepingCustomException(USER_APPROVAL_ALREADY_DONE+request.getStatus(),HttpStatus.ALREADY_REPORTED);
+        }
         request.setStatus("rejected");
         registrationApprovalListRepository.save(request);
         ControllerResponse controllerResponse = new ControllerResponse();

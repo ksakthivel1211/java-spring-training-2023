@@ -40,7 +40,7 @@ public class RegistrationApprovalList {
     @Column(name = "gender")
     private String gender;
 
-    @Column(name = "email",unique = true)
+    @Column(name = "email")
     @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
     private String mail;
 

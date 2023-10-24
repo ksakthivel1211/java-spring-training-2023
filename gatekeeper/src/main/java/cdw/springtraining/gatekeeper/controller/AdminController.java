@@ -21,12 +21,12 @@ import java.util.List;
 public class AdminController implements cdw.springtraining.gatekeeper.controller.AdminApi {
 
     private AdminServiceImpl adminServiceImpl;
-    private BlackListServiceImpl blackListService;
+    private BlackListServiceImpl blackListServiceImpl;
     @Autowired
     public AdminController(AdminServiceImpl adminServiceImpl, BlackListServiceImpl blackListService)
     {
         this.adminServiceImpl = adminServiceImpl;
-        this.blackListService = blackListService;
+        this.blackListServiceImpl = blackListService;
     }
 
     /**
@@ -88,7 +88,7 @@ public class AdminController implements cdw.springtraining.gatekeeper.controller
      */
     @Override
     public ResponseEntity<ControllerResponse> gateKeeperBlackList(cdw.springtraining.gatekeeper.model.BlackListRequest blackListRequest) {
-        return ResponseEntity.status(HttpStatus.OK).body(blackListService.addToBlackList(blackListRequest));
+        return ResponseEntity.status(HttpStatus.OK).body(blackListServiceImpl.addToBlackList(blackListRequest));
     }
 
 

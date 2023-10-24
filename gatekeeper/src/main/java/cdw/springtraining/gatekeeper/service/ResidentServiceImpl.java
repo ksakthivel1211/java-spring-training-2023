@@ -49,6 +49,7 @@ public class ResidentServiceImpl implements ResidentService{
         if(!user.getRoleName().equals("resident")){
             throw new GateKeepingCustomException(ONLY_RESIDENT_BOOKING,HttpStatus.NOT_FOUND);
         }
+
         if(visitorSlotRequest.getInTime().isAfter(visitorSlotRequest.getOutTime()))
         {
             throw new GateKeepingCustomException(IN_TIME_OUT_TIME_CONTRADICTION,HttpStatus.BAD_REQUEST);
@@ -96,6 +97,7 @@ public class ResidentServiceImpl implements ResidentService{
         if(checked.matches("in|out"))
         {
             Collection<? extends GrantedAuthority> roles = UserInformation.getRoles();
+
             roles.stream().forEach(role-> {
                 if(!role.getAuthority().equals("resident"))
                 {

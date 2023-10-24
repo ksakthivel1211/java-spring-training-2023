@@ -2,6 +2,7 @@ package cdw.springtraining.gatekeeper.controller;
 
 
 import cdw.springtraining.gatekeeper.service.AdminServiceImpl;
+import cdw.springtraining.gatekeeper.service.BlackListServiceImpl;
 import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
@@ -13,10 +14,12 @@ import cdw.springtraining.gatekeeper.model.UserResponse;
 import cdw.springtraining.gatekeeper.model.RegistrationResponse;
 import org.springframework.http.HttpStatus;
 import org.springframework.http.ResponseEntity;
+import cdw.springtraining.gatekeeper.model.BlackListRequest;
 
 import java.util.ArrayList;
 import java.util.List;
 
+import static cdw.springtraining.gatekeeper.constant.SuccessConstants.USER_BLACK_LISTED;
 import static org.junit.jupiter.api.Assertions.assertEquals;
 import static org.mockito.Mockito.when;
 
@@ -28,6 +31,9 @@ public class AdminControllerTest {
 
     @Mock
     private AdminServiceImpl adminServiceImpl;
+
+    @Mock
+    private BlackListServiceImpl blackListServiceImpl;
 
     @Test
     public void testGetAllRequest(){
@@ -87,6 +93,16 @@ public class AdminControllerTest {
         ResponseEntity<Void> response = ResponseEntity.status(HttpStatus.NO_CONTENT).build();
         ResponseEntity<Void> updateResident = adminController.updateResident(user);
         assertEquals(response.getStatusCode(),updateResident.getStatusCode());
+    }
+
+    @Test
+    public void testGateKeeperBlackList()
+    {
+        BlackListRequest request = new BlackListRequest();
+        ControllerResponse controllerResponse = new ControllerResponse();
+        controllerResponse.setMessage(USER_BLACK_LISTED);
+        when(blackListServiceImpl.addToBlackList(request)).thenReturn(controllerResponse);
+        assertEquals(controllerResponse,adminController.gateKeeperBlackList(request).getBody());
     }
 
 

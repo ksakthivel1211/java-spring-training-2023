@@ -27,7 +27,7 @@ public class BlackList {
     @Column(name = "name")
     private String name;
 
-    @Column(name = "mail",unique = true)
+    @Column(name = "mail")
     @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}")
     private String mail;
 

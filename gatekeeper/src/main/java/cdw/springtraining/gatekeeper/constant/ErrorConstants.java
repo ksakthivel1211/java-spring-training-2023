@@ -24,7 +24,9 @@ public class ErrorConstants {
     public static final String USER_ALREADY_BLACK_LISTED = "User has already been black listed";
     public static final String USER_ALREADY_EXISTS = "User has already exists";
     public static final String REGISTRATION_REQUEST_ALREADY_EXISTS = "Registration request has already exists";
-    public static final String USER_ALREADY_APPROVED = "User has already been approved";
+    public static final String USER_ALREADY_APPROVED_AND_ADDED = "User has already been approved and added to the user base";
+    public static final String USER_APPROVAL_ALREADY_DONE = "User has already been ";
+    public static final String VISITOR_APPROVAL_ALREADY_DONE = "Visitor has already been ";
     public static final String IN_TIME_OUT_TIME_CONTRADICTION = "In time should be lesser than out time";
     public static final String RESIDENT_BLACK_LIST_ONLY_VISITOR = "Resident can only black-list a visitor and not a user";
     public static final String ADMIN_BLACK_LIST_ONLY_VISITOR = "Admin can only black-list a gate-keeper and visitor";

@@ -47,6 +47,10 @@ public class GateKeeperServiceImpl implements GateKeeperService{
             throw new GateKeepingCustomException(INVALID_APPROVAL_STATUS, HttpStatus.BAD_REQUEST);
         }
         VisitorSlot visitorSlot = visitorSlotRepository.findById(slotApprovalRequest.getSlotId()).orElseThrow(()-> new GateKeepingCustomException(SLOT_NOT_FOUND_BY_ID,HttpStatus.NOT_FOUND));
+        if(visitorSlot.getStatus().matches("approved|rejected"))
+        {
+            throw new GateKeepingCustomException(VISITOR_APPROVAL_ALREADY_DONE+visitorSlot.getStatus(),HttpStatus.ALREADY_REPORTED);
+        }
         visitorSlot.setStatus(slotApprovalRequest.getApprovalStatus());
         visitorSlotRepository.save(visitorSlot);
         ControllerResponse controllerResponse = new ControllerResponse();
@@ -71,6 +75,7 @@ public class GateKeeperServiceImpl implements GateKeeperService{
             userDetails.setMail(user.getMail());
             ApprovalResponse approvalResponse = new ApprovalResponse();
             approvalResponse.setSlotId(slot.getSlotId());
+            approvalResponse.setStatus(slot.getStatus());
             approvalResponse.setDate(slot.getDate());
             approvalResponse.setUser(userDetails);
             approvalResponse.setVisitorName(slot.getVisitorName());

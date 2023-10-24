@@ -932,3 +932,288 @@ cdw.springtraining.gatekeeper.custom.exception.GateKeepingCustomException: The T
 2023-10-24 12:03:52,733 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
 2023-10-24 12:03:52,743 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
 2023-10-24 12:03:52,756 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-24 14:41:49,171 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 5839 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
+2023-10-24 14:41:49,185 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-24 14:41:49,332 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-24 14:41:49,333 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-24 14:41:50,641 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-24 14:41:50,786 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 138 ms. Found 5 JPA repository interfaces.
+2023-10-24 14:41:52,018 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-10-24 14:41:52,029 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-24 14:41:52,030 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-24 14:41:52,102 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
+2023-10-24 14:41:52,103 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2769 ms
+2023-10-24 14:41:52,395 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-24 14:41:52,491 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-24 14:41:52,523 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2023-10-24 14:41:52,678 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-24 14:41:52,807 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-24 14:41:52,820 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-24 14:41:53,276 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4aa8c5ca
+2023-10-24 14:41:53,278 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-24 14:41:53,635 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-24 14:41:54,647 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-24 14:41:54,792 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-24 14:41:56,150 [restartedMain] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-24 14:41:56,548 [restartedMain] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@63c614d7, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2779bb88, org.springframework.security.web.context.SecurityContextHolderFilter@3448a275, org.springframework.security.web.header.HeaderWriterFilter@5dfd00d0, org.springframework.web.filter.CorsFilter@601d3bb, org.springframework.security.web.authentication.logout.LogoutFilter@79cbe83a, cdw.springtraining.gatekeeper.config.JwtAuthenticationFilter@59168ad, cdw.springtraining.gatekeeper.config.JwtVisitorAuthFilter@2471aad3, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@48a1ba26, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@ed4865f, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@48f4d450, org.springframework.security.web.session.SessionManagementFilter@6a7c969c, org.springframework.security.web.access.ExceptionTranslationFilter@6b4707d5, org.springframework.security.web.access.intercept.AuthorizationFilter@64eb469f]
+2023-10-24 14:41:56,867 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-10-24 14:41:56,902 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/gate-keeping'
+2023-10-24 14:41:56,920 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - Started GatekeeperApplication in 8.379 seconds (process running for 9.126)
+2023-10-24 14:45:14,434 [http-nio-8080-exec-2] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-24 14:45:14,435 [http-nio-8080-exec-2] INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-10-24 14:45:14,438 [http-nio-8080-exec-2] INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2023-10-24 14:50:59,964 [http-nio-8080-exec-3] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springtraining.gatekeeper.custom.exception.GateKeepingCustomException: User has already been approved]
+2023-10-24 14:51:44,461 [http-nio-8080-exec-5] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springtraining.gatekeeper.custom.exception.GateKeepingCustomException: User has already been approved]
+2023-10-24 14:55:01,887 [http-nio-8080-exec-10] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
+2023-10-24 14:55:01,889 [http-nio-8080-exec-10] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry 'santhosh@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'
+2023-10-24 14:55:01,903 [http-nio-8080-exec-10] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry 'santhosh@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'] [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; SQL [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; constraint [visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl]]
+2023-10-24 14:56:02,229 [http-nio-8080-exec-1] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
+2023-10-24 14:56:02,230 [http-nio-8080-exec-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry 'santhosh@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'
+2023-10-24 14:56:02,236 [http-nio-8080-exec-1] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry 'santhosh@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'] [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; SQL [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; constraint [visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl]]
+2023-10-24 14:56:33,803 [http-nio-8080-exec-4] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
+2023-10-24 14:56:33,804 [http-nio-8080-exec-4] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry 'santhosh@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'
+2023-10-24 14:56:33,809 [http-nio-8080-exec-4] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry 'santhosh@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'] [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; SQL [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; constraint [visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl]]
+2023-10-24 14:58:15,656 [http-nio-8080-exec-6] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springtraining.gatekeeper.custom.exception.GateKeepingCustomException: Visitor pass cannot be generated cause the slot has been notApproved]
+2023-10-24 15:02:55,622 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-24 15:02:55,630 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-24 15:02:55,638 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-24 15:20:49,768 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 6916 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
+2023-10-24 15:20:49,783 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-24 15:20:49,944 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-24 15:20:49,944 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-24 15:20:51,301 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-24 15:20:51,446 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 138 ms. Found 5 JPA repository interfaces.
+2023-10-24 15:20:52,696 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-10-24 15:20:52,710 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-24 15:20:52,710 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-24 15:20:52,791 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
+2023-10-24 15:20:52,793 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2847 ms
+2023-10-24 15:20:53,076 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-24 15:20:53,162 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-24 15:20:53,193 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2023-10-24 15:20:53,334 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-24 15:20:53,455 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-24 15:20:53,468 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-24 15:20:53,877 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4aa8c5ca
+2023-10-24 15:20:53,879 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-24 15:20:54,181 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-24 15:20:55,143 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-24 15:20:55,277 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-24 15:20:56,893 [restartedMain] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-24 15:20:57,313 [restartedMain] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@719c5839, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@759eb66e, org.springframework.security.web.context.SecurityContextHolderFilter@1bedc525, org.springframework.security.web.header.HeaderWriterFilter@372e79b, org.springframework.web.filter.CorsFilter@3f19d6bd, org.springframework.security.web.authentication.logout.LogoutFilter@445a2475, cdw.springtraining.gatekeeper.config.JwtAuthenticationFilter@6ab153ec, cdw.springtraining.gatekeeper.config.JwtVisitorAuthFilter@4c6d0342, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@9690f21, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@3448a275, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@1f8a07f, org.springframework.security.web.session.SessionManagementFilter@9740573, org.springframework.security.web.access.ExceptionTranslationFilter@41c442, org.springframework.security.web.access.intercept.AuthorizationFilter@4cd9e904]
+2023-10-24 15:20:57,607 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-10-24 15:20:57,634 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/gate-keeping'
+2023-10-24 15:20:57,651 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - Started GatekeeperApplication in 8.5 seconds (process running for 9.184)
+2023-10-24 15:21:06,532 [http-nio-8080-exec-2] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-24 15:21:06,534 [http-nio-8080-exec-2] INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-10-24 15:21:06,536 [http-nio-8080-exec-2] INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2023-10-24 15:21:56,968 [http-nio-8080-exec-5] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springtraining.gatekeeper.custom.exception.GateKeepingCustomException: User has already been rejected]
+2023-10-24 15:22:16,091 [http-nio-8080-exec-6] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springtraining.gatekeeper.custom.exception.GateKeepingCustomException: User has already been approved and added to the user base]
+2023-10-24 15:23:41,536 [http-nio-8080-exec-10] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springtraining.gatekeeper.custom.exception.GateKeepingCustomException: User has already been approved]
+2023-10-24 15:23:48,317 [http-nio-8080-exec-1] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springtraining.gatekeeper.custom.exception.GateKeepingCustomException: User has already been approved and added to the user base]
+2023-10-24 15:24:11,410 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-24 15:24:11,419 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-24 15:24:11,430 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-24 15:26:23,127 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 7018 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
+2023-10-24 15:26:23,147 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-24 15:26:23,293 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-24 15:26:23,295 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-24 15:26:24,598 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-24 15:26:24,751 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 146 ms. Found 5 JPA repository interfaces.
+2023-10-24 15:26:25,970 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-10-24 15:26:25,982 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-24 15:26:25,982 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-24 15:26:26,057 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
+2023-10-24 15:26:26,058 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2762 ms
+2023-10-24 15:26:26,408 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-24 15:26:26,498 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-24 15:26:26,529 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2023-10-24 15:26:26,686 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-24 15:26:26,818 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-24 15:26:26,831 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-24 15:26:27,242 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4aa8c5ca
+2023-10-24 15:26:27,245 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-24 15:26:27,549 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-24 15:26:28,531 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-24 15:26:28,653 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-24 15:26:29,982 [restartedMain] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-24 15:26:30,379 [restartedMain] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3f19d6bd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1f8a07f, org.springframework.security.web.context.SecurityContextHolderFilter@9690f21, org.springframework.security.web.header.HeaderWriterFilter@5ea16ff0, org.springframework.web.filter.CorsFilter@12b67de9, org.springframework.security.web.authentication.logout.LogoutFilter@30f628b, cdw.springtraining.gatekeeper.config.JwtAuthenticationFilter@25a59788, cdw.springtraining.gatekeeper.config.JwtVisitorAuthFilter@5103ef41, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1fcda21b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@48a1ba26, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@121b8417, org.springframework.security.web.session.SessionManagementFilter@4f058e6e, org.springframework.security.web.access.ExceptionTranslationFilter@3811b841, org.springframework.security.web.access.intercept.AuthorizationFilter@622ea8b6]
+2023-10-24 15:26:30,703 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-10-24 15:26:30,732 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/gate-keeping'
+2023-10-24 15:26:30,746 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - Started GatekeeperApplication in 8.223 seconds (process running for 8.918)
+2023-10-24 15:26:48,074 [http-nio-8080-exec-1] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-24 15:26:48,075 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-10-24 15:26:48,078 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2023-10-24 15:27:13,541 [http-nio-8080-exec-3] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springtraining.gatekeeper.custom.exception.GateKeepingCustomException: Visitor has already been rejected]
+2023-10-24 15:31:19,901 [http-nio-8080-exec-7] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
+2023-10-24 15:31:19,904 [http-nio-8080-exec-7] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry 'santhosh@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'
+2023-10-24 15:31:19,919 [http-nio-8080-exec-7] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry 'santhosh@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'] [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; SQL [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; constraint [visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl]]
+2023-10-24 15:32:13,933 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-24 15:32:13,940 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-24 15:32:13,947 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-24 15:32:21,217 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 7238 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
+2023-10-24 15:32:21,237 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-24 15:32:21,359 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-24 15:32:21,360 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-24 15:32:22,758 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-24 15:32:22,917 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 151 ms. Found 5 JPA repository interfaces.
+2023-10-24 15:32:24,154 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-10-24 15:32:24,163 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-24 15:32:24,163 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-24 15:32:24,247 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
+2023-10-24 15:32:24,248 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2887 ms
+2023-10-24 15:32:24,528 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-24 15:32:24,679 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-24 15:32:24,694 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2023-10-24 15:32:24,831 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-24 15:32:24,951 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-24 15:32:24,968 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-24 15:32:25,391 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@3c5c8e4c
+2023-10-24 15:32:25,393 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-24 15:32:25,714 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-24 15:32:26,751 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-24 15:32:26,873 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-24 15:32:28,560 [restartedMain] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-24 15:32:29,393 [restartedMain] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@7f17dc2d, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@2842afbc, org.springframework.security.web.context.SecurityContextHolderFilter@3be111d8, org.springframework.security.web.header.HeaderWriterFilter@14352677, org.springframework.web.filter.CorsFilter@2744606c, org.springframework.security.web.authentication.logout.LogoutFilter@41477fd3, cdw.springtraining.gatekeeper.config.JwtAuthenticationFilter@2291e71a, cdw.springtraining.gatekeeper.config.JwtVisitorAuthFilter@3344acac, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1e18b1e1, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@e25d6ff, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@46d4c2cc, org.springframework.security.web.session.SessionManagementFilter@3c25e54e, org.springframework.security.web.access.ExceptionTranslationFilter@6d29c07b, org.springframework.security.web.access.intercept.AuthorizationFilter@162ca61]
+2023-10-24 15:32:29,845 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-10-24 15:32:29,902 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/gate-keeping'
+2023-10-24 15:32:29,922 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - Started GatekeeperApplication in 9.461 seconds (process running for 10.909)
+2023-10-24 15:32:43,644 [http-nio-8080-exec-1] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-24 15:32:43,645 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-10-24 15:32:43,653 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 8 ms
+2023-10-24 15:32:44,436 [http-nio-8080-exec-1] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
+2023-10-24 15:32:44,436 [http-nio-8080-exec-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry 'santhosh@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'
+2023-10-24 15:33:07,127 [http-nio-8080-exec-1] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry 'santhosh@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'] [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; SQL [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; constraint [visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl]]
+2023-10-24 15:34:18,394 [http-nio-8080-exec-4] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
+2023-10-24 15:34:18,395 [http-nio-8080-exec-4] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry 'santhosh@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'
+2023-10-24 15:34:18,407 [http-nio-8080-exec-4] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry 'santhosh@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'] [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; SQL [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; constraint [visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl]]
+2023-10-24 15:35:16,847 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-24 15:35:16,854 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-24 15:35:16,864 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-24 15:35:23,162 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 7317 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
+2023-10-24 15:35:23,176 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-24 15:35:23,327 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-24 15:35:23,330 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-24 15:35:24,646 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-24 15:35:24,803 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 150 ms. Found 5 JPA repository interfaces.
+2023-10-24 15:35:26,055 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-10-24 15:35:26,065 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-24 15:35:26,065 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-24 15:35:26,150 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
+2023-10-24 15:35:26,150 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2819 ms
+2023-10-24 15:35:26,455 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-24 15:35:26,549 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-24 15:35:26,580 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2023-10-24 15:35:26,727 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-24 15:35:26,854 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-24 15:35:26,867 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-24 15:35:27,268 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4aa8c5ca
+2023-10-24 15:35:27,271 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-24 15:35:27,611 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-24 15:35:28,543 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-24 15:35:28,679 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-24 15:35:30,111 [restartedMain] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-24 15:35:30,521 [restartedMain] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@3f19d6bd, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@1f8a07f, org.springframework.security.web.context.SecurityContextHolderFilter@9690f21, org.springframework.security.web.header.HeaderWriterFilter@5ea16ff0, org.springframework.web.filter.CorsFilter@12b67de9, org.springframework.security.web.authentication.logout.LogoutFilter@30f628b, cdw.springtraining.gatekeeper.config.JwtAuthenticationFilter@25a59788, cdw.springtraining.gatekeeper.config.JwtVisitorAuthFilter@5103ef41, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@1fcda21b, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@48a1ba26, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@121b8417, org.springframework.security.web.session.SessionManagementFilter@4f058e6e, org.springframework.security.web.access.ExceptionTranslationFilter@3811b841, org.springframework.security.web.access.intercept.AuthorizationFilter@622ea8b6]
+2023-10-24 15:35:30,820 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-10-24 15:35:30,851 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/gate-keeping'
+2023-10-24 15:35:30,869 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - Started GatekeeperApplication in 8.33 seconds (process running for 9.027)
+2023-10-24 15:35:35,602 [http-nio-8080-exec-1] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-24 15:35:35,604 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-10-24 15:35:35,606 [http-nio-8080-exec-1] INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 2 ms
+2023-10-24 15:35:36,555 [http-nio-8080-exec-1] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
+2023-10-24 15:35:36,558 [http-nio-8080-exec-1] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry 'santhosh@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'
+2023-10-24 15:35:36,610 [http-nio-8080-exec-1] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry 'santhosh@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'] [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; SQL [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; constraint [visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl]]
+2023-10-24 15:37:12,301 [http-nio-8080-exec-5] WARN org.hibernate.engine.jdbc.spi.SqlExceptionHelper - SQL Error: 1062, SQLState: 23000
+2023-10-24 15:37:12,314 [http-nio-8080-exec-5] ERROR org.hibernate.engine.jdbc.spi.SqlExceptionHelper - Duplicate entry 'santhosho@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'
+2023-10-24 15:37:12,322 [http-nio-8080-exec-5] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [org.springframework.dao.DataIntegrityViolationException: could not execute statement [Duplicate entry 'santhosho@gmail.com' for key 'visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl'] [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; SQL [insert into visitor_slot (date,in_time,mail,out_time,status,user_id,visitor_name) values (?,?,?,?,?,?,?)]; constraint [visitor_slot.UK_avpuo7f7hr3o6s3nltdgbgywl]]
+2023-10-24 15:38:20,174 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-24 15:38:20,183 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-24 15:38:20,193 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
+2023-10-24 15:38:28,660 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - Starting GatekeeperApplication using Java 20.0.1 with PID 7397 (/Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper/target/classes started by sakthivel in /Users/sakthivel/Documents/GitHub/java-spring-training-2023/gatekeeper)
+2023-10-24 15:38:28,680 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - No active profile set, falling back to 1 default profile: "default"
+2023-10-24 15:38:28,810 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - Devtools property defaults active! Set 'spring.devtools.add-properties' to 'false' to disable
+2023-10-24 15:38:28,811 [restartedMain] INFO org.springframework.boot.devtools.env.DevToolsPropertyDefaultsPostProcessor - For additional web related logging consider setting the 'logging.level.web' property to 'DEBUG'
+2023-10-24 15:38:30,082 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Bootstrapping Spring Data JPA repositories in DEFAULT mode.
+2023-10-24 15:38:30,228 [restartedMain] INFO org.springframework.data.repository.config.RepositoryConfigurationDelegate - Finished Spring Data repository scanning in 138 ms. Found 5 JPA repository interfaces.
+2023-10-24 15:38:31,486 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat initialized with port(s): 8080 (http)
+2023-10-24 15:38:31,498 [restartedMain] INFO org.apache.catalina.core.StandardService - Starting service [Tomcat]
+2023-10-24 15:38:31,499 [restartedMain] INFO org.apache.catalina.core.StandardEngine - Starting Servlet engine: [Apache Tomcat/10.1.13]
+2023-10-24 15:38:31,573 [restartedMain] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring embedded WebApplicationContext
+2023-10-24 15:38:31,574 [restartedMain] INFO org.springframework.boot.web.servlet.context.ServletWebServerApplicationContext - Root WebApplicationContext: initialization completed in 2762 ms
+2023-10-24 15:38:31,875 [restartedMain] INFO org.hibernate.jpa.internal.util.LogHelper - HHH000204: Processing PersistenceUnitInfo [name: default]
+2023-10-24 15:38:31,968 [restartedMain] INFO org.hibernate.Version - HHH000412: Hibernate ORM core version 6.2.9.Final
+2023-10-24 15:38:32,004 [restartedMain] INFO org.hibernate.cfg.Environment - HHH000406: Using bytecode reflection optimizer
+2023-10-24 15:38:32,149 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-24 15:38:32,279 [restartedMain] INFO org.springframework.orm.jpa.persistenceunit.SpringPersistenceUnitInfo - No LoadTimeWeaver setup: ignoring JPA class transformer
+2023-10-24 15:38:32,293 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Starting...
+2023-10-24 15:38:32,689 [restartedMain] INFO com.zaxxer.hikari.pool.HikariPool - HikariPool-1 - Added connection com.mysql.cj.jdbc.ConnectionImpl@4f76c561
+2023-10-24 15:38:32,691 [restartedMain] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Start completed.
+2023-10-24 15:38:33,000 [restartedMain] INFO org.hibernate.bytecode.internal.BytecodeProviderInitiator - HHH000021: Bytecode provider name : bytebuddy
+2023-10-24 15:38:34,007 [restartedMain] INFO org.hibernate.engine.transaction.jta.platform.internal.JtaPlatformInitiator - HHH000490: Using JtaPlatform implementation: [org.hibernate.engine.transaction.jta.platform.internal.NoJtaPlatform]
+2023-10-24 15:38:34,172 [restartedMain] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Initialized JPA EntityManagerFactory for persistence unit 'default'
+2023-10-24 15:38:35,525 [restartedMain] WARN org.springframework.boot.autoconfigure.orm.jpa.JpaBaseConfiguration$JpaWebConfiguration - spring.jpa.open-in-view is enabled by default. Therefore, database queries may be performed during view rendering. Explicitly configure spring.jpa.open-in-view to disable this warning
+2023-10-24 15:38:35,887 [restartedMain] INFO org.springframework.security.web.DefaultSecurityFilterChain - Will secure any request with [org.springframework.security.web.session.DisableEncodeUrlFilter@298b0cd9, org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter@5e1bcd77, org.springframework.security.web.context.SecurityContextHolderFilter@46cfea49, org.springframework.security.web.header.HeaderWriterFilter@65ab952e, org.springframework.web.filter.CorsFilter@14b963e4, org.springframework.security.web.authentication.logout.LogoutFilter@33d4cfce, cdw.springtraining.gatekeeper.config.JwtAuthenticationFilter@2c96aca0, cdw.springtraining.gatekeeper.config.JwtVisitorAuthFilter@4b068313, org.springframework.security.web.savedrequest.RequestCacheAwareFilter@6bebd2e0, org.springframework.security.web.servletapi.SecurityContextHolderAwareRequestFilter@281e2fe4, org.springframework.security.web.authentication.AnonymousAuthenticationFilter@546f700b, org.springframework.security.web.session.SessionManagementFilter@34ba0a6b, org.springframework.security.web.access.ExceptionTranslationFilter@a2b5a97, org.springframework.security.web.access.intercept.AuthorizationFilter@7e296a81]
+2023-10-24 15:38:36,184 [restartedMain] INFO org.springframework.boot.devtools.autoconfigure.OptionalLiveReloadServer - LiveReload server is running on port 35729
+2023-10-24 15:38:36,208 [restartedMain] INFO org.springframework.boot.web.embedded.tomcat.TomcatWebServer - Tomcat started on port(s): 8080 (http) with context path '/gate-keeping'
+2023-10-24 15:38:36,224 [restartedMain] INFO cdw.springtraining.gatekeeper.GatekeeperApplication - Started GatekeeperApplication in 8.17 seconds (process running for 8.851)
+2023-10-24 15:39:25,921 [http-nio-8080-exec-2] INFO org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping] - Initializing Spring DispatcherServlet 'dispatcherServlet'
+2023-10-24 15:39:25,922 [http-nio-8080-exec-2] INFO org.springframework.web.servlet.DispatcherServlet - Initializing Servlet 'dispatcherServlet'
+2023-10-24 15:39:25,927 [http-nio-8080-exec-2] INFO org.springframework.web.servlet.DispatcherServlet - Completed initialization in 3 ms
+2023-10-24 15:39:26,069 [http-nio-8080-exec-2] ERROR org.apache.catalina.core.ContainerBase.[Tomcat].[localhost].[/gate-keeping].[dispatcherServlet] - Servlet.service() for servlet [dispatcherServlet] in context with path [/gate-keeping] threw exception
+cdw.springtraining.gatekeeper.custom.exception.GateKeepingCustomException: No value present
+	at cdw.springtraining.gatekeeper.config.JwtAuthenticationFilter.doFilterInternal(JwtAuthenticationFilter.java:87)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:107)
+	at org.springframework.security.web.authentication.logout.LogoutFilter.doFilter(LogoutFilter.java:93)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.web.filter.CorsFilter.doFilterInternal(CorsFilter.java:91)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.header.HeaderWriterFilter.doHeadersAfter(HeaderWriterFilter.java:90)
+	at org.springframework.security.web.header.HeaderWriterFilter.doFilterInternal(HeaderWriterFilter.java:75)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:82)
+	at org.springframework.security.web.context.SecurityContextHolderFilter.doFilter(SecurityContextHolderFilter.java:69)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.context.request.async.WebAsyncManagerIntegrationFilter.doFilterInternal(WebAsyncManagerIntegrationFilter.java:62)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.session.DisableEncodeUrlFilter.doFilterInternal(DisableEncodeUrlFilter.java:42)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.springframework.security.web.FilterChainProxy$VirtualFilterChain.doFilter(FilterChainProxy.java:374)
+	at org.springframework.security.web.FilterChainProxy.doFilterInternal(FilterChainProxy.java:233)
+	at org.springframework.security.web.FilterChainProxy.doFilter(FilterChainProxy.java:191)
+	at org.springframework.web.filter.DelegatingFilterProxy.invokeDelegate(DelegatingFilterProxy.java:352)
+	at org.springframework.web.filter.DelegatingFilterProxy.doFilter(DelegatingFilterProxy.java:268)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.RequestContextFilter.doFilterInternal(RequestContextFilter.java:100)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.FormContentFilter.doFilterInternal(FormContentFilter.java:93)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.springframework.web.filter.CharacterEncodingFilter.doFilterInternal(CharacterEncodingFilter.java:201)
+	at org.springframework.web.filter.OncePerRequestFilter.doFilter(OncePerRequestFilter.java:116)
+	at org.apache.catalina.core.ApplicationFilterChain.internalDoFilter(ApplicationFilterChain.java:174)
+	at org.apache.catalina.core.ApplicationFilterChain.doFilter(ApplicationFilterChain.java:149)
+	at org.apache.catalina.core.StandardWrapperValve.invoke(StandardWrapperValve.java:167)
+	at org.apache.catalina.core.StandardContextValve.invoke(StandardContextValve.java:90)
+	at org.apache.catalina.authenticator.AuthenticatorBase.invoke(AuthenticatorBase.java:482)
+	at org.apache.catalina.core.StandardHostValve.invoke(StandardHostValve.java:115)
+	at org.apache.catalina.valves.ErrorReportValve.invoke(ErrorReportValve.java:93)
+	at org.apache.catalina.core.StandardEngineValve.invoke(StandardEngineValve.java:74)
+	at org.apache.catalina.connector.CoyoteAdapter.service(CoyoteAdapter.java:341)
+	at org.apache.coyote.http11.Http11Processor.service(Http11Processor.java:391)
+	at org.apache.coyote.AbstractProcessorLight.process(AbstractProcessorLight.java:63)
+	at org.apache.coyote.AbstractProtocol$ConnectionHandler.process(AbstractProtocol.java:894)
+	at org.apache.tomcat.util.net.NioEndpoint$SocketProcessor.doRun(NioEndpoint.java:1740)
+	at org.apache.tomcat.util.net.SocketProcessorBase.run(SocketProcessorBase.java:52)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor.runWorker(ThreadPoolExecutor.java:1191)
+	at org.apache.tomcat.util.threads.ThreadPoolExecutor$Worker.run(ThreadPoolExecutor.java:659)
+	at org.apache.tomcat.util.threads.TaskThread$WrappingRunnable.run(TaskThread.java:61)
+	at java.base/java.lang.Thread.run(Thread.java:1623)

@@ -33,7 +33,7 @@ public class VisitorSlot {
     @NotNull(message = "visitor is required")
     private String visitorName;
 
-    @Column(name = "mail",unique = true)
+    @Column(name = "mail")
     @NotNull(message = "email is required")
     @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}",message = "email format is wrong")
     private String mail;

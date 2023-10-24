@@ -11,6 +11,7 @@ import org.junit.jupiter.api.Test;
 import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.InjectMocks;
 import org.mockito.Mock;
+import org.mockito.MockedStatic;
 import org.mockito.Mockito;
 import org.mockito.junit.jupiter.MockitoExtension;
 
@@ -45,7 +46,7 @@ public class RegistrationServiceImplTest {
         userResponse.setMail(mail);
         userResponse.setPassword("abc");
         userResponse.setRoleName("resident");
-        Mockito.mockStatic(UserInformation.class);
+        MockedStatic mockedStatic = Mockito.mockStatic(UserInformation.class);
         ControllerResponse controllerResponse = new ControllerResponse();
         controllerResponse.setMessage("User request has been successfully saved");
         when(UserInformation.getUserName()).thenReturn(mail);
@@ -53,5 +54,6 @@ public class RegistrationServiceImplTest {
 
 
         assertEquals(controllerResponse, registrationServiceImpl.addUser(userResponse));
+        mockedStatic.close();
     }
 }

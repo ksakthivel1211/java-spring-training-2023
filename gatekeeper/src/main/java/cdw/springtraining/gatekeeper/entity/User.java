@@ -42,7 +42,7 @@ public class User implements UserDetails {
     @Column(name = "gender")
     private String gender;
 
-    @Column(name = "mail",unique = true)
+    @Column(name = "mail")
     @Email(regexp = "[a-z0-9._%+-]+@[a-z0-9.-]+\\.[a-z]{2,3}",message = "wrong email format")
     @NotNull(message = "email is required")
     private String mail;

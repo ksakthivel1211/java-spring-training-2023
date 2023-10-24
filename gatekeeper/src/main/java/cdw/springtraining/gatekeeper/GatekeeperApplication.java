@@ -1,12 +1,15 @@
 package cdw.springtraining.gatekeeper;
 
 import cdw.springtraining.gatekeeper.dao.UserRepository;
+import cdw.springtraining.gatekeeper.entity.User;
 import org.springframework.boot.CommandLineRunner;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.boot.autoconfigure.security.servlet.SecurityFilterAutoConfiguration;
 import org.springframework.context.annotation.Bean;
 import org.springframework.context.annotation.Import;
+import org.springframework.security.crypto.bcrypt.BCryptPasswordEncoder;
+import org.springframework.security.crypto.password.PasswordEncoder;
 
 @Import(SecurityFilterAutoConfiguration.class)
 
@@ -22,10 +25,10 @@ public class GatekeeperApplication {
 
         return runner -> {
 
-//            PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
-//            String encodedPassword = passwordEncoder.encode("abc123");
-//            User admin = new User("sakthi",21,"male","sakthi@gmail.com",encodedPassword,"admin");
-//            userRepository.save(admin);
+            PasswordEncoder passwordEncoder = new BCryptPasswordEncoder();
+            String encodedPassword = passwordEncoder.encode("abc123");
+            User admin = new User("sakthi",21,"male","sakthi@gmail.com",encodedPassword,"admin");
+            userRepository.save(admin);
 
         };
 
