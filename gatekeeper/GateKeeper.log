@@ -35,3 +35,6 @@
 2023-10-25 11:05:27,357 [http-nio-8080-exec-4] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springtraining.gatekeeper.custom.exception.GateKeepingCustomException: User has already been approved and added to the user base]
 2023-10-25 11:05:32,672 [http-nio-8080-exec-5] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springtraining.gatekeeper.custom.exception.GateKeepingCustomException: User has already been rejected]
 2023-10-25 11:08:12,156 [http-nio-8080-exec-3] WARN org.springframework.web.servlet.mvc.method.annotation.ExceptionHandlerExceptionResolver - Resolved [cdw.springtraining.gatekeeper.custom.exception.GateKeepingCustomException: Visitor is busy during that slot ]
+2023-10-25 12:11:12,384 [SpringApplicationShutdownHook] INFO org.springframework.orm.jpa.LocalContainerEntityManagerFactoryBean - Closing JPA EntityManagerFactory for persistence unit 'default'
+2023-10-25 12:11:12,396 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown initiated...
+2023-10-25 12:11:12,406 [SpringApplicationShutdownHook] INFO com.zaxxer.hikari.HikariDataSource - HikariPool-1 - Shutdown completed.
